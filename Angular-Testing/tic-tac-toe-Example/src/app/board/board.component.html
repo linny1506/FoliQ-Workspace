@@ -1,0 +1,16 @@
+<h1> Current Player: {{ player }} </h1>
+
+<!-- in angular, events are notated by the (parenthesis), and the resultant action is in the quotations -->
+<button (click)="newGame()"> Start a new Game</button>
+
+<!-- "*ngIf" is a structural directive, conditional html -->
+<h2 *ngIf="winner=='X' || winner == 'O'"> Player {{ winner }} won the game! </h2>
+
+<main>
+    <!-- val is a demplate variable that can used for other things. essentially a placeholder variable for the value of a the squares-->
+    <app-square *ngFor="let val of squares; let i = index" 
+    [value]="val"
+    (click)="makeMove(i)">
+
+    </app-square>
+</main>
