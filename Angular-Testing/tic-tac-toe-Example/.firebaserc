@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "tic-tac-toe-example-dbd47": {
+      "hosting": {
+        "tic-tac-toe-example": [
+          "tic-tac-toe-example-dbd47"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "tic-tac-toe-example-dbd47"
+  }
+}
