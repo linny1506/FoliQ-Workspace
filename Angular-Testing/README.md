@@ -15,6 +15,9 @@ ___
 	* **NOTE: the [project name] MUST BE ALL** lowercase
 * `ng serve`		--> local hosting on http://localhost:4200/
 	* **NOTE:** this should be done in the project workspace (ie. navigate into the project file)
+### Adding a library
+* `ng add [library]` --> 
+	* example: `ng add @angular/material`
 ### Making a new Component 
 * `ng generate component [name]` --> automatically create a new component (and it's relations) for the project workspace
 	* Common flags
