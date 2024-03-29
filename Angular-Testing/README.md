@@ -13,18 +13,21 @@ ___
 ### Creating new Angular project
 * `ng new [project name]`	--> replace [project name] with desired project name. 
 	* **NOTE: the [project name] MUST BE ALL** lowercase
+	* Common flags
+		* -`style scss`	--> defines the style to use .scss (instead of regular .css)
+		* -`standalone false`	--> (default:true) when standalone is false NgModules IS included
 * `ng serve`		--> local hosting on http://localhost:4200/
 	* **NOTE:** this should be done in the project workspace (ie. navigate into the project file)
 ### Adding a library
 * `ng add [library]` --> 
 	* example: `ng add @angular/material`
 ### Making a new Component 
+* What are components?
+	* Components are one of the major building blocks of an Angular App
 * `ng generate component [name]` --> automatically create a new component (and it's relations) for the project workspace
 	* Common flags
 		* `-s` `--inline-style`, (default:false) set to true if you don't want an additional file only for the style
 		* `-t` `--inline-template`, (default:false) set to true if you don't want an additional file just for the html templating
-
-
 
 ## Hosting
 ### Firebase Hosting >> for Progressive Web App (PWA)
