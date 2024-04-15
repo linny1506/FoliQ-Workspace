@@ -15,13 +15,17 @@ export class CoinTallyComponent implements OnInit {
 
   // lifecycle hooks
   ngOnInit() {
-    this.http.get<TotalCount>('https://api.airtable.com/v0/appjD3ZsQFD6Lb9D7/TotalCount',
-      {
-        headers: new HttpHeaders({
-          // Authorization: 'Bearer '
-        })
-      }
-    )
-      .subscribe(data => this.data = data);
+    this.reload();
   }
+
+  reload(){
+    this.http.get<TotalCount>('https://api.airtable.com/v0/appjD3ZsQFD6Lb9D7/TotalCount',
+    {
+      headers: new HttpHeaders({
+        Authorization: 'Bearer '
+      })
+    }
+  ).subscribe(data => this.data = data);
+  }
+
 }
