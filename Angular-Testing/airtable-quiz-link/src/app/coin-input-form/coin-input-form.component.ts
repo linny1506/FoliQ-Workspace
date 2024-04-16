@@ -13,16 +13,14 @@ import { environment } from 'src/environment/environment';
 
 export class CoinInputFormComponent{
   form: FormGroup;
-  coinOptions:string[] = [
-    'Penny','Nickle','Dime','Quarter','Half-Dollar','Dollar',
-    'PennyRoll','NickleRoll','DimeRoll','QuarterRoll',];
+  coinOptions:string[] = ['Penny','Nickle','Dime','Quarter','Half-Dollar','Dollar','PennyRoll','NickleRoll','DimeRoll','QuarterRoll',];
 
 
 
 
   constructor(private fb: FormBuilder, private http:HttpClient){
     this.form = fb.group({
-      Coin: ['Penny'],
+      Coin: [this.coinOptions[0]],    // first option in coinOpions is given since that'll be the first thing displayed in the list
       Count: [''],
     })
   }
