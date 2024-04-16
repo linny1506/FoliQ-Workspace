@@ -13,9 +13,7 @@ export interface TotalCount {
   }
   
   export interface Fields {
-    Value: number
     Count: number
     Coin: string
-    Category: string
   }
   

@@ -1,0 +1,26 @@
+<p>coin-input-form works!</p>
+
+<form [formGroup]="form" (ngSubmit)=submit()>
+    <div>
+        <label>Coin: </label>
+        <select formControlName="Coin">
+            <optgroup label="coin">
+                <ng-container *ngFor="let x of coinOptions">
+                    <!-- avoid having functions in directives for anything much larger... each time change detection happens, the function runs for each element -->
+                    <option *ngIf="!x.includes('Roll')">{{x}}</option>
+                </ng-container>
+            </optgroup>
+            <optgroup label="roll">
+                <ng-container *ngFor="let x of coinOptions">
+                    <!-- avoid having functions in directives for anything much larger... each time change detection happens, the function runs for each element -->
+                    <option *ngIf="x.includes('Roll')">{{x}}</option>
+                </ng-container>
+            </optgroup>
+        </select>
+    </div>
+    <div>
+        <label>Count: </label>
+        <input type="text" formControlName="Count" />    
+    </div>
+    <button type="submit">Submit</button>
+</form>
