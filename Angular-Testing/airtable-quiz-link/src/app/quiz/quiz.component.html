@@ -1,11 +1,22 @@
-<iframe 
-    class="airtable-embed" 
-    src="https://airtable.com/embed/appjD3ZsQFD6Lb9D7/shrzfqJo88OOxlPgu?backgroundColor=pinkDusty" 
-    frameborder="0" 
-    onmousewheel="" 
-    width="100%" 
-    height="750" 
-    style="background: transparent; border: 1px solid #ccc;">
-</iframe>
-
-
+<p>This is an airtable provided input form</p>
+<div class='parent'>
+  <div class='child inline-block-child'>
+    <iframe 
+        class="airtable-embed airtable-dynamic-height" 
+        src="https://airtable.com/embed/appjD3ZsQFD6Lb9D7/shra1VjiNbdEToFs5?backgroundColor=pinkDusty" 
+        frameborder="0" 
+        onmousewheel="" 
+        width="50%" 
+        height="775" 
+        style="background: transparent; border: 1px solid #ccc;">
+    </iframe>
+  </div>
+  <div class='child inline-block-child'>
+    <button (click)="reload()">reload</button>
+    <ul *ngFor="let x of data?.records;">
+        <li>    
+            {{x.fields.Item}} x {{x.fields.Count}}:{{x.fields.Notes}}
+        </li>
+    </ul>
+  </div>
+</div>

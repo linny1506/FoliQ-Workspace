@@ -21,7 +21,7 @@ export class CoinInputFormComponent{
   constructor(private fb: FormBuilder, private http:HttpClient){
     this.form = fb.group({
       Coin: [this.coinOptions[0]],    // first option in coinOpions is given since that'll be the first thing displayed in the list
-      Count: [''],
+      Count: ['0'],
     })
   }
 

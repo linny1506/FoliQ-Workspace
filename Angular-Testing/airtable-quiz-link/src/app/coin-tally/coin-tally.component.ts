@@ -25,5 +25,4 @@ export class CoinTallyComponent implements OnInit {
     }
   ).subscribe(data => this.data = data);
   }
-
 }
