@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { CoinTallyComponent } from './coin-tally/coin-tally.component';
 import { CoinInputFormComponent } from './coin-input-form/coin-input-form.component';
+import { UserQuizComponent } from './user-quiz/user-quiz.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { CoinInputFormComponent } from './coin-input-form/coin-input-form.compon
     QuizComponent,
     CoinTallyComponent,
     CoinInputFormComponent,
+    UserQuizComponent,
   ],
   imports: [
     BrowserModule,
