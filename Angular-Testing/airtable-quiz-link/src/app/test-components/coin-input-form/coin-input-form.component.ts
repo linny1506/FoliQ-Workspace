@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { TotalCount } from '../TotalCount';
+import { TotalCount } from '../../TotalCount';
 import Airtable from 'airtable';
 import { environment } from 'src/environment/environment';
 

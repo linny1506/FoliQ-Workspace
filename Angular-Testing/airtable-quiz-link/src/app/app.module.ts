@@ -8,8 +8,8 @@ import { AppComponent } from './app.component';
 
 import { QuizComponent } from './test-components/quiz/quiz.component';
 import { CoinTallyComponent } from './coin-tally/coin-tally.component';
-import { CoinInputFormComponent } from './coin-input-form/coin-input-form.component';
-import { UserQuizComponent } from './user-quiz/user-quiz.component';
+import { CoinInputFormComponent } from './test-components/coin-input-form/coin-input-form.component';
+import { UserQuizComponent } from './test-components/user-quiz/user-quiz.component';
 
 @NgModule({
   declarations: [
