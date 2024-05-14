@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { QuizComponent } from './test-components/quiz/quiz.component';
-import { CoinTallyComponent } from './coin-tally/coin-tally.component';
+import { CoinTallyComponent } from './test-components/coin-tally/coin-tally.component';
 import { CoinInputFormComponent } from './test-components/coin-input-form/coin-input-form.component';
 import { UserQuizComponent } from './test-components/user-quiz/user-quiz.component';
 

@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
-import { TotalCount } from '../TotalCount';
+import { TotalCount } from '../../TotalCount';
 
 @Component({
   selector: 'app-coin-tally',
