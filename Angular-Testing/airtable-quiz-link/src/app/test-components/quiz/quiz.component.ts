@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Airtable from 'airtable';
 import { environment } from 'src/environment/environment';
-import { GroceryItem } from '../GroceryItem'
+import { GroceryItem } from '../../GroceryItem'
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Component({
   selector: 'app-quiz',
