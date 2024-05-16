@@ -1,0 +1,32 @@
+
+<!-- using ngSwitch... -->
+<div [ngSwitch]="this.pageIndex">
+    <div *ngSwitchCase="0">This is a quiz!</div>
+    <div *ngSwitchCase="1">
+        <div class='parent'>
+            <div class='child inline-block-child'>
+              <app-quiz-question-textfield></app-quiz-question-textfield>
+            </div>
+            <div class='child inline-block-child'>
+              <app-quiz-question-file></app-quiz-question-file>
+              <p>TODO: To upload an image to airtable, you need to upload it to a public cdn <br> then airtable take that and convert it to the proper thing see <a href="https://community.airtable.com/t5/development-apis/pro-grammatically-upload-create-attachments/td-p/118199">link</a> </p>
+              <p> need to vet different options to see what makes the most sense...</p>
+            </div>
+          </div>
+        page 1
+    </div>
+    <div *ngSwitchCase="2">
+      <div class='parent'>  
+        <div class='child inline-block-child'>
+          <app-quiz-question-multiple-choice></app-quiz-question-multiple-choice>
+        </div>
+        <div class='child inline-block-child'>
+          <app-quiz-question-slider></app-quiz-question-slider>
+        </div>
+      </div>
+    page 2
+    </div>
+</div>
+
+<button *ngIf="0 < this.pageIndex" (click)="backPage()">back</button>
+<button *ngIf="this.pageArray.length > this.pageIndex" (click)="nextPage()">next</button>

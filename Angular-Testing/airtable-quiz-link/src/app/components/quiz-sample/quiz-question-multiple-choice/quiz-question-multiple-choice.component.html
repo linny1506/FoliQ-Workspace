@@ -1,0 +1,34 @@
+<p>quiz-question-multiple-choice works!</p>
+
+<h1> V1.01 - Radio Buttons </h1>
+<div>
+    <h3> Here are some radio buttons </h3>
+    <label> What are your Hair Struggles? </label>
+    <form [formGroup]="radioButton1">
+        <div>
+            <input formControlName="growth" type="radio" class="form-control">
+            <label> Growth </label>
+        </div>
+        <div>
+            <input formControlName="damage" type="radio" class="form-control">
+            <label> Damage </label>
+        </div>
+        <div>
+            <input formControlName="dryness" type="radio" class="form-control">
+            <label> Dryness </label>
+        </div>
+        <div>
+            <input formControlName="frizz" type="radio" class="form-control">
+            <label> Frizz </label>
+        </div>
+        <div>
+            <input formControlName="" type="radio" class="form-control">
+            <label> . . . </label>
+        </div>
+        <div>
+            <input formControlName="none" type="radio" class="form-control">
+            <label> None </label>
+        </div>
+    </form>
+    <!-- {{ radioButton1.value | json}} -->
+</div>
