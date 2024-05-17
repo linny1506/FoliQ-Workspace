@@ -3,7 +3,7 @@
 <div [ngSwitch]="pageNumber" style="height:40%;">
     <div *ngSwitchCase="0">
         <ol>
-            <h3></h3>
+            <h2>Table of Contents:</h2>
             <li>Slide Toggle</li>
             <li>two</li>
             <li>three</li>
@@ -26,6 +26,11 @@
     <div *ngSwitchCase="5">page5</div>
     <div *ngSwitchDefault><h1>ERROR</h1></div>
 </div>
-<button (click)="home()">home</button>
-<button (click)="backPage()">back</button>
-<button (click)="nextPage()">next</button>
+<button mat-raised-button color="primary" (click)="home()">home</button>
+<button mat-raised-button color="primary" (click)="backPage()">back</button>
+<button mat-raised-button color="primary" (click)="nextPage()">next</button>
+<form [formGroup]="form" (ngSubmit)="seekPage()">
+    <input type="number" formControlName="pageQuery" style="width: 75px;">
+    <button mat-raised-button color="primary" (click)="seekPage()">seek</button>
+</form>
+<br>
