@@ -1,13 +1,15 @@
 import { Component, Input, OnInit} from '@angular/core';
-import { SlideToggleComponent } from '../slide-toggle/slide-toggle.component';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';   // for whatever reason, ReactiveFormsModule import is needed for standalone module
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
+
+import { SlideToggleComponent } from '../slide-toggle/slide-toggle.component';
+import { InputComponent } from '../input/input.component';
 
 @Component({
   selector: 'app-simple-components',
   standalone: true,
-  imports: [SlideToggleComponent, CommonModule, ReactiveFormsModule, MatButtonModule],
+  imports: [SlideToggleComponent, InputComponent, CommonModule, ReactiveFormsModule, MatButtonModule],
   templateUrl: './simple-components.component.html',
   styleUrl: './simple-components.component.scss',
 })
