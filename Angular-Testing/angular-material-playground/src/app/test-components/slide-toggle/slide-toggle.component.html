@@ -1,0 +1,6 @@
+<mat-slide-toggle (toggleChange)="toggle()">Toggle me!</mat-slide-toggle>
+<div [ngSwitch]="sliderValue">
+    <div *ngSwitchCase="false">False</div>
+    <div *ngSwitchCase="true">True</div>
+    <div *ngSwitchDefault>ERROR</div>
+</div>

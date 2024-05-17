@@ -1,0 +1,31 @@
+<h1> This is the page of different componenets </h1>
+
+<div [ngSwitch]="pageNumber" style="height:40%;">
+    <div *ngSwitchCase="0">
+        <ol>
+            <h3></h3>
+            <li>Slide Toggle</li>
+            <li>two</li>
+            <li>three</li>
+            <li>four</li>
+            <li>five</li>
+        </ol>
+        page0
+    </div>
+    <div *ngSwitchCase="1">
+        <h3> slide toggle </h3>
+        <a href="">link</a><br>
+        <app-slide-toggle> </app-slide-toggle>
+        <p>simple-components works!</p>
+
+        page1
+    </div>
+    <div *ngSwitchCase="2">page2</div>
+    <div *ngSwitchCase="3">page3</div>
+    <div *ngSwitchCase="4">page4</div>
+    <div *ngSwitchCase="5">page5</div>
+    <div *ngSwitchDefault><h1>ERROR</h1></div>
+</div>
+<button (click)="home()">home</button>
+<button (click)="backPage()">back</button>
+<button (click)="nextPage()">next</button>
