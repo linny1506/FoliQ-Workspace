@@ -1,13 +1,18 @@
 <h1> This is the page of different componenets </h1>
 
+<div>
+    <h2>temp test slide</h2>
+</div>
+
+
 <div [ngSwitch]="pageNumber" style="height:40%;">
     <div *ngSwitchCase="0">
         <ol>
             <h2>Table of Contents:</h2>
             <li>Slide Toggle</li>
             <li>forms</li>
-            <li>slider</li>
-            <li>four</li>
+            <li>slider <strong>INCOMPLETE</strong></li>
+            <li>File input <strong>NB: 3rd party file upload public link API thing </strong></li>
             <li>five</li>
         </ol>
         page0
@@ -34,7 +39,10 @@
         <br>
         page3
     </div>
-    <div *ngSwitchCase="4">page4</div>
+    <div *ngSwitchCase="4">
+        <h3> File Input <strong>NB: 3rd party file upload public link API thing </strong></h3> <br>
+        <app-input-file></app-input-file>
+        page4</div>
     <div *ngSwitchCase="5">page5</div>
     <div *ngSwitchDefault><h1>ERROR</h1></div>
 </div>

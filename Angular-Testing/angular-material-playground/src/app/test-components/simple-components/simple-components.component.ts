@@ -6,11 +6,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { SlideToggleComponent } from '../slide-toggle/slide-toggle.component';
 import { InputComponent } from '../input/input.component';
 import { SliderComponent } from '../slider/slider.component';
+import { InputFileComponent } from '../input-file/input-file.component';
 
 @Component({
   selector: 'app-simple-components',
   standalone: true,
-  imports: [SlideToggleComponent, InputComponent, SliderComponent, 
+  imports: [SlideToggleComponent, InputComponent, SliderComponent, InputFileComponent, 
     CommonModule, ReactiveFormsModule, MatButtonModule],
   templateUrl: './simple-components.component.html',
   styleUrl: './simple-components.component.scss',
