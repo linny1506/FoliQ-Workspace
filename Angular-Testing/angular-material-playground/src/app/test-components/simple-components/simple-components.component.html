@@ -2,6 +2,7 @@
 
 <div>
     <h2>temp test slide</h2>
+    <app-radio-button></app-radio-button>
 </div>
 
 
@@ -13,7 +14,8 @@
             <li>forms</li>
             <li>slider <strong>INCOMPLETE</strong></li>
             <li>File input <strong>NB: 3rd party file upload public link API thing </strong></li>
-            <li>five</li>
+            <li>Radio Button</li>
+            <li>six</li>
         </ol>
         page0
     </div>
@@ -43,7 +45,11 @@
         <h3> File Input <strong>NB: 3rd party file upload public link API thing </strong></h3> <br>
         <app-input-file></app-input-file>
         page4</div>
-    <div *ngSwitchCase="5">page5</div>
+    <div *ngSwitchCase="5">
+        <h3> Radio Button </h3><br>
+        <app-radio-button></app-radio-button>
+        page5</div>
+    <div *ngSwitchCase="6">page6</div>
     <div *ngSwitchDefault><h1>ERROR</h1></div>
 </div>
 <button mat-raised-button color="primary" (click)="home()">home</button>

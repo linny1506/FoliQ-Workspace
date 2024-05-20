@@ -7,18 +7,19 @@ import { SlideToggleComponent } from '../slide-toggle/slide-toggle.component';
 import { InputComponent } from '../input/input.component';
 import { SliderComponent } from '../slider/slider.component';
 import { InputFileComponent } from '../input-file/input-file.component';
+import { RadioButtonComponent } from '../radio-button/radio-button.component';
 
 @Component({
   selector: 'app-simple-components',
   standalone: true,
-  imports: [SlideToggleComponent, InputComponent, SliderComponent, InputFileComponent, 
+  imports: [SlideToggleComponent, InputComponent, SliderComponent, InputFileComponent, RadioButtonComponent,
     CommonModule, ReactiveFormsModule, MatButtonModule],
   templateUrl: './simple-components.component.html',
   styleUrl: './simple-components.component.scss',
 })
 export class SimpleComponentsComponent implements OnInit {
   pageNumber:number=0;
-  pageMax:number=5;
+  pageMax:number=6;
   form:FormGroup;
   // pageQuery!:number;
 
