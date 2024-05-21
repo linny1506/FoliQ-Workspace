@@ -1,14 +1,28 @@
-<form [formGroup]="form">
-    <!-- for loop iterates through the different options for the radio buttons :O -->
-    @for (option of options; track option.value) {
+<form [formGroup]="form" style="background-color: grey; width: 50%;">
+    <hr>
+    <mat-radio-group>
+        @for(option of options; track option.index) {
+            <label>
+                <input type="radio" [value]="option.index" formControlName="selectedOption">
+                {{option.label}}
+            </label><br>
+
+            <!-- <mat-radio-button [value]="option.label">{{option.label}}</mat-radio-button><br> -->
+        }
+    </mat-radio-group>
+    <hr>
+    <!-- // for loop iterates through the different options for the radio buttons :O
+    @for (option of options; track option.index) {
         <label>
-            <input type="radio" [value]="option.value" formControlName="selectedOption">
+            <input type="radio" [value]="option.index" formControlName="selectedOption">
             {{option.label}}
         </label><br>
     }
 
-    <!-- validate if option si selected -->
+    // validate if option si selected
     @if(form.get('selectedOption')?.invalid && form.get('selectedOption')?.touched) {
         <div class="error">ERROR: Please Select an Option</div>
-    }
+    } -->
 </form>
+
+<button (click)="poll()">poll</button>
