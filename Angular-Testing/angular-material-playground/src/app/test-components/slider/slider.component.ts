@@ -9,7 +9,7 @@ import {MatSliderModule} from '@angular/material/slider';
   styleUrl: './slider.component.scss'
 })
 export class SliderComponent {
-  // value?:number;
+  value?:number=4;
   startValue?:number = 2;
   endValue?:number = 5;
 
@@ -19,8 +19,9 @@ export class SliderComponent {
   }
 
   poll() {
+    console.log("~slider thangs~");
     console.log("start: ", this.startValue);
     console.log("end: ", this.endValue);
-    // console.log("maxValue: ", this.maxValue);    
+    console.log("value: ", this.value);    
   }
 }

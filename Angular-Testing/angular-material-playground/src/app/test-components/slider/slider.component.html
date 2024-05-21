@@ -1,8 +1,15 @@
 <br>
+<h4>range slider</h4>
 <mat-slider style="width: 50%;" min="-0.5" max="7" step="0.5" showTickMarks discrete [displayWith]="formatLabel">
     <input matSliderStartThumb [(value)]="startValue">
     <input matSliderEndThumb [(value)]="endValue">
     <!-- <input matSliderThumb [(value)]="value"> -->
 </mat-slider>
 <br>
+<h4>single slider</h4>
+<mat-slider style="width: 50%;" min="-0.5" max="7" step="0.5" showTickMarks discrete [displayWith]="formatLabel">
+    <input matSliderThumb [(value)]="value">
+</mat-slider>
+<br>
+
 <button (click)="poll()">poll</button>
