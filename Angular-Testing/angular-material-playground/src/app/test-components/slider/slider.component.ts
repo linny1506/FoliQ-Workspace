@@ -9,16 +9,18 @@ import {MatSliderModule} from '@angular/material/slider';
   styleUrl: './slider.component.scss'
 })
 export class SliderComponent {
-  minValue:number = 0;
-  maxValue:number = 0;
+  // value?:number;
+  startValue?:number = 2;
+  endValue?:number = 5;
 
   formatLabel(value: number): string {
-    if (value > 7) return 'never';
+    if (value < 0) return 'never';
     return `${value}`;
   }
 
   poll() {
-    console.log("minValue: ", this.minValue);
+    console.log("start: ", this.startValue);
+    console.log("end: ", this.endValue);
     // console.log("maxValue: ", this.maxValue);    
   }
 }

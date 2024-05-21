@@ -1,8 +1,8 @@
-<strong> INCOMPLETE: RETURN TO THIS LATER </strong>
 <br>
-
-<mat-slider style="width: 50%;" min="0" max="7.5" step="0.5" showTickMarks discrete [displayWith]="formatLabel">
-    <input value="3" matSliderStartThumb class="minSliderValue" >
-    <input value="4" matSliderEndThumb class="maxSliderValue">
+<mat-slider style="width: 50%;" min="-0.5" max="7" step="0.5" showTickMarks discrete [displayWith]="formatLabel">
+    <input matSliderStartThumb [(value)]="startValue">
+    <input matSliderEndThumb [(value)]="endValue">
+    <!-- <input matSliderThumb [(value)]="value"> -->
 </mat-slider>
+<br>
 <button (click)="poll()">poll</button>
