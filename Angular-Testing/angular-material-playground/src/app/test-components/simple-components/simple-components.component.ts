@@ -8,11 +8,12 @@ import { InputComponent } from '../input/input.component';
 import { SliderComponent } from '../slider/slider.component';
 import { InputFileComponent } from '../input-file/input-file.component';
 import { RadioButtonComponent } from '../radio-button/radio-button.component';
+import { StepperComponent } from '../stepper/stepper.component';
 
 @Component({
   selector: 'app-simple-components',
   standalone: true,
-  imports: [SlideToggleComponent, InputComponent, SliderComponent, InputFileComponent, RadioButtonComponent,
+  imports: [SlideToggleComponent, InputComponent, SliderComponent, InputFileComponent, RadioButtonComponent, StepperComponent, 
     CommonModule, ReactiveFormsModule, MatButtonModule],
   templateUrl: './simple-components.component.html',
   styleUrl: './simple-components.component.scss',
@@ -37,5 +38,5 @@ export class SimpleComponentsComponent implements OnInit {
   nextPage() { if(this.pageMax > this.pageNumber) this.pageNumber++; }
   seekPage() { 
     // console.log("seekPage");
-    if(0 < this.form.value.pageQuery && this.pageMax > this.form.value.pageQuery) this.pageNumber = this.form.value.pageQuery; }
+    if(0 <= this.form.value.pageQuery && this.pageMax >= this.form.value.pageQuery) this.pageNumber = this.form.value.pageQuery; }
 }

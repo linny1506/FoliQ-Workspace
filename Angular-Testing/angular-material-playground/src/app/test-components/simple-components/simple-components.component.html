@@ -1,12 +1,13 @@
 <h1> This is the page of different components </h1>
-<!-- for devemopment use
-<div>
+
+<!-- for devemopment use -->
+<!-- <div style="width: 80%;">
     <h2>temp test slide</h2>
-    <app-slider></app-slider>
+    <app-stepper></app-stepper>
 </div> -->
 
 
-<div [ngSwitch]="pageNumber" style="height:40%;">
+<div [ngSwitch]="pageNumber" style="height:80%;">
     <div *ngSwitchCase="0">
         <ol>
             <h2>Table of Contents:</h2>
@@ -15,7 +16,8 @@
             <li>slider</li>
             <li>File input <strong>NB: 3rd party file upload public link API thing </strong></li>
             <li>Radio Button <strong>PARTIALLY COMPLETE: need to work through full Angular Material Integration </strong></li>
-            <li>six</li>
+            <li>stepper</li>
+            <li>page 7</li>
         </ol>
         page0
     </div>
@@ -49,7 +51,11 @@
         <h3> Radio Button </h3><br>
         <app-radio-button></app-radio-button>
         page5</div>
-    <div *ngSwitchCase="6">page6</div>
+    <div *ngSwitchCase="6">
+        <h3>stepper</h3>
+        <app-stepper></app-stepper><br>
+        page6</div>
+    <div *ngSwitchCase="7">page7</div>
     <div *ngSwitchDefault><h1>ERROR</h1></div>
 </div>
 <button mat-raised-button color="primary" (click)="home()">home</button>

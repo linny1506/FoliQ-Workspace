@@ -1,0 +1,48 @@
+<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+    {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+  </button>
+<mat-stepper orientation="horizontal" #stepper [linear]="isLinear" style="background-color: #4b4a67;">
+    <mat-step #stepper1>
+        <ng-template matStepLabel>Slide Toggle</ng-template>
+        <app-slide-toggle></app-slide-toggle>
+        <br>
+        <button mat-raised-button matStepperPrevious>Back</button>
+        <button mat-raised-button matStepperNext>Next</button>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel> Form </ng-template>
+        <app-input></app-input>
+        <br>
+        <button mat-raised-button matStepperPrevious>Back</button>
+        <button mat-raised-button matStepperNext>Next</button>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel> Slider </ng-template>
+        <app-slider></app-slider>
+        <br>
+        <button mat-raised-button matStepperPrevious>Back</button>
+        <button mat-raised-button matStepperNext>Next</button>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel> File Input <strong>INCOMPLETE</strong> </ng-template>
+        <app-input-file></app-input-file>
+        <br>
+        <button mat-raised-button matStepperPrevious>Back</button>
+        <button mat-raised-button matStepperNext>Next</button>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel> Radio Button <strong>Partially Complete</strong> </ng-template>
+        <app-radio-button></app-radio-button>
+        <br>
+        <button mat-raised-button matStepperPrevious>Back</button>
+        <button mat-raised-button matStepperNext>Next</button>
+    </mat-step>
+    <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p style="color:white">You are now done.</p>
+    <div>
+        <button mat-raised-button matStepperPrevious>Back</button>
+        <button mat-raised-button (click)="stepper.reset()">Reset</button>
+    </div>
+    </mat-step>
+</mat-stepper>

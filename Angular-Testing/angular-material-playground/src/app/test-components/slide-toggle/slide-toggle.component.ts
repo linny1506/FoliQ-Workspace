@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, output } from '@angular/core';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { CommonModule } from '@angular/common';
 
@@ -9,11 +9,8 @@ import { CommonModule } from '@angular/common';
   templateUrl: './slide-toggle.component.html',
   styleUrl: './slide-toggle.component.scss'
 })
-
 export class SlideToggleComponent implements OnInit{
   sliderValue!:boolean;
-
-  constructor() {}
 
   ngOnInit(): void {
       this.sliderValue = false;
