@@ -2,7 +2,29 @@
     margin: 0 2%;
 }
 
+// styles for app.component.html
+.header-banner{
+    background-color: #4b4167;
+    height: 10%;
+}
+
+.header-title-banner-text{
+    text-align: center;
+    color: #d2d2d9;
+    font-size: 25px;
+    padding-top: 10px;
+}
+
+body{
+    background-color: #d2d2d9;
+}
+
 .demo-components{
     margin: 0 2%;
-    height: 150%;
+    height: 80%;
+}
+
+.footer-banner{
+    background-color: #4b4167;
+    height: 10%
 }
