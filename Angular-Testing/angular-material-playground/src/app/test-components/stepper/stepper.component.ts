@@ -23,4 +23,7 @@ import { SliderComponent } from '../slider/slider.component';
 })
 export class StepperComponent {
   isLinear=false;
+  isHorizontal=true;
+
+  orientation:string = 'horizontal';
 }

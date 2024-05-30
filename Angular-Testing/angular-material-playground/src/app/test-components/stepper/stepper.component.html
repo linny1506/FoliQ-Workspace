@@ -1,7 +1,8 @@
 <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
     {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
-  </button>
-<mat-stepper orientation="horizontal" #stepper [linear]="isLinear" style="background-color: #4b4a67;">
+</button>
+
+<mat-stepper orientation='vertical' #stepper [linear]="isLinear" style="background-color: #4b4a67;">
     <mat-step #stepper1>
         <ng-template matStepLabel>Slide Toggle</ng-template>
         <app-slide-toggle></app-slide-toggle>

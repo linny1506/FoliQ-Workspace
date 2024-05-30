@@ -32,7 +32,6 @@ export class RadioButtonComponent {
   }
 
   poll(){
-    console.log("poll(): ", this.form.value.selectedOption);
-    
+    console.log("poll(): ", this.form.value.selectedOption); 
   }
 }
