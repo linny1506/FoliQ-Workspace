@@ -22,7 +22,7 @@ import { CheckboxComponent } from '../simple-components-library/checkbox/checkbo
 })
 export class SimpleComponentsComponent implements OnInit {
   pageNumber:number=0;
-  pageMax:number=6;
+  pageMax:number=7;
   form:FormGroup;
   // pageQuery!:number;
 
