@@ -3,17 +3,19 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';   // for whatever reason, ReactiveFormsModule import is needed for standalone module
 import { MatButtonModule } from '@angular/material/button';
 
-import { SlideToggleComponent } from '../slide-toggle/slide-toggle.component';
-import { InputComponent } from '../input/input.component';
-import { SliderComponent } from '../slider/slider.component';
-import { InputFileComponent } from '../input-file/input-file.component';
-import { RadioButtonComponent } from '../radio-button/radio-button.component';
-import { StepperComponent } from '../stepper/stepper.component';
+
+import { SlideToggleComponent } from '../simple-components-library/slide-toggle/slide-toggle.component';
+import { InputComponent } from '../simple-components-library/input/input.component';
+import { SliderComponent } from '../simple-components-library/slider/slider.component';
+import { InputFileComponent } from '../simple-components-library/input-file/input-file.component';
+import { RadioButtonComponent } from '../simple-components-library/radio-button/radio-button.component';
+import { StepperComponent } from '../simple-components-library/stepper/stepper.component';
+import { CheckboxComponent } from '../simple-components-library/checkbox/checkbox.component';
 
 @Component({
   selector: 'app-simple-components',
   standalone: true,
-  imports: [SlideToggleComponent, InputComponent, SliderComponent, InputFileComponent, RadioButtonComponent, StepperComponent, 
+  imports: [SlideToggleComponent, InputComponent, SliderComponent, InputFileComponent, RadioButtonComponent, StepperComponent, CheckboxComponent,
     CommonModule, ReactiveFormsModule, MatButtonModule],
   templateUrl: './simple-components.component.html',
   styleUrl: './simple-components.component.scss',
