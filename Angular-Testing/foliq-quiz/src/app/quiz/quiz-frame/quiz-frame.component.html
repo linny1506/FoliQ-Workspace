@@ -1,1 +1,36 @@
 <p>quiz-frame works!</p>
+
+<mat-stepper orientation='vertical' #stepper [linear]="true" style="background-color: grey;">
+    <mat-step>
+        <ng-template matStepLabel>Hair Characteristics <strong>Hair Table questions</strong></ng-template>
+        <p class="quiz-description">Tell us a little about your Hair</p>
+        <br>
+        <app-hair-table-quiz></app-hair-table-quiz>
+        <button mat-raised-button matStepperPrevious>Back</button>
+        <button mat-raised-button matStepperNext>Next</button>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Haircare/Lifestyle Habits <strong>UserProfile</strong></ng-template>
+        <p class="quiz-description">Tell us a little about your haircare routine and lifestyle habits</p>
+        <br>
+        <app-user-profile-quiz></app-user-profile-quiz>
+        <button mat-raised-button matStepperPrevious>Back</button>
+        <button mat-raised-button matStepperNext>Next</button>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Final Step <strong>UserTable</strong></ng-template>
+        <p class="quiz-description">Tell us a little about yourself</p>
+        <br>
+        <app-user-table-quiz></app-user-table-quiz>
+        <button mat-raised-button matStepperPrevious>Back</button>
+        <button mat-raised-button matStepperNext>Next</button>
+    </mat-step>
+    <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p style="color:white">You are now done.</p>
+    <div>
+        <button mat-raised-button matStepperPrevious>Back</button>
+        <button mat-raised-button (click)="stepper.reset()">Reset</button>
+    </div>
+    </mat-step>
+</mat-stepper>
