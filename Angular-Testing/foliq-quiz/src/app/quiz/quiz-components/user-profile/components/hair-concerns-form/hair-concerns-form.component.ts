@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { JsonPipe } from '@angular/common';
 
-import {MatRadioModule} from '@angular/material/radio';
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatCardModule} from '@angular/material/card';
-import { MatLabel } from '@angular/material/form-field';
-
 
 
 
@@ -22,7 +18,8 @@ import { MatLabel } from '@angular/material/form-field';
 })
 export class HairConcernsFormComponent {
   form:FormGroup;
-
+  
+  // Note that index is 1 referenced so the modulus operation in the .html correspons with the number of columns of options
   options = [
     { label: 'Growth', reference: 'Growth', index: 1},
     { label: 'Damage', reference: 'Damage', index: 2},
