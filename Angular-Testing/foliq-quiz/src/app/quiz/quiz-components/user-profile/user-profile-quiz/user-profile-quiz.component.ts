@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UserProfileQuizHairConcernsFormComponent } from '../user-profile-quiz-hair-concerns-form/user-profile-quiz-hair-concerns-form.component';
+import { UserProfileQuizHairConcernsFormComponent } from '../components/user-profile-quiz-hair-concerns-form/user-profile-quiz-hair-concerns-form.component';
 
 
 
