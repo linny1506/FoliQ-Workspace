@@ -1,17 +1,13 @@
 import { Component } from '@angular/core';
 import { PostWashComponent } from '../components/post-wash/post-wash.component';
 import { DryTimeComponent } from '../components/dry-time/dry-time.component';
-import { HumidityEffectComponent } from '../components/humidity-effect/humidity-effect.component';
-import { TreatmentHistoryComponent } from '../components/treatment-history/treatment-history.component';
 import { ExersizeFrequencySliderComponent } from '../components/exersize-frequency-slider/exersize-frequency-slider.component';
 import { GenericCheckboxComponent } from '../../../../component/generic-checkbox/generic-checkbox.component';
-
-
 
 @Component({
   selector: 'app-user-profile-quiz',
   standalone: true,
-  imports: [PostWashComponent, DryTimeComponent, HumidityEffectComponent, TreatmentHistoryComponent,
+  imports: [PostWashComponent, DryTimeComponent,
     ExersizeFrequencySliderComponent,
     GenericCheckboxComponent, 
   ],
@@ -19,6 +15,7 @@ import { GenericCheckboxComponent } from '../../../../component/generic-checkbox
   styleUrl: './user-profile-quiz.component.scss'
 })
 export class UserProfileQuizComponent {
+  hairConcernsQuestion = 'What are some of your hair care concerns?';
   hairConcernsForm = [
     { label: 'Growth', reference: 'Growth', index: 1},
     { label: 'Damage', reference: 'Damage', index: 2},
@@ -38,6 +35,7 @@ export class UserProfileQuizComponent {
     { label: 'None ', reference: 'None', index: 16},
   ];
 
+  scalpConcernsQuestion = 'What are your scalp concerns?';
   scalpConcernsForm = [
     { label: 'Dandruff', reference: 'Dandruff', index: 1},
     { label: 'Oily Scalp', reference: 'OilyScalp', index: 2},
@@ -49,5 +47,31 @@ export class UserProfileQuizComponent {
     { label: 'None', reference: 'None', index: 8},
   ];
 
+  // not generisized yet
+  // postWashQuestion = 'What do you typically do after washing your hair?';
+  // postWashForm = [
+  //   {label: 'Heat Style Daily', reference: 'daily', index:1},
+  //   {label: 'Heat Style Occasionally', reference: 'occasionally', index:2},
+  //   {label: 'Air Dry', reference: 'never', index:3},
+  // ];
 
+  humidityEffectQuestion = 'What is your hair like when it is humid outside?';
+  humidityEffectForm = [
+    { label: 'Frizzy', reference: 'Frizzy', index: 1},
+    { label: 'Dry', reference: 'Dry', index: 2},
+    { label: 'Dull', reference: 'Dull', index: 3},
+    { label: 'Lifeless', reference: 'Lifeless', index: 4},
+    { label: 'Tangled', reference: 'Tangled', index: 5},
+    { label: 'No Change', reference: 'NoChange', index: 6},
+  ];
+
+  treatmentHistoryQuestion = 'Has your hair gone through any of the following processes?';
+  treatmentHistoryForm = [
+    { label: 'Bleach', reference: 'Bleach', index: 1},
+    { label: 'Dye', reference: 'Dye', index: 2},
+    { label: 'Relaxer', reference: 'Relaxer', index: 3},
+    { label: 'Perm', reference: 'Perm', index: 4},
+    { label: 'Not in the last 4 years', reference: 'NotRecent', index: 5},
+    { label: 'None', reference: 'None', index: 6},
+  ];
 }

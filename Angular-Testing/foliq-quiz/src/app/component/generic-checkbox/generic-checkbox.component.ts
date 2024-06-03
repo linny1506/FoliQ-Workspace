@@ -17,8 +17,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 export class GenericCheckboxComponent implements OnInit{
   form!:FormGroup;
 
+  @Input() question!:string;
   @Input() options!:{label:string,reference:string,index:number}[];
-  
+
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
