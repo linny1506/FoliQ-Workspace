@@ -3,12 +3,15 @@ import { PostWashComponent } from '../components/post-wash/post-wash.component';
 import { DryTimeComponent } from '../components/dry-time/dry-time.component';
 import { ExersizeFrequencySliderComponent } from '../components/exersize-frequency-slider/exersize-frequency-slider.component';
 import { GenericCheckboxComponent } from '../../../../component/generic-checkbox/generic-checkbox.component';
+import { ShampooSliderComponent } from '../components/shampoo-slider/shampoo-slider.component';
+import { StylingProductSliderComponent } from '../components/styling-product-slider/styling-product-slider.component';
+import { ProductQuantitySliderComponent } from '../components/product-quantity-slider/product-quantity-slider.component';
 
 @Component({
   selector: 'app-user-profile-quiz',
   standalone: true,
   imports: [PostWashComponent, DryTimeComponent,
-    ExersizeFrequencySliderComponent,
+    ExersizeFrequencySliderComponent, ShampooSliderComponent, StylingProductSliderComponent, ProductQuantitySliderComponent,
     GenericCheckboxComponent, 
   ],
   templateUrl: './user-profile-quiz.component.html',
@@ -74,4 +77,34 @@ export class UserProfileQuizComponent {
     { label: 'Not in the last 4 years', reference: 'NotRecent', index: 5},
     { label: 'None', reference: 'None', index: 6},
   ];
+
+  stylingProductQuestion = 'Do you use any styling products?';
+  stylingProductForm = [
+    { label: 'Curl Cream', reference: 'CurlCream', index:1},
+    { label: 'Hair Serum', reference: 'HairSerum', index:2},
+    { label: 'Oils', reference: 'Oils', index:3},
+    { label: 'Gels', reference: 'Gels', index:4},
+    { label: 'Souffle', reference: 'Souffle', index:5},
+    { label: 'Refresh Spray', reference: 'RefreshSpray', index:6},
+    { label: 'Hair Grease', reference: 'HairGrease', index:7},
+    { label: 'Detanglers', reference: 'Detanglers', index:8},
+    { label: 'Heat Protectants', reference: 'HeatProtectants', index:9},
+    { label: 'Hair Sprays', reference: 'HairSprays', index:10},
+    { label: 'Dry Shampoo', reference: 'DryShampoo', index:11},
+    { label: 'Twisting Souffle', reference: 'TwistingSouffle', index:12},
+    { label: 'Leave-In Conditioner', reference: 'LeaveInConditioner', index:13},
+    { label: 'Styling Puttys', reference: 'StylingPuttys', index:14},
+    { label: 'Other', reference: 'Other', index:15},
+    { label: 'None', reference: 'None', index:16},
+  ]
+
+  scalpTreatmentQuestion = 'Do you use in any scalp treatments?';
+  scalpTreatmentForm = [
+    { label: 'Pre Poo', reference: 'PrePoo', index:1},
+    { label: 'Scalp Treatment', reference: 'ScalpTreatment', index:2},
+    { label: 'Hair Serum', reference: 'HairSerum', index:3},
+    { label: 'No', reference: 'No', index:4},
+  ]
+
+  
 }

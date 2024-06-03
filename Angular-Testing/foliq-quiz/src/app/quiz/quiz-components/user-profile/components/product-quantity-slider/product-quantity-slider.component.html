@@ -1,0 +1,9 @@
+<h3>{{question}}</h3>
+<br>
+<mat-slider style="width: 50%;" [min]="min" [max]="max" [step]="step" showTickMarks discrete [displayWith]="formatLabel">
+    <input matSliderThumb [(value)]="value">
+</mat-slider>
+<br>
+<p>enter 0 for less than once a week</p>
+<strong> You chose: </strong>
+{{value}}
