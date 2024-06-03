@@ -1,9 +1,12 @@
 <table>
     <tr><label>Current Products: </label> <input type="file"></tr><hr>
-    <tr><app-hair-concerns-form></app-hair-concerns-form></tr><hr>
-    <tr><app-scalp-concerns-form></app-scalp-concerns-form></tr><hr>
+    
+    <tr><app-generic-checkbox [options]="hairConcernsForm"></app-generic-checkbox></tr><hr>
+    <tr><app-generic-checkbox [options]="scalpConcernsForm"></app-generic-checkbox></tr><hr>
     <tr><app-post-wash></app-post-wash></tr><hr>
     <tr><app-dry-time></app-dry-time></tr><hr>
     <tr><app-humidity-effect></app-humidity-effect></tr><hr>
     <tr><app-treatment-history></app-treatment-history></tr><hr>
+    <tr><app-exersize-frequency-slider></app-exersize-frequency-slider></tr><hr>
+    <tr></tr><hr>
 </table>
