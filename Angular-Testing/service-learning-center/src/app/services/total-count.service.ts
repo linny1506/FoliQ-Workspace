@@ -62,19 +62,4 @@ export class TotalCountService {
     });
   }
 
-
-  // example method WITH Airtable.js API in use
-  // update(): void {
-  //   thisbase('TotalCount').update(id, {
-  //     "Count": parseInt(this.form.value.Count),  // string interpolation, or just "+number", or ''+number
-  //     "Coin": this.form.value.Coin,
-  //   }, function(err: any, record: any) {
-  //     if (err) {
-  //       console.error(err);
-  //       return;
-  //     }
-  //     console.log(record.get('Value'));
-  //   });
-  // }
-
 }
