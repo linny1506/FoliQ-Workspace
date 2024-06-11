@@ -1,19 +1,26 @@
 <table>
-    <tr><label>Current Products: </label> <input type="file"></tr><hr>
+    <tr><h3>Please take pictures of the product(s) currently in your hair care routine</h3><input type="file"></tr><hr>
     
+    <!-- Hair Questions -->
     <tr><app-generic-checkbox [question]="hairConcernsQuestion" [options]="hairConcernsForm"></app-generic-checkbox></tr><hr>
-    <tr><app-generic-checkbox [question]="scalpConcernsQuestion" [options]="scalpConcernsForm"></app-generic-checkbox></tr><hr>
-    <tr><app-post-wash></app-post-wash></tr><hr>
-    <tr><app-dry-time></app-dry-time></tr><hr>
-    
     <tr><app-generic-checkbox [question]="humidityEffectQuestion" [options]="humidityEffectForm"></app-generic-checkbox></tr><hr>
     <tr><app-generic-checkbox [question]="treatmentHistoryQuestion" [options]="treatmentHistoryForm"></app-generic-checkbox></tr><hr>
-    <tr><app-exersize-frequency-slider></app-exersize-frequency-slider></tr><hr>
+    
+    <!-- Scalp Questions -->
+    <tr><app-generic-checkbox [question]="scalpConcernsQuestion" [options]="scalpConcernsForm"></app-generic-checkbox></tr><hr>
+    <tr><app-generic-checkbox [question]="scalpTreatmentQuestion" [options]="scalpTreatmentForm"></app-generic-checkbox></tr><hr>
+
+    <!-- Wash and Style Questions -->
+    <tr><app-post-wash></app-post-wash></tr><hr>
+    <tr><app-dry-time></app-dry-time></tr><hr>
     <tr><app-shampoo-slider></app-shampoo-slider></tr><hr>
-    <!-- hot tools -->
     <tr><app-generic-checkbox [question]="stylingProductQuestion" [options]="stylingProductForm"></app-generic-checkbox></tr><hr>
     <tr><app-styling-product-slider></app-styling-product-slider></tr><hr>
-    <tr><app-generic-checkbox [question]="scalpTreatmentQuestion" [options]="scalpTreatmentForm"></app-generic-checkbox></tr><hr>
+    
+    <!-- Other -->
+    <tr><app-exersize-frequency-slider></app-exersize-frequency-slider></tr><hr>
+
+    <!-- Quantity and Budget -->
     <tr><app-product-quantity-slider></app-product-quantity-slider>
         <p>How much do you want to spend in total?</p>
         <input type="number">

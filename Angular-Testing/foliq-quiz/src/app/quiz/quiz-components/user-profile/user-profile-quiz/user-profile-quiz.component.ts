@@ -37,6 +37,26 @@ export class UserProfileQuizComponent {
     { label: 'Other', reference: 'Other', index: 15},
     { label: 'None ', reference: 'None', index: 16},
   ];
+  
+  humidityEffectQuestion = 'What is your hair like when it is humid outside?';
+  humidityEffectForm = [
+    { label: 'Frizzy', reference: 'Frizzy', index: 1},
+    { label: 'Dry', reference: 'Dry', index: 2},
+    { label: 'Dull', reference: 'Dull', index: 3},
+    { label: 'Lifeless', reference: 'Lifeless', index: 4},
+    { label: 'Tangled', reference: 'Tangled', index: 5},
+    { label: 'No Change', reference: 'NoChange', index: 6},
+  ];
+
+  treatmentHistoryQuestion = 'Has your hair gone through any of the following processes?';
+  treatmentHistoryForm = [
+    { label: 'Bleach', reference: 'Bleach', index: 1},
+    { label: 'Dye', reference: 'Dye', index: 2},
+    { label: 'Relaxer', reference: 'Relaxer', index: 3},
+    { label: 'Perm', reference: 'Perm', index: 4},
+    { label: 'Not in the last 4 years', reference: 'NotRecent', index: 5},
+    { label: 'None', reference: 'None', index: 6},
+  ];
 
   scalpConcernsQuestion = 'What are your scalp concerns?';
   scalpConcernsForm = [
@@ -58,25 +78,6 @@ export class UserProfileQuizComponent {
   //   {label: 'Air Dry', reference: 'never', index:3},
   // ];
 
-  humidityEffectQuestion = 'What is your hair like when it is humid outside?';
-  humidityEffectForm = [
-    { label: 'Frizzy', reference: 'Frizzy', index: 1},
-    { label: 'Dry', reference: 'Dry', index: 2},
-    { label: 'Dull', reference: 'Dull', index: 3},
-    { label: 'Lifeless', reference: 'Lifeless', index: 4},
-    { label: 'Tangled', reference: 'Tangled', index: 5},
-    { label: 'No Change', reference: 'NoChange', index: 6},
-  ];
-
-  treatmentHistoryQuestion = 'Has your hair gone through any of the following processes?';
-  treatmentHistoryForm = [
-    { label: 'Bleach', reference: 'Bleach', index: 1},
-    { label: 'Dye', reference: 'Dye', index: 2},
-    { label: 'Relaxer', reference: 'Relaxer', index: 3},
-    { label: 'Perm', reference: 'Perm', index: 4},
-    { label: 'Not in the last 4 years', reference: 'NotRecent', index: 5},
-    { label: 'None', reference: 'None', index: 6},
-  ];
 
   stylingProductQuestion = 'Do you use any styling products?';
   stylingProductForm = [
@@ -98,7 +99,7 @@ export class UserProfileQuizComponent {
     { label: 'None', reference: 'None', index:16},
   ]
 
-  scalpTreatmentQuestion = 'Do you use in any scalp treatments?';
+  scalpTreatmentQuestion = 'Do you use any in-scalp treatments?';
   scalpTreatmentForm = [
     { label: 'Pre Poo', reference: 'PrePoo', index:1},
     { label: 'Scalp Treatment', reference: 'ScalpTreatment', index:2},

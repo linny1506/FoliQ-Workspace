@@ -20,7 +20,7 @@ export class ProductQuantitySliderComponent {
   value?:number = 4;  //set slider default value 
 
   formatLabel(value: number): string {
-    // if (this.min > value) return 'never';
+    if (1 > value) return 'none';
     if (this.max < value) return '7+';
 
     return `${value}`;

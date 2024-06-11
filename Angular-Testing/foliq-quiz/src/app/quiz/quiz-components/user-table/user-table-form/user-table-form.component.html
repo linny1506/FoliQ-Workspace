@@ -10,14 +10,8 @@
                 <input matInput type="email" formControlName="email">
             </mat-form-field>
             <mat-form-field>
-                <mat-label>Phone Number: </mat-label>
-                <span matTextPrefix style="font-size: 12px;">+1 &nbsp;</span>
-                <input matInput maxlength="10" formControlName="phoneNumber">
-            </mat-form-field>
-            <mat-form-field>
                 <mat-label>Zip Code: </mat-label>
-                <span matTextPrefix style="font-size: 12px;">+1 &nbsp;</span>
-                <input matInput maxlength="10" formControlName="phoneNumber">
+                <input matInput type="text" pattern="[0-9]{5}" formControlName="zip">
             </mat-form-field>
             <mat-label>Note: we use the Zip Code to determine local water quality</mat-label>
         </tr>
@@ -35,7 +29,7 @@
   <table>
     <tr> <label>Name:</label> {{form.value.name}} </tr>
     <tr> <label>Email:</label> {{form.value.email}} </tr>
-    <tr> <label>Phone Number:</label> {{form.value.phoneNumber}} </tr>
+    <tr> <label>ZIP:</label> {{form.value.zip}} </tr>
     <tr> <label>Extra Long Message:</label> {{form.value.textBody}} </tr>
   </table>
 </div>

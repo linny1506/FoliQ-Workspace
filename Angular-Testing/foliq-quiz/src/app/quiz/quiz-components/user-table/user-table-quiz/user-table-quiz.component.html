@@ -1,1 +1,4 @@
-<app-user-table-form (userTableFormOutput)="GetData($event)"></app-user-table-form>
+<table> 
+    <tr><app-user-table-form (userTableFormOutput)="GetData($event)"></app-user-table-form></tr>
+    <tr><app-generic-checkbox [question]="raceEthnicityQuestion" [options]="raceEthnicityForm"></app-generic-checkbox></tr>
+</table>
