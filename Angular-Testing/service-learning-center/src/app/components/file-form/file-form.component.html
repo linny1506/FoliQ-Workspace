@@ -1,0 +1,13 @@
+<h1> add robot </h1>
+<form [formGroup]="form" (ngSubmit)="addRobot()">
+    <label> name: </label>
+    <input formControlName="name">
+    <br>
+    <label> color: </label>
+    <input formControlName="color">
+    <br>
+    <label> age: </label>
+    <input formControlName="age">
+    <br>
+    <button type="submit">submit</button>
+</form>
