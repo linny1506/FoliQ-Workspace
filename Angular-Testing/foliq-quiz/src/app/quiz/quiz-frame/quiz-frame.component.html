@@ -1,5 +1,137 @@
 <p>quiz-frame works!</p>
 
+<mat-stepper orientation='vertical' #stepper [linear]="false" style="background-color: grey;">
+    <mat-step> <ng-template matStepLabel>Initial Information</ng-template>
+        <div>
+            <app-user-table-quiz></app-user-table-quiz>
+        </div>
+        <button mat-raised-button matStepperPrevious>Back</button>
+        <button mat-raised-button matStepperNext>Next</button>
+    </mat-step>
+    <mat-step> <ng-template matStepLabel>Pictures</ng-template>
+        <label> Submit the following pictures of your hair </label>
+        <div>
+            <table>
+                <tr>
+                    <td><label>Please part your hair in the middle of you head and take an image at the top your head showing your scalp</label></td>
+                    <td>|</td>
+                    <td><input type="file"></td>
+                </tr><hr>
+                <tr>
+                    <td><label>Please take a picture of the back of your head showing all of your hair</label></td>
+                    <td>|</td>
+                    <td><input type="file"></td>
+                </tr><hr>
+                <tr>
+                    <td><label>Please take a picture of your right temple showing your scalp</label></td>
+                    <td>|</td>
+                    <td><input type="file"></td>
+                </tr><hr>
+                <tr>
+                    <td><label>Please take a picture of your left temple showing your scalp</label></td>
+                    <td>|</td>
+                    <td><input type="file"></td>
+                </tr><hr>
+                <tr>
+                    <td><label>Please take pictures of the product(s) currently in your hair care routine</label></td>
+                    <td>|</td>
+                    <td><input type="file"></td>
+                </tr><hr>
+            </table>
+        </div>
+        <button mat-raised-button matStepperPrevious>Back</button>
+        <button mat-raised-button matStepperNext>Next</button>
+    </mat-step>
+    <mat-step> <ng-template matStepLabel>Hair/Scalp Profile</ng-template>
+        <div>
+            <table>
+                <tr><app-generic-checkbox [question]="hairConcernsQuestion" [options]="hairConcernsForm"></app-generic-checkbox></tr><hr>
+                <tr><app-generic-checkbox [question]="scalpConcernsQuestion" [options]="scalpConcernsForm"></app-generic-checkbox></tr><hr>
+                <tr><strong>hair texture placeholder</strong></tr><hr>
+                <tr><app-post-wash></app-post-wash></tr><hr>
+                <tr><app-dry-time></app-dry-time></tr><hr>
+                <tr><app-generic-checkbox [question]="humidityEffectQuestion" [options]="humidityEffectForm"></app-generic-checkbox></tr><hr>
+                <tr><strong>scalp visibility placeholder</strong></tr><hr>
+                <tr><strong>hair thickness placeholder</strong></tr><hr>
+            </table>
+            <!-- content -->
+        </div>
+        <button mat-raised-button matStepperPrevious>Back</button>
+        <button mat-raised-button matStepperNext>Next</button>
+    </mat-step>
+    <mat-step> <ng-template matStepLabel>Treatment/Lifestyle Profile</ng-template>
+        <div>
+            <table>
+                <tr><app-generic-checkbox [question]="treatmentHistoryQuestion" [options]="treatmentHistoryForm"></app-generic-checkbox></tr><hr>
+                <tr><strong>Chemically processed Placeholder</strong></tr><hr>
+                <tr><app-exersize-frequency-slider></app-exersize-frequency-slider></tr><hr>
+                <tr><app-shampoo-slider></app-shampoo-slider></tr><hr>
+                <tr><strong>hot tools frequency placeholder</strong></tr><hr>
+                <tr><app-generic-checkbox [question]="stylingProductQuestion" [options]="stylingProductForm"></app-generic-checkbox></tr><hr>
+                <tr><app-styling-product-slider></app-styling-product-slider></tr><hr>
+                <tr><app-generic-checkbox [question]="scalpTreatmentQuestion" [options]="scalpTreatmentForm"></app-generic-checkbox></tr><hr>
+            </table>
+        </div>
+        <button mat-raised-button matStepperPrevious>Back</button>
+        <button mat-raised-button matStepperNext>Next</button>
+    </mat-step>
+    <mat-step> <ng-template matStepLabel>Preferences and Miscellaneous </ng-template>
+        <div>
+            <table>
+                <tr><app-product-quantity-slider></app-product-quantity-slider></tr><hr>
+                <tr>
+                    <p>How much do you want to spend in total?</p>
+                    <input type="number">
+                    <strong>fix this</strong>
+                </tr><hr>
+                <tr>
+                    <label>Where do you purchase your hair products?</label>
+                    <p>This is so we can recommend products based on where you shop!</p>
+                    <input type="text">
+                </tr><hr>
+                <tr>
+                    <label>What is your Zipcode?</label>
+                    <p>We include this so that we can check on the water quality to see if you may need to detox</p>
+                    <input type="number">
+                </tr>
+            </table>
+        </div>
+        <button mat-raised-button matStepperPrevious>Back</button>
+        <button mat-raised-button matStepperNext>Next</button>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Final</ng-template>
+        <div>
+            <table>
+                <tr>
+                    <label>Do you have any questions for our hair care experts?</label>
+                    <input type="text">
+                    <strong>make this prettier :)</strong>
+                </tr>
+                <tr><strong>Insert Research and Consent Form</strong></tr>
+                <tr>
+                    <label>Please enter the order number associated wtih your hair analysis order</label>
+                    <input type="text">
+                    <strong>make this prettier :)</strong>
+                </tr>
+            </table>
+        </div>
+        <button mat-raised-button matStepperPrevious>Back</button>
+        <button mat-raised-button matStepperNext>Next</button>
+    </mat-step>
+    <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p style="color:white">You are now done.</p>
+    <div>
+        <button mat-raised-button matStepperPrevious>Back</button>
+        <button mat-raised-button (click)="stepper.reset()">Reset</button>
+    </div>
+    </mat-step>
+</mat-stepper>
+
+<!-- Old Code 
+<h1>Old Code</h1>
+<br>
 <mat-stepper orientation='vertical' #stepper [linear]="true" style="background-color: grey;">
     <mat-step>
         <ng-template matStepLabel>Hair Characteristics <strong>Hair Table questions</strong></ng-template>
@@ -34,3 +166,4 @@
     </div>
     </mat-step>
 </mat-stepper>
+-->

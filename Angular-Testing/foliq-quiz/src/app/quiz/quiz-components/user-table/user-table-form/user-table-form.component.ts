@@ -20,8 +20,6 @@ export class UserTableFormComponent {
     this.form = fb.group({
       name:[],
       email:[],
-      zip:[],
-      textBody:[],
     })
   }
 
