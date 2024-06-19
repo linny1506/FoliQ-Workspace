@@ -115,6 +115,5 @@ export class QuizFrameComponent {
 
   // #endregion
 
-  // Preferences and Miscellaneous resources
-  // Final Resources
+
 }
