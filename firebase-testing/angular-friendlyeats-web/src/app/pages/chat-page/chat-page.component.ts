@@ -25,9 +25,7 @@ export class ChatPageComponent {
 
   uploadImage(event: any) {
     const imgFile: File = event.target.files[0];
-    if (!imgFile) {
-      return;
-    }
+    if (!imgFile) return;
     this.chatService.saveImageMessage(imgFile);
   }
 }

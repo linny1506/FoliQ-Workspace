@@ -1,43 +1,9 @@
 import { inject, Injectable } from '@angular/core';
-import {
-  Auth,
-  authState,
-  signInWithPopup,
-  GoogleAuthProvider,
-  signOut,
-  user,
-  getAuth,
-  User,
-} from '@angular/fire/auth';
-import { map, switchMap, firstValueFrom, filter, Observable, Subscription } from 'rxjs';
-import {
-  doc,
-  docData,
-  DocumentReference,
-  Firestore,
-  getDoc,
-  setDoc,
-  updateDoc,
-  collection,
-  addDoc,
-  deleteDoc,
-  collectionData,
-  Timestamp,
-  serverTimestamp,
-  query,
-  orderBy,
-  limit,
-  onSnapshot,
-  DocumentData,
-  FieldValue,
-} from '@angular/fire/firestore';
-import {
-  Storage,
-  getDownloadURL,
-  ref,
-  uploadBytesResumable,
-} from '@angular/fire/storage';
-import { getToken, Messaging, onMessage } from '@angular/fire/messaging';
+import { Auth, signInWithPopup, GoogleAuthProvider, signOut, user, User, } from '@angular/fire/auth';
+import { Subscription } from 'rxjs';
+import { DocumentReference, Firestore, updateDoc, collection, addDoc, collectionData, serverTimestamp, query, orderBy, limit, DocumentData, FieldValue, } from '@angular/fire/firestore';
+import { Storage, getDownloadURL, ref, uploadBytesResumable, } from '@angular/fire/storage';
+import { Messaging, } from '@angular/fire/messaging';
 import { Router } from '@angular/router';
 
 type ChatMessage = {
@@ -48,7 +14,6 @@ type ChatMessage = {
   text?: string,
   imageUrl?: string
 };
-
 
 @Injectable({
   providedIn: 'root',
@@ -68,9 +33,9 @@ export class ChatService {
   userSubscription: Subscription;
   
   constructor() {
-    this.userSubscription = this.user$.subscribe((aUser: User | null) => {
-        this.currentUser = aUser;
-    });
+    this.userSubscription = this.user$.subscribe(
+      (aUser: User | null) => { this.currentUser = aUser; }
+    );
   }
 
   // Login Friendly Chat.
@@ -146,19 +111,18 @@ export class ChatService {
       // 1 - Add a message with a loading icon that will get updated with the shared image.
       const messageRef = await this.addMessage(null, this.LOADING_IMAGE_URL);   // add message is defined here in chat.service.ts
 
+
+      // Actual file upload code starts here...
       // 2 - Upload the image to Cloud Storage.
-      const filePath = `${this.auth.currentUser?.uid}/${file.name}`;
-      const newImageRef = ref(this.storage, filePath);
-      const fileSnapshot = await uploadBytesResumable(newImageRef, file);
+      const filePath = `${this.auth.currentUser?.uid}/${file.name}`;      // Using string interpolation, create a filePath name [uid]/[filename]. auth is from an injected thing
+      const newImageRef = ref(this.storage, filePath);                    // returns a reference from the provided storage (this.storage) refers to the firebase storage
+      const fileSnapshot = await uploadBytesResumable(newImageRef, file); // This function is the one that actually uploads the file from local to cloud storage
 
       // 3 - Generate a public URL for the file.
-      const publicImageUrl = await getDownloadURL(newImageRef);
+      const publicImageUrl = await getDownloadURL(newImageRef);           // Retrieve a public URL from the jawn
 
       // 4 - Update the chat message placeholder with the image's URL.
-      messageRef ? await updateDoc(messageRef, {    // question mark refers to it as possibly being undefined.. same thing as doing function:[explicit type]|undefined {}
-        imageUrl: publicImageUrl,
-        storageUri: fileSnapshot.metadata.fullPath
-      }): null;
+      messageRef ? await updateDoc(messageRef, { imageUrl: publicImageUrl, storageUri: fileSnapshot.metadata.fullPath }): null;   // ITS A TERNARY OPERATOR YOU DUMMY 🤦‍♂️🤦‍♂️
     } catch (error) {
       console.error('There was an error uploading a file to Cloud Storage:', error);
     }
