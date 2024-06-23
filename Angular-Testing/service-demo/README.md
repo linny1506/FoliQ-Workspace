@@ -49,3 +49,26 @@ Instructions are based off of the https://firebase.google.com/codelabs/firebase-
     1. log in to the appropriate account
     1. Select the appropriate project
     1. select the appropriate app or create a new one
+
+### Programing Time!!!
+1. Create an environment.ts file
+    1. under the src folder, create a new folder named environments
+    1. place a new file `environment.ts` inside this folder. This will be where we keep any globally available environment variables
+    1. locate the `src/app/app.config.ts` file
+        1. Inside the "providers" array, find the provider, `provideFirebaseApp(...)`
+        1. Copy the contents of the function `initializeApp()`
+    1. Create the environment.ts file as follows. The contents inside the `firebase` object should be whatever was copied from the `app.config.ts` file
+``` ts
+export const environment = {
+    firebase: {
+        "projectId":"service-demo-20c1f",
+        "appId":"1:890744571423:web:2000571ea9699f83a4b72a",
+        "storageBucket":"service-demo-20c1f.appspot.com",
+        "apiKey":"AIzaSyDuMnrOjKYWKyyTUvpF0T-6ksAnx1KW81I",
+        "authDomain":"service-demo-20c1f.firebaseapp.com",
+        "messagingSenderId":"890744571423"
+    },
+}
+```
+2. 
+1.  
