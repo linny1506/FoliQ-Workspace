@@ -31,6 +31,11 @@ Instructions are based off of the https://firebase.google.com/codelabs/firebase-
             1. Select a location for the database that's appropriate for your location
             1. Start in test mode (this will be changed once project is done)
             1. Hit Done to complete
+        * Cloud Storage
+            1. On the left column, under the "Build" category, expand the dropdown list and click on "Storage"
+            1. Go through the promtps
+            1. Select start in test mode (this will eb changed once project is done)
+            1. Hit done to complete
 * Firebase Setup   
     1. Install Firebase in workspace using `npm install firebase`
     1. Install the firebase CLI using `npm -g install firebase-tools@latest`
@@ -49,6 +54,8 @@ Instructions are based off of the https://firebase.google.com/codelabs/firebase-
     1. log in to the appropriate account
     1. Select the appropriate project
     1. select the appropriate app or create a new one
+* Add airtable.js to project
+    1. Use command `npm install airtable`
 
 ### Programing Time!!!
 1. Create an environment.ts file
@@ -70,5 +77,10 @@ export const environment = {
     },
 }
 ```
-2. 
-1.  
+2. V1: Firebase Service, https://firebase.google.com/docs/storage/web/start
+    1. FirebaseService.saveImage()
+        * uses the Firebase API to save an image to the previously set up cloud storage service
+    1. FirebaseService.deleteImage()
+
+### Misc. Programming Notes
+1. V0: This is the first implementation of a service using HTTP provider and the Airtable.js API
