@@ -10,16 +10,22 @@ import { StorageReference } from '@angular/fire/storage';
   styleUrl: './file-upload.component.scss'
 })
 export class FileUploadComponent {
+  publicImageURL?: string;
   ref?:StorageReference;
   firebaseService = inject(FirebaseService);
 
+  // POST/PUT
+  // NB: Firebase tracks files based off of file name, so if you upload a file with the same name, it replaces the original
   uploadImage(event: any) {
-    const imageFile: File = event.target.files[0];
-    imageFile ? this.firebaseService.saveImage(imageFile) : null;
-    this.ref = this.firebaseService.getRef();
+    const imageFile: File = event.target.files[0];                                      // retrieve file from .html side
+    this.firebaseService.saveImage(imageFile).subscribe(x => this.publicImageURL = x);  // subscribe to Observable to get the url
+
+    // get the reference for the image when uploading the image
+    this.ref = this.firebaseService.getRef(imageFile);      // TODO: this has repeated function code from above..fix it...
   }
 
+  // DELETE
   deleteImage() {
-    this.ref ? this.firebaseService.deleteImage(this.ref) : console.error("Error Deleting image in file-upload.component.ts");
+    this.ref ? this.firebaseService.deleteImage(this.ref) : null;
   }
 }

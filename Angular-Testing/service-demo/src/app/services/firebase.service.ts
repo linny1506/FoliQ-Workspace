@@ -18,25 +18,23 @@ export class FirebaseService {
   ref?: StorageReference;   // TODO: MAKE THIS STATELESS??
   constructor() { }
 
-
   /**
    * saveImage()
    * @param file file to be saved
    * @description based HEAVILY off of the https://firebase.google.com/codelabs/firebase-web project
    *    Saves an image to Firebase Cloud Storage
-   * @version 1 This version currently just prints the publicImageURL to the console
+   * @version 2 This version implements the function to return the publicImageURL using an observable
    */
   saveImage(file:any): Observable<string> {
     try {
       // upload to Cloud Storage
-      const filePath = `testFolder/${file.name}`;                           // NB: This is just a testFolder for the time being, I would like to link the userName to it to keep things organized
-      const newImageRef = ref(this.storage, filePath);                      // creates the reference to the place in storage where the file's gonna go
+      const newImageRef = this.getRef(file);
       const fileSnapshot = uploadBytesResumable(newImageRef, file);   // actual workhorse of the method
 
       // Create Public URL
       const publicImageURL = getDownloadURL(newImageRef);             // creates a public URL of the previously uploaded image
 
-      console.log("Upload Successful. Here's an link to ", filePath, ": ", publicImageURL);
+      console.log("Upload Successful. Here's an link to the new file: ", publicImageURL);
       return from(publicImageURL);
     } catch (error) {
       console.error("There was an error uploading a file to Cloud Storage: ", error);
@@ -44,11 +42,17 @@ export class FirebaseService {
     }
   }
 
-  getRef(): StorageReference | undefined {
-    if (this.ref) return this.ref;
-    return undefined;
-  }
+  getRef(file:any): StorageReference {
+    try {
+      // upload to Cloud Storage
+      const filePath = `testFolder/${file.name}`;                           // NB: This is just a testFolder for the time being, I would like to link the userName to it to keep things organized
+      const newImageRef = ref(this.storage, filePath);                      // creates the reference to the place in storage where the file's gonna go
 
+      return newImageRef;
+    } catch (error) {
+      throw {message: 'Error retrieving image reference in getRef()'};
+    }
+  }
 
   async deleteImage(ref:StorageReference) {
     try {
