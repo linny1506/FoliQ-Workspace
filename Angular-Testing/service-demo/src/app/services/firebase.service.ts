@@ -28,29 +28,18 @@ export class FirebaseService {
   saveImage(file:any): Observable<string> {
     try {
       // upload to Cloud Storage
-      const newImageRef = this.getRef(file);
+      const filePath = `testFolder/${file.name}`;                           // NB: This is just a testFolder for the time being, I would like to link the userName to it to keep things organized
+      const newImageRef = ref(this.storage, filePath);                      // creates the reference to the place in storage where the file's gonna go
       const fileSnapshot = uploadBytesResumable(newImageRef, file);   // actual workhorse of the method
 
       // Create Public URL
       const publicImageURL = getDownloadURL(newImageRef);             // creates a public URL of the previously uploaded image
 
-      console.log("Upload Successful. Here's an link to the new file: ", publicImageURL);
+      console.log("Upload Successful. Here's an link to the new file: ", publicImageURL.then(value => {return value ? true:false;}));
       return from(publicImageURL);
     } catch (error) {
       console.error("There was an error uploading a file to Cloud Storage: ", error);
       return from('ERROR');
-    }
-  }
-
-  getRef(file:any): StorageReference {
-    try {
-      // upload to Cloud Storage
-      const filePath = `testFolder/${file.name}`;                           // NB: This is just a testFolder for the time being, I would like to link the userName to it to keep things organized
-      const newImageRef = ref(this.storage, filePath);                      // creates the reference to the place in storage where the file's gonna go
-
-      return newImageRef;
-    } catch (error) {
-      throw {message: 'Error retrieving image reference in getRef()'};
     }
   }
 

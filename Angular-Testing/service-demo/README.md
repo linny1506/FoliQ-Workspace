@@ -84,3 +84,13 @@ export const environment = {
 
 ### Misc. Programming Notes
 1. V0: This is the first implementation of a service using HTTP provider and the Airtable.js API
+    * Prototype Service to play around with the concept
+1. V1: Original Firebase storage service implementation
+    * Explored different firebase API functions to Put/Post/Delete files
+    * Get isn't really required yet since we don't need to display the image that was taken in this version
+1. V2: Firebase and Airtable linking
+    * Create a service which allows for upload of Firebase URL to Airtable
+        1. Upload to Firebase Cloud Storage
+        1. Get the public URI from Firebase
+        1. Post URI to Airtable
+        1. Profit

@@ -20,12 +20,16 @@ export class FileUploadComponent {
     const imageFile: File = event.target.files[0];                                      // retrieve file from .html side
     this.firebaseService.saveImage(imageFile).subscribe(x => this.publicImageURL = x);  // subscribe to Observable to get the url
 
-    // get the reference for the image when uploading the image
-    this.ref = this.firebaseService.getRef(imageFile);      // TODO: this has repeated function code from above..fix it...
+    console.log("inside uploadImage");
   }
 
-  // DELETE
+  // DELETE, unimplemented
   deleteImage() {
     this.ref ? this.firebaseService.deleteImage(this.ref) : null;
+    console.log("inside deleteImage()");
+  }
+
+  uploadURLToAirtable() {
+    console.log("inside uploadURLToAirtable()");
   }
 }
