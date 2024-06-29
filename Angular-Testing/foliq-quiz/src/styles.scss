@@ -39,3 +39,9 @@ $foliq-quiz-theme: mat.define-light-theme((
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+// @import url("https://fonts.googleapis.com/css?family=Montserrat");
+// import statement from the index.html file instead
+* {
+  font-family: montserrat;
+}

@@ -25,7 +25,7 @@ export class FileUploadComponent {
 
   // DELETE, unimplemented
   deleteImage() {
-    this.ref ? this.firebaseService.deleteImage(this.ref) : null;
+    this.firebaseService.ref ? this.firebaseService.deleteImage(this.firebaseService.ref) : null;
     console.log("inside deleteImage()");
   }
 
