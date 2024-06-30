@@ -24,11 +24,12 @@ export class FileUploadComponent {
   }
 
   // DELETE, unimplemented
+  /*
   deleteImage() {
     this.firebaseService.ref ? this.firebaseService.deleteImage(this.firebaseService.ref) : null;
     console.log("inside deleteImage()");
   }
-
+*/
   uploadURLToAirtable() {
     console.log("inside uploadURLToAirtable()");
   }

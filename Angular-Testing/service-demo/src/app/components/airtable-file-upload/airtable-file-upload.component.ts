@@ -13,7 +13,7 @@ export class AirtableFileUploadComponent {
   firebaseService = inject(FirebaseService);
   airtableFileUploadService = inject(AirtableFileUploadService);
   publicImageURL?: string;
-
+  file?:File;
 
   uploadImage(event:any) {
     const imageFile: File = event.target.files[0];
@@ -21,6 +21,7 @@ export class AirtableFileUploadComponent {
   }
 
   submit(){
-    this.publicImageURL ? this.airtableFileUploadService.upload("testFileName", this.publicImageURL) : this.airtableFileUploadService.upload("testFileName", "NO FILE FOUND")
+    let fileName = (this.file) ? this.file.name : 'NO FILE NAME';
+    this.publicImageURL ? this.airtableFileUploadService.upload(fileName, this.publicImageURL) : this.airtableFileUploadService.upload("testFileName", "NO FILE FOUND")
   }
 }
