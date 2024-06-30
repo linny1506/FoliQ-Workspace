@@ -5,8 +5,7 @@
         <label>Coin: </label>
         <select formControlName="Coin">
             <optgroup label="coin">
-                @for (x of coinOptions; track x) 
-                {
+                @for (x of coinOptions; track x) {
                     <!-- avoid having functions in directives for anything much larger... each time change detection happens, the function runs for each element -->
                     @if (!x.includes('Roll')) { <option> {{x}} </option> }
                 }

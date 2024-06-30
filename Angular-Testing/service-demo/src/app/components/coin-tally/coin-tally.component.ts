@@ -14,8 +14,6 @@ export class CoinTallyComponent {
 
   totalCountService = inject(TotalCountService);
   
-  constructor() { }
-
   // lifecycle hooks
   ngOnInit() { this.reload(); }
 

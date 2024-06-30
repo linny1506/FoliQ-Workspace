@@ -17,11 +17,12 @@ export class AirtableFileUploadComponent {
 
   uploadImage(event:any) {
     const imageFile: File = event.target.files[0];
+    this.file=imageFile;
     this.firebaseService.saveImage(imageFile).subscribe(x => this.publicImageURL = x);
   }
 
   submit(){
     let fileName = (this.file) ? this.file.name : 'NO FILE NAME';
-    this.publicImageURL ? this.airtableFileUploadService.upload(fileName, this.publicImageURL) : this.airtableFileUploadService.upload("testFileName", "NO FILE FOUND")
+    this.publicImageURL ? this.airtableFileUploadService.upload(fileName, this.publicImageURL) : this.airtableFileUploadService.upload("testFileName", "NO FILE FOUND");
   }
 }

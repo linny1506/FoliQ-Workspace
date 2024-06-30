@@ -21,10 +21,10 @@ export class TotalCountService {
     let output: Observable<TotalCount>;
 
     output = this.http.get<TotalCount>(
-      'https://api.airtable.com/v0/appjD3ZsQFD6Lb9D7/TotalCount',
+      environment.airtable.totalCountURL,
       {
         headers: new HttpHeaders({
-          Authorization: 'Bearer patOxK3aX3qlbbKpx.884c70d8d90db6e40ec31960795cb682016f5f32623916d406437f8a1e722c3b'
+          Authorization: 'Bearer ' + environment.airtable.privateAccessToken,
         })
       }
     );

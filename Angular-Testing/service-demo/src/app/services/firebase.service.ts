@@ -3,7 +3,6 @@ import { Auth } from '@angular/fire/auth';
 import { Firestore } from '@angular/fire/firestore';
 import { Messaging } from '@angular/fire/messaging';
 import { Storage, StorageReference, getDownloadURL, ref, uploadBytes, uploadBytesResumable } from '@angular/fire/storage';
-import { deleteObject } from 'firebase/storage';
 import { Observable, from } from 'rxjs';
 
 @Injectable({
@@ -24,7 +23,7 @@ export class FirebaseService {
    * @param file file to be saved
    * @description based HEAVILY off of the https://firebase.google.com/codelabs/firebase-web project
    *    Saves an image to Firebase Cloud Storage
-   * @version 2 This version implements the function to return the publicImageURL using an observable
+   * @version 3 This version uses uploadBytes, which is the blocking version of uploadBytesResumable(). This forces the action to complete before moving on, sacrificing performance for atomicity
    */
   saveImage(file:any): Observable<string> {
     try {
@@ -41,7 +40,6 @@ export class FirebaseService {
       // NB: old code here. using uploadBytesResumable(...) makes the function non-blocking HOWEVER creates a race condition between setting the image and fetching the file URL
       //    solution.. just bundle both options in a blockig function, decrease responsiveness, but increase reliability
       const publicImageURL = uploadBytes(newImageRef, file).then(() => getDownloadURL(newImageRef));        // Create Public URL
-
 
       return from(publicImageURL);
     } catch (error) {

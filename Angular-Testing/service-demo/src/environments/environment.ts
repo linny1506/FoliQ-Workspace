@@ -10,6 +10,8 @@ export const environment = {
     airtable: {
         privateAccessToken:'patOxK3aX3qlbbKpx.884c70d8d90db6e40ec31960795cb682016f5f32623916d406437f8a1e722c3b',
         baseID:'appjD3ZsQFD6Lb9D7',
+        totalCountURL:'https://api.airtable.com/v0/appjD3ZsQFD6Lb9D7/TotalCount',
         fileTableID:'tblJStZtyqoa7jRVw',
+        fileTableURL:'https://api.airtable.com/v0/appjD3ZsQFD6Lb9D7/fileTable',
     }
 }

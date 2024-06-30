@@ -15,7 +15,7 @@ export class CoinInputFormComponent {
   
   totalCountService = inject(TotalCountService);
 
-  constructor(private fb: FormBuilder){
+  constructor(private fb: FormBuilder) {
     this.form = fb.group({
       Coin: [this.coinOptions[0]],    // first option in coinOpions is given since that'll be the first thing displayed in the list
       Count: ['0'],   // count MUST be a string for formbuilder, this is parsed outside in the service
