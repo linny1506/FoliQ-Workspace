@@ -16,6 +16,8 @@ import { GenericFileSubmissionComponent } from '../../component/generic-file-sub
 // Imports for the Stepper and Angular Material Button
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatButtonModule } from '@angular/material/button';
+import { ChemicallyProcessedSliderComponent } from '../quiz-components/chemically-processed-slider/chemically-processed-slider.component';
+import { HotToolsFrequencySliderComponent } from '../quiz-components/hot-tools-frequency-slider/hot-tools-frequency-slider.component';
 
 @Component({
     selector: 'app-quiz-frame',
@@ -25,7 +27,7 @@ import { MatButtonModule } from '@angular/material/button';
     imports: [MatStepperModule, MatButtonModule,
         UserTableQuizComponent,
         GenericCheckboxComponent, GenericFileSubmissionComponent, PostWashComponent, DryTimeComponent,
-        ExersizeFrequencySliderComponent, ShampooSliderComponent, StylingProductSliderComponent, ProductQuantitySliderComponent
+        ExersizeFrequencySliderComponent, ShampooSliderComponent, StylingProductSliderComponent, ProductQuantitySliderComponent, ChemicallyProcessedSliderComponent, HotToolsFrequencySliderComponent,
       ]
 })
 export class QuizFrameComponent {
