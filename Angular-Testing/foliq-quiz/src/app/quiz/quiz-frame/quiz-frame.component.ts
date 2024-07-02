@@ -1,18 +1,17 @@
 import { Component } from '@angular/core';
 
 // Quiz Component Imports
-import { HairTableQuizComponent } from '../quiz-components/hair-table/hair-table-quiz/hair-table-quiz.component';
-import { UserProfileQuizComponent } from '../quiz-components/user-profile/user-profile-quiz/user-profile-quiz.component';
 import { UserTableQuizComponent } from '../quiz-components/user-table/user-table-quiz/user-table-quiz.component';
 
 // Question Components
 import { GenericCheckboxComponent } from '../../component/generic-checkbox/generic-checkbox.component';
-import { PostWashComponent } from '../quiz-components/user-profile/components/post-wash/post-wash.component';
-import { DryTimeComponent } from '../quiz-components/user-profile/components/dry-time/dry-time.component';
-import { ExersizeFrequencySliderComponent } from '../quiz-components/user-profile/components/exersize-frequency-slider/exersize-frequency-slider.component';
-import { ShampooSliderComponent } from '../quiz-components/user-profile/components/shampoo-slider/shampoo-slider.component';
-import { StylingProductSliderComponent } from '../quiz-components/user-profile/components/styling-product-slider/styling-product-slider.component';
-import { ProductQuantitySliderComponent } from "../quiz-components/user-profile/components/product-quantity-slider/product-quantity-slider.component";
+import { PostWashComponent } from '../quiz-components/post-wash/post-wash.component';
+import { DryTimeComponent } from '../quiz-components/dry-time/dry-time.component';
+import { ExersizeFrequencySliderComponent } from '../quiz-components/exersize-frequency-slider/exersize-frequency-slider.component';
+import { ShampooSliderComponent } from '../quiz-components/shampoo-slider/shampoo-slider.component';
+import { StylingProductSliderComponent } from '../quiz-components/styling-product-slider/styling-product-slider.component';
+import { ProductQuantitySliderComponent } from "../quiz-components/product-quantity-slider/product-quantity-slider.component";
+import { GenericFileSubmissionComponent } from '../../component/generic-file-submission/generic-file-submission.component';
 
 // Imports for the Stepper and Angular Material Button
 import { MatStepperModule } from '@angular/material/stepper';
@@ -24,12 +23,20 @@ import { MatButtonModule } from '@angular/material/button';
     templateUrl: './quiz-frame.component.html',
     styleUrl: './quiz-frame.component.scss',
     imports: [MatStepperModule, MatButtonModule,
-        HairTableQuizComponent, UserProfileQuizComponent, UserTableQuizComponent,
-        GenericCheckboxComponent, PostWashComponent, DryTimeComponent,
+        UserTableQuizComponent,
+        GenericCheckboxComponent, GenericFileSubmissionComponent, PostWashComponent, DryTimeComponent,
         ExersizeFrequencySliderComponent, ShampooSliderComponent, StylingProductSliderComponent, ProductQuantitySliderComponent
       ]
 })
 export class QuizFrameComponent {
+  // Pictures Resources #region
+  middlePartPhotoQuestion = 'Please part your hair in the middle of you head and take an image at the top your head showing your scalp';
+  backHeadPhotoQuestion = 'Please take a picture of the back of your head showing all of your hair';
+  rightTemplePhotoQuestion = 'Please take a picture of your right temple showing your scalp';
+  leftTemplePhotoQuestion = 'Please take a picture of your left temple showing your scalp';
+  currentProductsPhotoQuestion = 'Please take pictures of the product(s) currently in your hair care routine';
+  // #endregion
+
   // Hair/Scalp Profile resources #region
   hairConcernsQuestion = 'What are some of your hair care concerns?';
   hairConcernsForm = [

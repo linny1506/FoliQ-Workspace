@@ -10,36 +10,11 @@
         <label> Submit the following pictures of your hair </label>
         <div>
             <table>
-                <tr>
-                    <div class="flex-container">
-                        <div class="flex-item-left"><label>Please part your hair in the middle of you head and take an image at the top your head showing your scalp</label></div>
-                        <div class="flex-item-right"><input type="file"></div>
-                    </div>
-                </tr><hr>
-                <tr>
-                    <div class="flex-container">
-                        <div class="flex-item-left"><label>Please take a picture of the back of your head showing all of your hair</label></div>
-                        <div class="flex-item-right"><input type="file"></div>
-                    </div>
-                </tr><hr>
-                <tr>
-                    <div class="flex-container">
-                        <div class="flex-item-left"><label>Please take a picture of your right temple showing your scalp</label></div>
-                        <div class="flex-item-right"><input type="file"></div>
-                    </div>
-                </tr><hr>
-                <tr>
-                    <div class="flex-container">
-                        <div class="flex-item-left"><label>Please take a picture of your left temple showing your scalp</label></div>
-                        <div class="flex-item-right"><input type="file"></div>
-                    </div>
-                </tr><hr>
-                <tr>
-                    <div class="flex-container">
-                        <div class="flex-item-left"><label>Please take pictures of the product(s) currently in your hair care routine</label></div>
-                        <div class="flex-item-right"><input type="file"></div>
-                    </div>
-                </tr><hr>
+                <tr> <app-generic-file-submission [question]="middlePartPhotoQuestion"></app-generic-file-submission> </tr><hr>
+                <tr> <app-generic-file-submission [question]="backHeadPhotoQuestion"></app-generic-file-submission> </tr><hr>
+                <tr> <app-generic-file-submission [question]="rightTemplePhotoQuestion"></app-generic-file-submission> </tr><hr>
+                <tr> <app-generic-file-submission [question]="leftTemplePhotoQuestion"></app-generic-file-submission> </tr><hr>
+                <tr> <app-generic-file-submission [question]="currentProductsPhotoQuestion"></app-generic-file-submission> </tr><hr>
             </table>
         </div>
         <button mat-raised-button matStepperPrevious>Back</button>
@@ -57,7 +32,6 @@
                 <tr><strong>scalp visibility placeholder</strong></tr><hr>
                 <tr><strong>hair thickness placeholder</strong></tr><hr>
             </table>
-            <!-- content -->
         </div>
         <button mat-raised-button matStepperPrevious>Back</button>
         <button mat-raised-button matStepperNext>Next</button>
@@ -131,42 +105,3 @@
     </div>
     </mat-step>
 </mat-stepper>
-
-<!-- Old Code 
-<h1>Old Code</h1>
-<br>
-<mat-stepper orientation='vertical' #stepper [linear]="true" style="background-color: grey;">
-    <mat-step>
-        <ng-template matStepLabel>Hair Characteristics <strong>Hair Table questions</strong></ng-template>
-        <p class="quiz-description">Tell us a little about your Hair</p>
-        <br>
-        <app-hair-table-quiz></app-hair-table-quiz>
-        <button mat-raised-button matStepperPrevious>Back</button>
-        <button mat-raised-button matStepperNext>Next</button>
-    </mat-step>
-    <mat-step>
-        <ng-template matStepLabel>Haircare/Lifestyle Habits <strong>UserProfile</strong></ng-template>
-        <p class="quiz-description">Tell us a little about your haircare routine and lifestyle habits</p>
-        <br>
-        <app-user-profile-quiz></app-user-profile-quiz>
-        <button mat-raised-button matStepperPrevious>Back</button>
-        <button mat-raised-button matStepperNext>Next</button>
-    </mat-step>
-    <mat-step>
-        <ng-template matStepLabel>Final Step <strong>UserTable</strong></ng-template>
-        <p class="quiz-description">Tell us a little about yourself</p>
-        <br>
-        <app-user-table-quiz></app-user-table-quiz>
-        <button mat-raised-button matStepperPrevious>Back</button>
-        <button mat-raised-button matStepperNext>Next</button>
-    </mat-step>
-    <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    <p style="color:white">You are now done.</p>
-    <div>
-        <button mat-raised-button matStepperPrevious>Back</button>
-        <button mat-raised-button (click)="stepper.reset()">Reset</button>
-    </div>
-    </mat-step>
-</mat-stepper>
--->
