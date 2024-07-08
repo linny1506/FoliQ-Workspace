@@ -1,7 +1,10 @@
 <mat-stepper orientation='vertical' #stepper [linear]="false" style="background-color: #f6f6f8; border-radius: 25px;">
     <mat-step> <ng-template matStepLabel>Initial Information</ng-template>
         <div>
-            <app-user-table-quiz></app-user-table-quiz>
+            <table>
+                <tr><app-user-table-form (userTableFormOutput)="GetData($event)"></app-user-table-form></tr>
+                <tr><app-generic-checkbox [question]="raceEthnicityQuestion" [options]="raceEthnicityForm"></app-generic-checkbox></tr>
+            </table>
         </div>
         <button mat-raised-button matStepperPrevious>Back</button>
         <button mat-raised-button matStepperNext>Next</button>

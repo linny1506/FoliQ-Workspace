@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
 
-// Quiz Component Imports
-import { UserTableQuizComponent } from '../quiz-components/user-table/user-table-quiz/user-table-quiz.component';
-
 // Question Components
 import { GenericCheckboxComponent } from '../../component/generic-checkbox/generic-checkbox.component';
 import { GenericThumbLabelSliderComponent } from '../../component/generic-thumb-label-slider/generic-thumb-label-slider.component';
@@ -12,6 +9,7 @@ import { GenericRadiobuttonComponent } from '../../component/generic-radiobutton
 // Imports for the Stepper and Angular Material Button
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatButtonModule } from '@angular/material/button';
+import { UserTableFormComponent } from '../quiz-components/user-table/user-table-form/user-table-form.component';
 
 @Component({
     selector: 'app-quiz-frame',
@@ -19,12 +17,35 @@ import { MatButtonModule } from '@angular/material/button';
     templateUrl: './quiz-frame.component.html',
     styleUrl: './quiz-frame.component.scss',
     imports: [MatStepperModule, MatButtonModule,
-        UserTableQuizComponent,
+        UserTableFormComponent,
         GenericCheckboxComponent, GenericFileSubmissionComponent, GenericThumbLabelSliderComponent, GenericRadiobuttonComponent,
       ]
 })
 export class QuizFrameComponent {
-  // Pictures Resources #region
+  // #region  Initial Information
+  formData!:String;
+
+  // Code example based off of this: https://www.samarpaninfotech.com/blog/methods-to-share-data-between-angular-components/
+  
+  GetData(formData:String){
+    console.log("From Parent: ", formData);
+    this.formData = formData;
+  }
+
+  raceEthnicityQuestion = 'What race/ethnicity or multiple do you closest genetically identify with?';
+  raceEthnicityForm = [
+    { label: 'Asian or Pacific Islander', reference: 'API', index: 1},
+    { label: 'Black, African American, or African', reference: 'Black', index: 2},
+    { label: 'Hispanic or Latino', reference: 'Latino', index: 3},
+    { label: 'Native American or Alaskan Native', reference: 'AmericanNative', index: 4},
+    { label: 'White, Caucasian, or European', reference: 'Caucasian', index: 5},
+    { label: 'South Asian', reference: 'SouthAsian', index: 6},
+    { label: 'Multiracial or Biracial', reference: 'MultiRacial', index: 7},
+    { label: 'Not listed', reference: 'None', index: 8},
+  ];
+  // #endregion
+
+  // #region  Pictures Resources 
   middlePartPhotoQuestion = 'Please part your hair in the middle of you head and take an image at the top your head showing your scalp';
   backHeadPhotoQuestion = 'Please take a picture of the back of your head showing all of your hair';
   rightTemplePhotoQuestion = 'Please take a picture of your right temple showing your scalp';
@@ -32,7 +53,7 @@ export class QuizFrameComponent {
   currentProductsPhotoQuestion = 'Please take pictures of the product(s) currently in your hair care routine';
   // #endregion
 
-  // Hair/Scalp Profile resources #region
+  // #region  Hair/Scalp Profile resources 
   hairConcernsQuestion = 'What are some of your hair care concerns?';
   hairConcernsForm = [
     { label: 'Growth', reference: 'Growth'},
@@ -93,7 +114,7 @@ export class QuizFrameComponent {
 
   // #endregion
 
-  // Treatment/Lifestyle Profile resources #region
+  // #region  Treatment/Lifestyle Profile resources
   treatmentHistoryQuestion = 'Has your hair gone through any of the following processes?';
   treatmentHistoryForm = [
     { label: 'Bleach', reference: 'Bleach'},
@@ -138,10 +159,6 @@ export class QuizFrameComponent {
     { label:'Once a Month', reference:'OnceaMonth' },
     { label:'Less than Once a Month', reference:'LessthanOnceaMonth' },
   ]
-
-
-
-
 
   stylingProductQuestion = 'Do you use any styling products?';
   stylingProductForm = [
