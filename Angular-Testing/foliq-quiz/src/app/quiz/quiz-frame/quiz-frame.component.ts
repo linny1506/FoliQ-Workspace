@@ -9,7 +9,7 @@ import { GenericRadiobuttonComponent } from '../../component/generic-radiobutton
 // Imports for the Stepper and Angular Material Button
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatButtonModule } from '@angular/material/button';
-import { UserTableFormComponent } from '../quiz-components/user-table/user-table-form/user-table-form.component';
+import { UserTableFormComponent } from '../quiz-components/user-table-form/user-table-form.component';
 
 @Component({
     selector: 'app-quiz-frame',
