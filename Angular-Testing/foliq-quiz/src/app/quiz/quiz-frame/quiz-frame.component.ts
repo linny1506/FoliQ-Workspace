@@ -6,11 +6,7 @@ import { UserTableQuizComponent } from '../quiz-components/user-table/user-table
 // Question Components
 import { GenericCheckboxComponent } from '../../component/generic-checkbox/generic-checkbox.component';
 import { PostWashComponent } from '../quiz-components/post-wash/post-wash.component';
-import { DryTimeComponent } from '../quiz-components/dry-time/dry-time.component';
-import { ExersizeFrequencySliderComponent } from '../quiz-components/exersize-frequency-slider/exersize-frequency-slider.component';
-import { ShampooSliderComponent } from '../quiz-components/shampoo-slider/shampoo-slider.component';
-import { StylingProductSliderComponent } from '../quiz-components/styling-product-slider/styling-product-slider.component';
-import { ProductQuantitySliderComponent } from "../quiz-components/product-quantity-slider/product-quantity-slider.component";
+import { GenericThumbLabelSliderComponent } from '../../component/generic-thumb-label-slider/generic-thumb-label-slider.component';
 import { GenericFileSubmissionComponent } from '../../component/generic-file-submission/generic-file-submission.component';
 
 // Imports for the Stepper and Angular Material Button
@@ -26,8 +22,8 @@ import { HotToolsFrequencySliderComponent } from '../quiz-components/hot-tools-f
     styleUrl: './quiz-frame.component.scss',
     imports: [MatStepperModule, MatButtonModule,
         UserTableQuizComponent,
-        GenericCheckboxComponent, GenericFileSubmissionComponent, PostWashComponent, DryTimeComponent,
-        ExersizeFrequencySliderComponent, ShampooSliderComponent, StylingProductSliderComponent, ProductQuantitySliderComponent, ChemicallyProcessedSliderComponent, HotToolsFrequencySliderComponent,
+        GenericCheckboxComponent, GenericFileSubmissionComponent, GenericThumbLabelSliderComponent, PostWashComponent,
+        ChemicallyProcessedSliderComponent, HotToolsFrequencySliderComponent,
       ]
 })
 export class QuizFrameComponent {
@@ -72,6 +68,15 @@ export class QuizFrameComponent {
     { label: 'None', reference: 'None', index: 8},
   ];
 
+  dryTimeQuestion = 'How long does it take to dry your hair?'
+  dryTimeParam = {
+    min: 0,
+    max: 4,
+    step: 0.5,
+    unit: 'hr',
+  }
+
+
   humidityEffectQuestion = 'What is your hair like when it is humid outside?';
   humidityEffectForm = [
     { label: 'Frizzy', reference: 'Frizzy', index: 1},
@@ -94,6 +99,23 @@ export class QuizFrameComponent {
     { label: 'Not in the last 4 years', reference: 'NotRecent', index: 5},
     { label: 'None', reference: 'None', index: 6},
   ];  
+
+  exerciseFrequencyQuestion = 'How many times a week do you exercise?';
+  exerciseFrequencyParams = {
+    min: 0,
+    max: 7,
+    step: 0.5,
+  }
+
+  shampooFrequencyQuestion = 'How often did you shampoo each week?';
+  shampooFrequencyParams = {
+    min: 0,
+    max: 7,
+    step: 0.5,
+  }
+
+
+
   stylingProductQuestion = 'Do you use any styling products?';
   stylingProductForm = [
     { label: 'Curl Cream', reference: 'CurlCream', index:1},
@@ -114,6 +136,14 @@ export class QuizFrameComponent {
     { label: 'None', reference: 'None', index:16},
   ]
 
+  stylingProductFrequencyQuestion = 'How often do you use styling products?';
+  stylingProductFrequencyParams = {
+    min: 0,
+    max: 7,
+    step: 1,
+    unit: 'times per week',
+  }
+
   scalpTreatmentQuestion = 'Do you use any in-scalp treatments?';
   scalpTreatmentForm = [
     { label: 'Pre Poo', reference: 'PrePoo', index:1},
@@ -124,5 +154,11 @@ export class QuizFrameComponent {
 
   // #endregion
 
+  productQuantityQuestion = 'How many products would you like in your hair care routine?';
+  productQuantityParams = {
+    min: 0,
+    max: 8,
+    step: 1,
+  }
 
 }
