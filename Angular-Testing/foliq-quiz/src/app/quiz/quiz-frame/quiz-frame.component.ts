@@ -6,10 +6,14 @@ import { GenericThumbLabelSliderComponent } from '../../component/generic-thumb-
 import { GenericFileSubmissionComponent } from '../../component/generic-file-submission/generic-file-submission.component';
 import { GenericRadiobuttonComponent } from '../../component/generic-radiobutton/generic-radiobutton.component';
 
+// Forms
+import { UserTableFormComponent } from '../quiz-components/user-table-form/user-table-form.component';
+import { PreferencesFormComponent } from '../quiz-components/preferences-form/preferences-form.component';
+
+
 // Imports for the Stepper and Angular Material Button
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatButtonModule } from '@angular/material/button';
-import { UserTableFormComponent } from '../quiz-components/user-table-form/user-table-form.component';
 
 @Component({
     selector: 'app-quiz-frame',
@@ -17,12 +21,12 @@ import { UserTableFormComponent } from '../quiz-components/user-table-form/user-
     templateUrl: './quiz-frame.component.html',
     styleUrl: './quiz-frame.component.scss',
     imports: [MatStepperModule, MatButtonModule,
-        UserTableFormComponent,
+        UserTableFormComponent, PreferencesFormComponent,
         GenericCheckboxComponent, GenericFileSubmissionComponent, GenericThumbLabelSliderComponent, GenericRadiobuttonComponent,
       ]
 })
 export class QuizFrameComponent {
-  // #region  Initial Information
+  // #region  1) Initial Information 
   formData!:String;
 
   // Code example based off of this: https://www.samarpaninfotech.com/blog/methods-to-share-data-between-angular-components/
@@ -45,7 +49,7 @@ export class QuizFrameComponent {
   ];
   // #endregion
 
-  // #region  Pictures Resources 
+  // #region  2) Pictures 
   middlePartPhotoQuestion = 'Please part your hair in the middle of you head and take an image at the top your head showing your scalp';
   backHeadPhotoQuestion = 'Please take a picture of the back of your head showing all of your hair';
   rightTemplePhotoQuestion = 'Please take a picture of your right temple showing your scalp';
@@ -53,7 +57,7 @@ export class QuizFrameComponent {
   currentProductsPhotoQuestion = 'Please take pictures of the product(s) currently in your hair care routine';
   // #endregion
 
-  // #region  Hair/Scalp Profile resources 
+  // #region  3) Hair/Scalp Profile 
   hairConcernsQuestion = 'What are some of your hair care concerns?';
   hairConcernsForm = [
     { label: 'Growth', reference: 'Growth'},
@@ -114,7 +118,7 @@ export class QuizFrameComponent {
 
   // #endregion
 
-  // #region  Treatment/Lifestyle Profile resources
+  // #region  4) Treatment/Lifestyle Profile 
   treatmentHistoryQuestion = 'Has your hair gone through any of the following processes?';
   treatmentHistoryForm = [
     { label: 'Bleach', reference: 'Bleach'},
@@ -198,6 +202,7 @@ export class QuizFrameComponent {
 
   // #endregion
 
+  // #region  5) Preferences and Miscellaneous  
   productQuantityQuestion = 'How many products would you like in your hair care routine?';
   productQuantityParams = {
     min: 0,
@@ -205,4 +210,12 @@ export class QuizFrameComponent {
     step: 1,
   }
 
+
+
+
+  // #endregion
+
+  // #region  6) Final
+
+  // #endregion
 }
