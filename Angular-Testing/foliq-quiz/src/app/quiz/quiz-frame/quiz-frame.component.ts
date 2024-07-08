@@ -7,13 +7,11 @@ import { UserTableQuizComponent } from '../quiz-components/user-table/user-table
 import { GenericCheckboxComponent } from '../../component/generic-checkbox/generic-checkbox.component';
 import { GenericThumbLabelSliderComponent } from '../../component/generic-thumb-label-slider/generic-thumb-label-slider.component';
 import { GenericFileSubmissionComponent } from '../../component/generic-file-submission/generic-file-submission.component';
+import { GenericRadiobuttonComponent } from '../../component/generic-radiobutton/generic-radiobutton.component';
 
 // Imports for the Stepper and Angular Material Button
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatButtonModule } from '@angular/material/button';
-import { ChemicallyProcessedSliderComponent } from '../quiz-components/chemically-processed-slider/chemically-processed-slider.component';
-import { HotToolsFrequencySliderComponent } from '../quiz-components/hot-tools-frequency-slider/hot-tools-frequency-slider.component';
-import { GenericRadiobuttonComponent } from '../../component/generic-radiobutton/generic-radiobutton.component';
 
 @Component({
     selector: 'app-quiz-frame',
@@ -23,7 +21,6 @@ import { GenericRadiobuttonComponent } from '../../component/generic-radiobutton
     imports: [MatStepperModule, MatButtonModule,
         UserTableQuizComponent,
         GenericCheckboxComponent, GenericFileSubmissionComponent, GenericThumbLabelSliderComponent, GenericRadiobuttonComponent,
-        ChemicallyProcessedSliderComponent, HotToolsFrequencySliderComponent,
       ]
 })
 export class QuizFrameComponent {
@@ -38,34 +35,34 @@ export class QuizFrameComponent {
   // Hair/Scalp Profile resources #region
   hairConcernsQuestion = 'What are some of your hair care concerns?';
   hairConcernsForm = [
-    { label: 'Growth', reference: 'Growth', index: 1},
-    { label: 'Damage', reference: 'Damage', index: 2},
-    { label: 'Dryness', reference: 'Dryness', index: 3},
-    { label: 'Frizz', reference: 'Frizz', index: 4},
-    { label: 'Manageability', reference: 'Manageability', index: 5},
-    { label: 'Softness', reference: 'Softness', index: 6},
-    { label: 'Strength', reference: 'Strength', index: 7},
-    { label: 'Volume', reference: 'Volume', index: 8},
-    { label: 'Length', reference: 'Length', index: 9},
-    { label: 'Definition', reference: 'Definition', index: 10},
-    { label: 'Hydrated Hair', reference: 'HydratedHair', index: 11},
-    { label: 'Shine', reference: 'Shine', index: 12},
-    { label: 'Healthier Hair', reference: 'HealthierHair', index: 13},
-    { label: 'Healthy Scalp', reference: 'HealthyScalp', index: 14},
-    { label: 'Other', reference: 'Other', index: 15},
-    { label: 'None ', reference: 'None', index: 16},
+    { label: 'Growth', reference: 'Growth'},
+    { label: 'Damage', reference: 'Damage'},
+    { label: 'Dryness', reference: 'Dryness'},
+    { label: 'Frizz', reference: 'Frizz'},
+    { label: 'Manageability', reference: 'Manageability'},
+    { label: 'Softness', reference: 'Softness'},
+    { label: 'Strength', reference: 'Strength'},
+    { label: 'Volume', reference: 'Volume'},
+    { label: 'Length', reference: 'Length'},
+    { label: 'Definition', reference: 'Definition'},
+    { label: 'Hydrated Hair', reference: 'HydratedHair'},
+    { label: 'Shine', reference: 'Shine'},
+    { label: 'Healthier Hair', reference: 'HealthierHair'},
+    { label: 'Healthy Scalp', reference: 'HealthyScalp'},
+    { label: 'Other', reference: 'Other'},
+    { label: 'None ', reference: 'None'},
   ];
 
   scalpConcernsQuestion = 'What are your scalp concerns?';
   scalpConcernsForm = [
-    { label: 'Dandruff', reference: 'Dandruff', index: 1},
-    { label: 'Oily Scalp', reference: 'OilyScalp', index: 2},
-    { label: 'Dry Scalp', reference: 'DryScalp', index: 3},
-    { label: 'Psoriasis', reference: 'Psoriasis', index: 4},
-    { label: 'Seborrheic Eczema', reference: 'SeborrheicEczema', index: 5},
-    { label: 'Hair Loss', reference: 'HairLoss', index: 6},
-    { label: 'Other', reference: 'Other', index: 7},
-    { label: 'None', reference: 'None', index: 8},
+    { label: 'Dandruff', reference: 'Dandruff'},
+    { label: 'Oily Scalp', reference: 'OilyScalp'},
+    { label: 'Dry Scalp', reference: 'DryScalp'},
+    { label: 'Psoriasis', reference: 'Psoriasis'},
+    { label: 'Seborrheic Eczema', reference: 'SeborrheicEczema'},
+    { label: 'Hair Loss', reference: 'HairLoss'},
+    { label: 'Other', reference: 'Other'},
+    { label: 'None', reference: 'None'},
   ];
 
   dryTimeQuestion = 'How long does it take to dry your hair?'
@@ -78,20 +75,20 @@ export class QuizFrameComponent {
 
   postWashQuestion = 'What do you typically do after washing your hair?';
   postWashOptions = [
-    {label: 'Heat Style Daily', reference: 'daily',},
-    {label: 'Heat Style Occasionally', reference: 'occasionally',},
-    {label: 'Air Dry', reference: 'never',},
+    {label: 'Heat Style Daily', reference: 'daily'},
+    {label: 'Heat Style Occasionally', reference: 'occasionally'},
+    {label: 'Air Dry', reference: 'never'},
   ];
 
 
   humidityEffectQuestion = 'What is your hair like when it is humid outside?';
   humidityEffectForm = [
-    { label: 'Frizzy', reference: 'Frizzy', index: 1},
-    { label: 'Dry', reference: 'Dry', index: 2},
-    { label: 'Dull', reference: 'Dull', index: 3},
-    { label: 'Lifeless', reference: 'Lifeless', index: 4},
-    { label: 'Tangled', reference: 'Tangled', index: 5},
-    { label: 'No Change', reference: 'NoChange', index: 6},
+    { label: 'Frizzy', reference: 'Frizzy'},
+    { label: 'Dry', reference: 'Dry'},
+    { label: 'Dull', reference: 'Dull'},
+    { label: 'Lifeless', reference: 'Lifeless'},
+    { label: 'Tangled', reference: 'Tangled'},
+    { label: 'No Change', reference: 'NoChange'},
   ];  
 
   // #endregion
@@ -99,13 +96,24 @@ export class QuizFrameComponent {
   // Treatment/Lifestyle Profile resources #region
   treatmentHistoryQuestion = 'Has your hair gone through any of the following processes?';
   treatmentHistoryForm = [
-    { label: 'Bleach', reference: 'Bleach', index: 1},
-    { label: 'Dye', reference: 'Dye', index: 2},
-    { label: 'Relaxer', reference: 'Relaxer', index: 3},
-    { label: 'Perm', reference: 'Perm', index: 4},
-    { label: 'Not in the last 4 years', reference: 'NotRecent', index: 5},
-    { label: 'None', reference: 'None', index: 6},
+    { label: 'Bleach', reference: 'Bleach'},
+    { label: 'Dye', reference: 'Dye'},
+    { label: 'Relaxer', reference: 'Relaxer'},
+    { label: 'Perm', reference: 'Perm'},
+    { label: 'Not in the last 4 years', reference: 'NotRecent'},
+    { label: 'None', reference: 'None'},
   ];  
+
+  chemicallyProcessedDurationQuestion = 'How long have you chemically processed your hair?';
+  chemicallyProcessedDurationOptions = [
+    { label: 'Never', reference: '0'},
+    { label: 'I stopped using chemical processes on my hair', reference: 'stopped'},
+    { label: '1-6 months', reference: '0.5'},
+    { label: '7-12 months', reference: '1'},
+    { label: '2 years', reference: '2'},
+    { label: '3 years', reference: '3'},
+    { label: '4 years or more', reference: '4'},
+  ];
 
   exerciseFrequencyQuestion = 'How many times a week do you exercise?';
   exerciseFrequencyParams = {
@@ -121,26 +129,38 @@ export class QuizFrameComponent {
     step: 0.5,
   }
 
+  hotToolsFrequencyQuestion = 'How often do you use hot tools?';
+  hotToolsFrequencyOptions = [
+    { label:'Never', reference:'Never' },
+    { label:'Every Day', reference:'EveryDay' },
+    { label:'Every Other Day', reference:'EveryOtherDay' },
+    { label:'Once a Week', reference:'OnceaWeek' },
+    { label:'Once a Month', reference:'OnceaMonth' },
+    { label:'Less than Once a Month', reference:'LessthanOnceaMonth' },
+  ]
+
+
+
 
 
   stylingProductQuestion = 'Do you use any styling products?';
   stylingProductForm = [
-    { label: 'Curl Cream', reference: 'CurlCream', index:1},
-    { label: 'Hair Serum', reference: 'HairSerum', index:2},
-    { label: 'Oils', reference: 'Oils', index:3},
-    { label: 'Gels', reference: 'Gels', index:4},
-    { label: 'Souffle', reference: 'Souffle', index:5},
-    { label: 'Refresh Spray', reference: 'RefreshSpray', index:6},
-    { label: 'Hair Grease', reference: 'HairGrease', index:7},
-    { label: 'Detanglers', reference: 'Detanglers', index:8},
-    { label: 'Heat Protectants', reference: 'HeatProtectants', index:9},
-    { label: 'Hair Sprays', reference: 'HairSprays', index:10},
-    { label: 'Dry Shampoo', reference: 'DryShampoo', index:11},
-    { label: 'Twisting Souffle', reference: 'TwistingSouffle', index:12},
-    { label: 'Leave-In Conditioner', reference: 'LeaveInConditioner', index:13},
-    { label: 'Styling Puttys', reference: 'StylingPuttys', index:14},
-    { label: 'Other', reference: 'Other', index:15},
-    { label: 'None', reference: 'None', index:16},
+    { label: 'Curl Cream', reference: 'CurlCream'},
+    { label: 'Hair Serum', reference: 'HairSerum'},
+    { label: 'Oils', reference: 'Oils'},
+    { label: 'Gels', reference: 'Gels'},
+    { label: 'Souffle', reference: 'Souffle'},
+    { label: 'Refresh Spray', reference: 'RefreshSpray'},
+    { label: 'Hair Grease', reference: 'HairGrease'},
+    { label: 'Detanglers', reference: 'Detanglers'},
+    { label: 'Heat Protectants', reference: 'HeatProtectants'},
+    { label: 'Hair Sprays', reference: 'HairSprays'},
+    { label: 'Dry Shampoo', reference: 'DryShampoo'},
+    { label: 'Twisting Souffle', reference: 'TwistingSouffle'},
+    { label: 'Leave-In Conditioner', reference: 'LeaveInConditioner'},
+    { label: 'Styling Puttys', reference: 'StylingPuttys'},
+    { label: 'Other', reference: 'Other'},
+    { label: 'None', reference: 'None'},
   ]
 
   stylingProductFrequencyQuestion = 'How often do you use styling products?';
@@ -153,10 +173,10 @@ export class QuizFrameComponent {
 
   scalpTreatmentQuestion = 'Do you use any in-scalp treatments?';
   scalpTreatmentForm = [
-    { label: 'Pre Poo', reference: 'PrePoo', index:1},
-    { label: 'Scalp Treatment', reference: 'ScalpTreatment', index:2},
-    { label: 'Hair Serum', reference: 'HairSerum', index:3},
-    { label: 'No', reference: 'No', index:4},
+    { label: 'Pre Poo', reference: 'PrePoo'},
+    { label: 'Scalp Treatment', reference: 'ScalpTreatment'},
+    { label: 'Hair Serum', reference: 'HairSerum'},
+    { label: 'No', reference: 'No'},
   ]  
 
   // #endregion

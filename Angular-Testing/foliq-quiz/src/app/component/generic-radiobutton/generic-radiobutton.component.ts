@@ -20,11 +20,7 @@ interface option {
 export class GenericRadiobuttonComponent {
   form:FormGroup;
   @Input() question!:string;
-  options= [
-    {label: 'Heat Style Daily', reference: 'daily'},
-    {label: 'Heat Style Occasionally', reference: 'occasionally'},
-    {label: 'Air Dry', reference: 'never'},
-  ];;
+  @Input() options!:{label:string,reference:string}[];
 
   constructor(private fb: FormBuilder) {
     this.form = fb.group({

@@ -18,7 +18,7 @@ export class GenericCheckboxComponent implements OnInit{
   form!:FormGroup;
 
   @Input() question!:string;
-  @Input() options!:{label:string,reference:string,index:number}[];
+  @Input() options!:{label:string,reference:string}[];
 
   constructor(private fb: FormBuilder) {}
 
