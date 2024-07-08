@@ -5,7 +5,6 @@ import { UserTableQuizComponent } from '../quiz-components/user-table/user-table
 
 // Question Components
 import { GenericCheckboxComponent } from '../../component/generic-checkbox/generic-checkbox.component';
-import { PostWashComponent } from '../quiz-components/post-wash/post-wash.component';
 import { GenericThumbLabelSliderComponent } from '../../component/generic-thumb-label-slider/generic-thumb-label-slider.component';
 import { GenericFileSubmissionComponent } from '../../component/generic-file-submission/generic-file-submission.component';
 
@@ -14,6 +13,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatButtonModule } from '@angular/material/button';
 import { ChemicallyProcessedSliderComponent } from '../quiz-components/chemically-processed-slider/chemically-processed-slider.component';
 import { HotToolsFrequencySliderComponent } from '../quiz-components/hot-tools-frequency-slider/hot-tools-frequency-slider.component';
+import { GenericRadiobuttonComponent } from '../../component/generic-radiobutton/generic-radiobutton.component';
 
 @Component({
     selector: 'app-quiz-frame',
@@ -22,7 +22,7 @@ import { HotToolsFrequencySliderComponent } from '../quiz-components/hot-tools-f
     styleUrl: './quiz-frame.component.scss',
     imports: [MatStepperModule, MatButtonModule,
         UserTableQuizComponent,
-        GenericCheckboxComponent, GenericFileSubmissionComponent, GenericThumbLabelSliderComponent, PostWashComponent,
+        GenericCheckboxComponent, GenericFileSubmissionComponent, GenericThumbLabelSliderComponent, GenericRadiobuttonComponent,
         ChemicallyProcessedSliderComponent, HotToolsFrequencySliderComponent,
       ]
 })
@@ -75,6 +75,13 @@ export class QuizFrameComponent {
     step: 0.5,
     unit: 'hr',
   }
+
+  postWashQuestion = 'What do you typically do after washing your hair?';
+  postWashOptions = [
+    {label: 'Heat Style Daily', reference: 'daily',},
+    {label: 'Heat Style Occasionally', reference: 'occasionally',},
+    {label: 'Air Dry', reference: 'never',},
+  ];
 
 
   humidityEffectQuestion = 'What is your hair like when it is humid outside?';

@@ -1,0 +1,11 @@
+<h4 style="max-width: 80%;">{{question}}</h4>
+
+<div [formGroup]="form">
+    <mat-radio-group formControlName="formOutput">
+        @for(option of options; track option) {
+            <mat-radio-button [value]=option.reference style="min-width:15em; max-width:200px;"> {{option.label}} </mat-radio-button>
+        }
+    </mat-radio-group>
+</div>
+
+{{form.value | json}}
