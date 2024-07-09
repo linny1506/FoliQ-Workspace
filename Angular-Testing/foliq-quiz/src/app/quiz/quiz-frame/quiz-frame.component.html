@@ -3,7 +3,7 @@
         <div>
             <table>
                 <tr><app-user-table-form (userTableFormOutput)="GetUserTableData($event)"></app-user-table-form></tr>
-                <tr><app-generic-checkbox [question]="raceEthnicityQuestion" [options]="raceEthnicityForm"></app-generic-checkbox></tr>
+                <tr><app-generic-checkbox [question]="raceEthnicityQuestion" [options]="raceEthnicityForm" (output)="getRaceEthnicityData($event)"></app-generic-checkbox></tr>
             </table>
         </div>
         <button mat-raised-button matStepperPrevious>Back</button>
@@ -13,11 +13,16 @@
         <label> Submit the following pictures of your hair </label>
         <div>
             <table>
-                <tr> <app-generic-file-submission [question]="middlePartPhotoQuestion"></app-generic-file-submission> </tr><hr>
-                <tr> <app-generic-file-submission [question]="backHeadPhotoQuestion"></app-generic-file-submission> </tr><hr>
-                <tr> <app-generic-file-submission [question]="rightTemplePhotoQuestion"></app-generic-file-submission> </tr><hr>
-                <tr> <app-generic-file-submission [question]="leftTemplePhotoQuestion"></app-generic-file-submission> </tr><hr>
-                <tr> <app-generic-file-submission [question]="currentProductsPhotoQuestion"></app-generic-file-submission> </tr><hr>
+                <!-- DEBUG STUFF: @if (middlePartFile) {<tr>{{middlePartFile.name}}</tr>} -->
+                <tr> <app-generic-file-submission [question]="middlePartPhotoQuestion" (fileOutput)="middlePartFileListener($event)"></app-generic-file-submission> </tr><hr>
+                <!-- DEBUG STUFF: @if (backHeadFile) {<tr>{{backHeadFile.name}}</tr>} -->
+                <tr> <app-generic-file-submission [question]="backHeadPhotoQuestion" (fileOutput)="backHeadFileListener($event)"></app-generic-file-submission> </tr><hr>
+                <!-- DEBUG STUFF: @if (rightTempleFile) {<tr>{{rightTempleFile.name}}</tr>} -->
+                <tr> <app-generic-file-submission [question]="rightTemplePhotoQuestion" (fileOutput)="rightTempleFileListener($event)"></app-generic-file-submission> </tr><hr>
+                <!-- DEBUG STUFF: @if (leftTempleFile) {<tr>{{leftTempleFile.name}}</tr>} -->
+                <tr> <app-generic-file-submission [question]="leftTemplePhotoQuestion" (fileOutput)="leftTempleFileListener($event)"></app-generic-file-submission> </tr><hr>
+                <!-- DEBUG STUFF: @if (currentProductsFile) {<tr>{{currentProductsFile.name}}</tr>} -->
+                <tr> <app-generic-file-submission [question]="currentProductsPhotoQuestion" (fileOutput)="currentProductsFileListener($event)"></app-generic-file-submission> </tr><hr>
             </table>
         </div>
         <button mat-raised-button matStepperPrevious>Back</button>
@@ -26,12 +31,12 @@
     <mat-step> <ng-template matStepLabel>Hair/Scalp Profile</ng-template>
         <div>
             <table>
-                <tr><app-generic-checkbox [question]="hairConcernsQuestion" [options]="hairConcernsForm"></app-generic-checkbox></tr><hr>
-                <tr><app-generic-checkbox [question]="scalpConcernsQuestion" [options]="scalpConcernsForm"></app-generic-checkbox></tr><hr>
+                <tr><app-generic-checkbox [question]="hairConcernsQuestion" [options]="hairConcernsForm" (output)="gethairConcernsData($event)"></app-generic-checkbox></tr><hr>
+                <tr><app-generic-checkbox [question]="scalpConcernsQuestion" [options]="scalpConcernsForm" (output)="getscalpConcernsData($event)"></app-generic-checkbox></tr><hr>
                 <tr><strong>hair texture placeholder</strong></tr><hr>
                 <tr><app-generic-radiobutton [question]="postWashQuestion" [options]="postWashOptions"></app-generic-radiobutton></tr><hr>
                 <tr><app-generic-thumb-label-slider [question]="dryTimeQuestion" [min]="dryTimeParam.min" [max]="dryTimeParam.max" [step]="dryTimeParam.step" [unit]="dryTimeParam.unit"></app-generic-thumb-label-slider><hr>
-                <tr><app-generic-checkbox [question]="humidityEffectQuestion" [options]="humidityEffectForm"></app-generic-checkbox></tr><hr>
+                <tr><app-generic-checkbox [question]="humidityEffectQuestion" [options]="humidityEffectForm" (output)="gethumidityEffectData"></app-generic-checkbox></tr><hr>
                 <tr><strong>scalp visibility placeholder</strong></tr><hr>
                 <tr><strong>hair thickness placeholder</strong></tr><hr>
             </table>
@@ -42,14 +47,14 @@
     <mat-step> <ng-template matStepLabel>Treatment/Lifestyle Profile</ng-template>
         <div>
             <table>
-                <tr><app-generic-checkbox [question]="treatmentHistoryQuestion" [options]="treatmentHistoryForm"></app-generic-checkbox></tr><hr>
+                <tr><app-generic-checkbox [question]="treatmentHistoryQuestion" [options]="treatmentHistoryForm" (output)="gettreatmentHistoryData($event)"></app-generic-checkbox></tr><hr>
                 <tr><app-generic-radiobutton [question]="chemicallyProcessedDurationQuestion" [options]="chemicallyProcessedDurationOptions"></app-generic-radiobutton></tr><hr>
                 <tr><app-generic-thumb-label-slider [question]="exerciseFrequencyQuestion" [min]="exerciseFrequencyParams.min" [max]="exerciseFrequencyParams.max" [step]="exerciseFrequencyParams.step"></app-generic-thumb-label-slider><hr>
                 <tr><app-generic-thumb-label-slider [question]="shampooFrequencyQuestion" [min]="shampooFrequencyParams.min" [max]="shampooFrequencyParams.max" [step]="shampooFrequencyParams.step"></app-generic-thumb-label-slider><hr>
                 <tr><app-generic-radiobutton [question]="hotToolsFrequencyQuestion" [options]="hotToolsFrequencyOptions"></app-generic-radiobutton></tr><hr>
-                <tr><app-generic-checkbox [question]="stylingProductQuestion" [options]="stylingProductForm"></app-generic-checkbox></tr><hr>
+                <tr><app-generic-checkbox [question]="stylingProductQuestion" [options]="stylingProductForm" (output)="getstylingProductData($event)"></app-generic-checkbox></tr><hr>
                 <tr><app-generic-thumb-label-slider [question]="stylingProductFrequencyQuestion" [min]="stylingProductFrequencyParams.min" [max]="stylingProductFrequencyParams.max" [step]="stylingProductFrequencyParams.step" [unit]="stylingProductFrequencyParams.unit"></app-generic-thumb-label-slider><hr>
-                <tr><app-generic-checkbox [question]="scalpTreatmentQuestion" [options]="scalpTreatmentForm"></app-generic-checkbox></tr><hr>
+                <tr><app-generic-checkbox [question]="scalpTreatmentQuestion" [options]="scalpTreatmentForm" (output)="getscalpTreatmentData($event)"></app-generic-checkbox></tr><hr>
             </table>
         </div>
         <button mat-raised-button matStepperPrevious>Back</button>
@@ -59,16 +64,13 @@
         <div>
             <table>
                 <tr><app-generic-thumb-label-slider [question]="productQuantityQuestion" [min]="productQuantityParams.min" [max]="productQuantityParams.max" [step]="productQuantityParams.step"></app-generic-thumb-label-slider></tr><hr>
-                <tr>
-                    <app-preferences-form (preferencesFormOutput)="GetUserTableData($event)"></app-preferences-form>
-                </tr>
+                <tr><app-preferences-form (preferencesFormOutput)="GetUserTableData($event)"></app-preferences-form></tr>
             </table>
         </div>
         <button mat-raised-button matStepperPrevious>Back</button>
         <button mat-raised-button matStepperNext>Next</button>
     </mat-step>
-    <mat-step>
-        <ng-template matStepLabel>Final</ng-template>
+    <mat-step> <ng-template matStepLabel>Final</ng-template>
         <div>
             <table>
                 <tr>
@@ -98,8 +100,7 @@
         <button mat-raised-button matStepperPrevious>Back</button>
         <button mat-raised-button matStepperNext>Next</button>
     </mat-step>
-    <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
+    <mat-step> <ng-template matStepLabel>Done</ng-template>
     <p style="color:white">You are now done.</p>
     <div>
         <button mat-raised-button matStepperPrevious>Back</button>

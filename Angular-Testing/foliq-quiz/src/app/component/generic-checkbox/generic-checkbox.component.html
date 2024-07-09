@@ -1,11 +1,11 @@
 <h4 style="max-width:80%">{{question}}</h4>
 
-<form [formGroup]="form">
+<form [formGroup]="form" (click)="submit()">
     @for(option of options; track option) {
         <mat-checkbox [formControlName]=option.reference style="min-width:15em; max-width:200px;"> {{option.label}} </mat-checkbox>
     }
 </form>
 
-<!-- Debug stuff
-<h4>You chose:</h4>
+<!-- Debug stuff -->
+<!-- <h4>You chose:</h4>
 {{ form.value | json}} -->

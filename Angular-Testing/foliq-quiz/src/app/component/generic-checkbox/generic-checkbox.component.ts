@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { JsonPipe } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -19,6 +19,7 @@ export class GenericCheckboxComponent implements OnInit{
 
   @Input() question!:string;
   @Input() options!:{label:string,reference:string}[];
+  @Output() output = new EventEmitter<string>();
 
   constructor(private fb: FormBuilder) {}
 
@@ -31,5 +32,11 @@ export class GenericCheckboxComponent implements OnInit{
     }
 
     this.form = this.fb.group(properties);
+  }
+
+  submit() {
+    // console.log("child: ", this.form.getRawValue());
+    
+    this.output.emit(this.form.getRawValue());
   }
 }

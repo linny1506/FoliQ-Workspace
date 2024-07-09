@@ -26,14 +26,16 @@ import { MatButtonModule } from '@angular/material/button';
       ]
 })
 export class QuizFrameComponent {
-  // #region  1) Initial Information 
-  formData!:String;
+  // #region  1) Initial Information
+  name!:string;
+  email!:string;
 
-  // Code example based off of this: https://www.samarpaninfotech.com/blog/methods-to-share-data-between-angular-components/
+  // IO Code example based off of this: https://www.samarpaninfotech.com/blog/methods-to-share-data-between-angular-components/
   
-  GetUserTableData(formData:String){
-    console.log("From Parent: ", formData);
-    this.formData = formData;
+  GetUserTableData(formData:any){
+    console.log("From Parent: ", JSON.stringify(formData));
+    this.name = formData.name;
+    this.email = formData.email;
   }
 
   raceEthnicityQuestion = 'What race/ethnicity or multiple do you closest genetically identify with?';
@@ -47,14 +49,34 @@ export class QuizFrameComponent {
     { label: 'Multiracial or Biracial', reference: 'MultiRacial', index: 7},
     { label: 'Not listed', reference: 'None', index: 8},
   ];
+  raceEthnicity!:string;
+  getRaceEthnicityData(output:any) {
+    // console.log("From Parent: ", JSON.stringify(output));
+    this.raceEthnicity = output;
+  }
   // #endregion
 
   // #region  2) Pictures 
   middlePartPhotoQuestion = 'Please part your hair in the middle of you head and take an image at the top your head showing your scalp';
+  middlePartFile!:File;
+  middlePartFileListener(file:File) { this.middlePartFile = file; };
+
   backHeadPhotoQuestion = 'Please take a picture of the back of your head showing all of your hair';
+  backHeadFile!:File;
+  backHeadFileListener(file:File) { this.backHeadFile = file; };
+
   rightTemplePhotoQuestion = 'Please take a picture of your right temple showing your scalp';
+  rightTempleFile!:File;
+  rightTempleFileListener(file:File) { this.rightTempleFile = file; };
+
   leftTemplePhotoQuestion = 'Please take a picture of your left temple showing your scalp';
+  leftTempleFile!:File;
+  leftTempleFileListener(file:File) { this.leftTempleFile = file; };
+
   currentProductsPhotoQuestion = 'Please take pictures of the product(s) currently in your hair care routine';
+  currentProductsFile!:File;
+  currentProductsFileListener(file:File) { this.currentProductsFile = file; };
+
   // #endregion
 
   // #region  3) Hair/Scalp Profile 
@@ -77,6 +99,11 @@ export class QuizFrameComponent {
     { label: 'Other', reference: 'Other'},
     { label: 'None ', reference: 'None'},
   ];
+  hairConcerns!:string;
+  gethairConcernsData(output:any) {
+    // console.log("From Parent: ", JSON.stringify(output));
+    this.hairConcerns = output;
+  }
 
   scalpConcernsQuestion = 'What are your scalp concerns?';
   scalpConcernsForm = [
@@ -89,6 +116,11 @@ export class QuizFrameComponent {
     { label: 'Other', reference: 'Other'},
     { label: 'None', reference: 'None'},
   ];
+  scalpConcerns!:string;
+  getscalpConcernsData(output:any) {
+    // console.log("From Parent: ", JSON.stringify(output));
+    this.scalpConcerns = output;
+  }
 
   dryTimeQuestion = 'How long does it take to dry your hair?'
   dryTimeParam = {
@@ -114,7 +146,12 @@ export class QuizFrameComponent {
     { label: 'Lifeless', reference: 'Lifeless'},
     { label: 'Tangled', reference: 'Tangled'},
     { label: 'No Change', reference: 'NoChange'},
-  ];  
+  ];
+  humidityEffect!:string;
+  gethumidityEffectData(output:any) {
+    // console.log("From Parent: ", JSON.stringify(output));
+    this.humidityEffect = output;
+  }
 
   // #endregion
 
@@ -127,7 +164,12 @@ export class QuizFrameComponent {
     { label: 'Perm', reference: 'Perm'},
     { label: 'Not in the last 4 years', reference: 'NotRecent'},
     { label: 'None', reference: 'None'},
-  ];  
+  ];
+  treatmentHistory!:string;
+  gettreatmentHistoryData(output:any) {
+    // console.log("From Parent: ", JSON.stringify(output));
+    this.treatmentHistory = output;
+  }
 
   chemicallyProcessedDurationQuestion = 'How long have you chemically processed your hair?';
   chemicallyProcessedDurationOptions = [
@@ -183,6 +225,11 @@ export class QuizFrameComponent {
     { label: 'Other', reference: 'Other'},
     { label: 'None', reference: 'None'},
   ]
+  stylingProduct!:string;
+  getstylingProductData(output:any) {
+    // console.log("From Parent: ", JSON.stringify(output));
+    this.stylingProduct = output;
+  }
 
   stylingProductFrequencyQuestion = 'How often do you use styling products?';
   stylingProductFrequencyParams = {
@@ -198,7 +245,12 @@ export class QuizFrameComponent {
     { label: 'Scalp Treatment', reference: 'ScalpTreatment'},
     { label: 'Hair Serum', reference: 'HairSerum'},
     { label: 'No', reference: 'No'},
-  ]  
+  ]
+  scalpTreatment!:string;
+  getscalpTreatmentData(output:any) {
+    // console.log("From Parent: ", JSON.stringify(output));
+    this.scalpTreatment = output;
+  }
 
   // #endregion
 

@@ -25,9 +25,9 @@ export class UserTableFormComponent {
 
   // Submit method also triggers the event for the output to the UserTable
   submit() {
-    console.log("submit()");
-    console.log("value: ", this.form.value);
-    this.userTableFormOutput.emit(this.form.value);
-    this.form.reset();
+    // console.log("submit()");
+    // console.log("value: ", this.form);
+    this.userTableFormOutput.emit(this.form.getRawValue());
+    // this.form.reset();
   }
 }

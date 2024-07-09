@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-generic-file-submission',
@@ -9,4 +9,10 @@ import { Component, Input } from '@angular/core';
 })
 export class GenericFileSubmissionComponent {
   @Input() question!:string;
+  @Output() fileOutput = new EventEmitter<File>();
+
+  submit(event:any) {
+    const imageFile:File = event.target.files[0];
+    this.fileOutput.emit(imageFile);
+  }
 }

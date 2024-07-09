@@ -1,4 +1,4 @@
-<form [formGroup]="form" (ngSubmit)="submit()" class="formFrame">
+<form [formGroup]="form" (change)="submit()" class="formFrame">
     <table>
         <tr>
             <mat-form-field>
@@ -11,12 +11,12 @@
             </mat-form-field>
         </tr>
     </table>
-    <button type="submit" >Submit</button>
 </form>
 
+<!-- DEBUG
 <div>
   <table>
     <tr> <label>Name:</label> {{form.value.name}} </tr>
     <tr> <label>Email:</label> {{form.value.email}} </tr>
   </table>
-</div>
+</div> -->
