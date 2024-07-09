@@ -136,7 +136,10 @@ export class QuizFrameComponent {
     {label: 'Heat Style Occasionally', reference: 'occasionally'},
     {label: 'Air Dry', reference: 'never'},
   ];
-
+  postWash!:string;
+  getpostWashData(output:any) {
+    this.postWash = output;
+  }
 
   humidityEffectQuestion = 'What is your hair like when it is humid outside?';
   humidityEffectForm = [
@@ -181,6 +184,10 @@ export class QuizFrameComponent {
     { label: '3 years', reference: '3'},
     { label: '4 years or more', reference: '4'},
   ];
+  chemicallyProcessed!:string;
+  getchemicallyProcessedData(output:any) {
+    this.chemicallyProcessed = output;
+  }
 
   exerciseFrequencyQuestion = 'How many times a week do you exercise?';
   exerciseFrequencyParams = {
@@ -205,6 +212,10 @@ export class QuizFrameComponent {
     { label:'Once a Month', reference:'OnceaMonth' },
     { label:'Less than Once a Month', reference:'LessthanOnceaMonth' },
   ]
+  hotToolsFrequency!:string;
+  gethotToolsFrequencyData(output:any) {
+    this.hotToolsFrequency = output;
+  }
 
   stylingProductQuestion = 'Do you use any styling products?';
   stylingProductForm = [
