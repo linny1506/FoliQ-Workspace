@@ -2,7 +2,7 @@
     <mat-step> <ng-template matStepLabel>Initial Information</ng-template>
         <div>
             <table>
-                <tr><app-user-table-form (userTableFormOutput)="GetData($event)"></app-user-table-form></tr>
+                <tr><app-user-table-form (userTableFormOutput)="GetUserTableData($event)"></app-user-table-form></tr>
                 <tr><app-generic-checkbox [question]="raceEthnicityQuestion" [options]="raceEthnicityForm"></app-generic-checkbox></tr>
             </table>
         </div>
@@ -60,22 +60,7 @@
             <table>
                 <tr><app-generic-thumb-label-slider [question]="productQuantityQuestion" [min]="productQuantityParams.min" [max]="productQuantityParams.max" [step]="productQuantityParams.step"></app-generic-thumb-label-slider></tr><hr>
                 <tr>
-                    <p>How much do you want to spend in total?</p>
-                    <input type="number">
-                    <strong>fix this</strong>
-                </tr><hr>
-                <tr>
-                    <label>Where do you purchase your hair products?</label>
-                    <p>This is so we can recommend products based on where you shop!</p>
-                    <input type="text">
-                </tr><hr>
-                <tr>
-                    <label>What is your Zipcode?</label>
-                    <p>We include this so that we can check on the water quality to see if you may need to detox</p>
-                    <input type="number">
-                </tr>
-                <tr>
-                    <app-preferences-form></app-preferences-form>
+                    <app-preferences-form (preferencesFormOutput)="GetUserTableData($event)"></app-preferences-form>
                 </tr>
             </table>
         </div>

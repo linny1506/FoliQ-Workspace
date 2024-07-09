@@ -31,7 +31,7 @@ export class QuizFrameComponent {
 
   // Code example based off of this: https://www.samarpaninfotech.com/blog/methods-to-share-data-between-angular-components/
   
-  GetData(formData:String){
+  GetUserTableData(formData:String){
     console.log("From Parent: ", formData);
     this.formData = formData;
   }
@@ -210,7 +210,11 @@ export class QuizFrameComponent {
     step: 1,
   }
 
-
+  preferencesData!:string;
+  getPreferencesData(formData:string) {
+    console.log("preferencesData: ", formData)
+    this.preferencesData = formData;
+  }
 
 
   // #endregion
