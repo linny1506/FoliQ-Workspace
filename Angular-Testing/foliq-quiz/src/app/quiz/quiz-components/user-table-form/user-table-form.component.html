@@ -1,22 +1,10 @@
 <form [formGroup]="form" (change)="submit()" class="formFrame">
-    <table>
-        <tr>
-            <mat-form-field>
-                <mat-label>Name: </mat-label>
-                <input matInput formControlName="name">
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Email: </mat-label>
-                <input matInput type="email" formControlName="email">
-            </mat-form-field>
-        </tr>
-    </table>
+    <mat-form-field>
+        <mat-label>Name: </mat-label>
+        <input matInput formControlName="name">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Email: </mat-label>
+        <input matInput type="email" formControlName="email">
+    </mat-form-field>
 </form>
-
-<!-- DEBUG
-<div>
-  <table>
-    <tr> <label>Name:</label> {{form.value.name}} </tr>
-    <tr> <label>Email:</label> {{form.value.email}} </tr>
-  </table>
-</div> -->

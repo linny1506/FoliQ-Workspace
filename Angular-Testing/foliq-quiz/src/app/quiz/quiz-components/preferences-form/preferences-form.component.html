@@ -1,25 +1,24 @@
-<form [formGroup]="form" (ngSubmit)="submit()">
-    <table>
-        <tr>
-            <h4>How much do you want to spend in total?</h4>
-            <br><mat-form-field>
-                <span matTextPrefix>$ &nbsp;</span>
-                <input matInput formControlName="budget" min="0" type="number" placeholder="0.00">
-            </mat-form-field>
-            <hr>
-            <h4>Where do you purchase your hair products</h4>
-            <label>This is so we can recommend products based on where you shop!</label>
-            <br><mat-form-field style="width: 100%;">
-                <textarea matInput formControlName="shopPref" placeholder="Ex. Walmart, Amazon, Ulta, Sephora, etc."></textarea>
-            </mat-form-field>
-            <hr>
-            <h4>What is your Zipcode?</h4>
-            <label>We include this so that we can check on the water quality to see if you may need to detox</label>
-            <br><mat-form-field>
-                <mat-label>Zip: </mat-label>
-                <input matInput formControlName="zip" min="10000" max="99999" type="number" placeholder="Ex. 90210">
-            </mat-form-field>
-        </tr>
-    </table>
-    <button type="submit">Submit</button>
+<form [formGroup]="form" (change)="submit()">
+    <div><h4>How much do you want to spend in total?</h4>
+        <br><mat-form-field>
+            <span matTextPrefix>$ &nbsp;</span>
+            <input matInput formControlName="budget" min="0" type="number" placeholder="0.00">
+        </mat-form-field>
+        <hr>
+    </div>
+    <div><h4>Where do you purchase your hair products</h4>
+        <label>This is so we can recommend products based on where you shop!</label>
+        <br><mat-form-field style="width: 100%;">
+            <textarea matInput formControlName="shopPref" placeholder="Ex. Walmart, Amazon, Ulta, Sephora, etc."></textarea>
+        </mat-form-field>
+        <hr>
+    </div>
+    <div><h4>What is your Zipcode?</h4>
+        <label>We include this so that we can check on the water quality to see if you may need to detox</label>
+        <br><mat-form-field>
+            <mat-label>Zip: </mat-label>
+            <input matInput formControlName="zip" #zip [maxlength]="5" min="10000" max="99999" type="number" placeholder="Ex. 90210">
+            <mat-hint align="end">{{zip.value.length}} / 5</mat-hint>
+        </mat-form-field>
+    </div>
 </form>

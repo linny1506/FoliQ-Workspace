@@ -13,15 +13,10 @@
         <label> Submit the following pictures of your hair </label>
         <div>
             <table>
-                <!-- DEBUG STUFF: @if (middlePartFile) {<tr>{{middlePartFile.name}}</tr>} -->
                 <tr> <app-generic-file-submission [question]="middlePartPhotoQuestion" (fileOutput)="middlePartFileListener($event)"></app-generic-file-submission> </tr><hr>
-                <!-- DEBUG STUFF: @if (backHeadFile) {<tr>{{backHeadFile.name}}</tr>} -->
                 <tr> <app-generic-file-submission [question]="backHeadPhotoQuestion" (fileOutput)="backHeadFileListener($event)"></app-generic-file-submission> </tr><hr>
-                <!-- DEBUG STUFF: @if (rightTempleFile) {<tr>{{rightTempleFile.name}}</tr>} -->
                 <tr> <app-generic-file-submission [question]="rightTemplePhotoQuestion" (fileOutput)="rightTempleFileListener($event)"></app-generic-file-submission> </tr><hr>
-                <!-- DEBUG STUFF: @if (leftTempleFile) {<tr>{{leftTempleFile.name}}</tr>} -->
                 <tr> <app-generic-file-submission [question]="leftTemplePhotoQuestion" (fileOutput)="leftTempleFileListener($event)"></app-generic-file-submission> </tr><hr>
-                <!-- DEBUG STUFF: @if (currentProductsFile) {<tr>{{currentProductsFile.name}}</tr>} -->
                 <tr> <app-generic-file-submission [question]="currentProductsPhotoQuestion" (fileOutput)="currentProductsFileListener($event)"></app-generic-file-submission> </tr><hr>
             </table>
         </div>
@@ -35,8 +30,8 @@
                 <tr><app-generic-checkbox [question]="scalpConcernsQuestion" [options]="scalpConcernsForm" (output)="getscalpConcernsData($event)"></app-generic-checkbox></tr><hr>
                 <tr><strong>hair texture placeholder</strong></tr><hr>
                 <tr><app-generic-radiobutton [question]="postWashQuestion" [options]="postWashOptions" (output)="getpostWashData($event)"></app-generic-radiobutton></tr><hr>
-                <tr><app-generic-thumb-label-slider [question]="dryTimeQuestion" [min]="dryTimeParam.min" [max]="dryTimeParam.max" [step]="dryTimeParam.step" [unit]="dryTimeParam.unit"></app-generic-thumb-label-slider><hr>
-                <tr><app-generic-checkbox [question]="humidityEffectQuestion" [options]="humidityEffectForm" (output)="gethumidityEffectData"></app-generic-checkbox></tr><hr>
+                <tr><app-generic-thumb-label-slider [question]="dryTimeQuestion" [min]="dryTimeParam.min" [max]="dryTimeParam.max" [step]="dryTimeParam.step" [unit]="dryTimeParam.unit" (output)="getdryTimeData($event)"></app-generic-thumb-label-slider><hr>
+                <tr><app-generic-checkbox [question]="humidityEffectQuestion" [options]="humidityEffectForm" (output)="gethumidityEffectData($event)"></app-generic-checkbox></tr><hr>
                 <tr><strong>scalp visibility placeholder</strong></tr><hr>
                 <tr><strong>hair thickness placeholder</strong></tr><hr>
             </table>
@@ -49,11 +44,11 @@
             <table>
                 <tr><app-generic-checkbox [question]="treatmentHistoryQuestion" [options]="treatmentHistoryForm" (output)="gettreatmentHistoryData($event)"></app-generic-checkbox></tr><hr>
                 <tr><app-generic-radiobutton [question]="chemicallyProcessedDurationQuestion" [options]="chemicallyProcessedDurationOptions" (output)="getchemicallyProcessedData($event)"></app-generic-radiobutton></tr><hr>
-                <tr><app-generic-thumb-label-slider [question]="exerciseFrequencyQuestion" [min]="exerciseFrequencyParams.min" [max]="exerciseFrequencyParams.max" [step]="exerciseFrequencyParams.step"></app-generic-thumb-label-slider><hr>
-                <tr><app-generic-thumb-label-slider [question]="shampooFrequencyQuestion" [min]="shampooFrequencyParams.min" [max]="shampooFrequencyParams.max" [step]="shampooFrequencyParams.step"></app-generic-thumb-label-slider><hr>
+                <tr><app-generic-thumb-label-slider [question]="exerciseFrequencyQuestion" [min]="exerciseFrequencyParams.min" [max]="exerciseFrequencyParams.max" [step]="exerciseFrequencyParams.step" (output)="getexerciseFrequencyData($event)"></app-generic-thumb-label-slider><hr>
+                <tr><app-generic-thumb-label-slider [question]="shampooFrequencyQuestion" [min]="shampooFrequencyParams.min" [max]="shampooFrequencyParams.max" [step]="shampooFrequencyParams.step" (output)="getshampooFrequencyData($event)"></app-generic-thumb-label-slider><hr>
                 <tr><app-generic-radiobutton [question]="hotToolsFrequencyQuestion" [options]="hotToolsFrequencyOptions" (output)="gethotToolsFrequencyData($event)"></app-generic-radiobutton></tr><hr>
                 <tr><app-generic-checkbox [question]="stylingProductQuestion" [options]="stylingProductForm" (output)="getstylingProductData($event)"></app-generic-checkbox></tr><hr>
-                <tr><app-generic-thumb-label-slider [question]="stylingProductFrequencyQuestion" [min]="stylingProductFrequencyParams.min" [max]="stylingProductFrequencyParams.max" [step]="stylingProductFrequencyParams.step" [unit]="stylingProductFrequencyParams.unit"></app-generic-thumb-label-slider><hr>
+                <tr><app-generic-thumb-label-slider [question]="stylingProductFrequencyQuestion" [min]="stylingProductFrequencyParams.min" [max]="stylingProductFrequencyParams.max" [step]="stylingProductFrequencyParams.step" [unit]="stylingProductFrequencyParams.unit" (output)="getstylingProductFrequencyData($event)"></app-generic-thumb-label-slider><hr>
                 <tr><app-generic-checkbox [question]="scalpTreatmentQuestion" [options]="scalpTreatmentForm" (output)="getscalpTreatmentData($event)"></app-generic-checkbox></tr><hr>
             </table>
         </div>
@@ -63,7 +58,7 @@
     <mat-step> <ng-template matStepLabel>Preferences and Miscellaneous </ng-template>
         <div>
             <table>
-                <tr><app-generic-thumb-label-slider [question]="productQuantityQuestion" [min]="productQuantityParams.min" [max]="productQuantityParams.max" [step]="productQuantityParams.step"></app-generic-thumb-label-slider></tr><hr>
+                <tr><app-generic-thumb-label-slider [question]="productQuantityQuestion" [min]="productQuantityParams.min" [max]="productQuantityParams.max" [step]="productQuantityParams.step" (output)="getproductQuantityData($event)"></app-generic-thumb-label-slider></tr><hr>
                 <tr><app-preferences-form (preferencesFormOutput)="GetUserTableData($event)"></app-preferences-form></tr>
             </table>
         </div>

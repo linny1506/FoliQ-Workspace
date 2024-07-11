@@ -15,7 +15,6 @@ export class UserTableFormComponent {
 
   @Output() userTableFormOutput = new EventEmitter<string>();
 
-  
   constructor(private fb: FormBuilder) {
     this.form = fb.group({
       name:[],
@@ -23,11 +22,5 @@ export class UserTableFormComponent {
     })
   }
 
-  // Submit method also triggers the event for the output to the UserTable
-  submit() {
-    // console.log("submit()");
-    // console.log("value: ", this.form);
-    this.userTableFormOutput.emit(this.form.getRawValue());
-    // this.form.reset();
-  }
+  submit() { this.userTableFormOutput.emit(this.form.getRawValue()); }
 }

@@ -11,8 +11,5 @@ export class GenericFileSubmissionComponent {
   @Input() question!:string;
   @Output() fileOutput = new EventEmitter<File>();
 
-  submit(event:any) {
-    const imageFile:File = event.target.files[0];
-    this.fileOutput.emit(imageFile);
-  }
+  submit(event:any) { this.fileOutput.emit(event.target.files[0]); }
 }

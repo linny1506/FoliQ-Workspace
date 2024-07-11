@@ -35,17 +35,18 @@ $foliq-quiz-theme: mat.define-light-theme((
 // that you are using.
 @include mat.all-component-themes($foliq-quiz-theme);
 
+
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #86a3ee;}
+body { margin: 0; background-color: #86a3ee;}
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #86a3ee;}
 
 // @import url("https://fonts.googleapis.com/css?family=Montserrat");
 // import statement from the index.html file instead
 * {
   font-family: montserrat;
 }
-
 
 hr {
   width:95%

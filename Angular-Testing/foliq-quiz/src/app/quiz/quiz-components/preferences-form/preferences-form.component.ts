@@ -23,9 +23,6 @@ export class PreferencesFormComponent {
   }
 
   submit() {
-    console.log("submit()");
-    console.log("value: ", this.form.value);
     this.preferencesFormOutput.emit(this.form.value);
-    this.form.reset();
   }
 }

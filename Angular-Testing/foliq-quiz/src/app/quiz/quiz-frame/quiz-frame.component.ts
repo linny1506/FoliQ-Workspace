@@ -10,8 +10,7 @@ import { GenericRadiobuttonComponent } from '../../component/generic-radiobutton
 import { UserTableFormComponent } from '../quiz-components/user-table-form/user-table-form.component';
 import { PreferencesFormComponent } from '../quiz-components/preferences-form/preferences-form.component';
 
-
-// Imports for the Stepper and Angular Material Button
+// Angular Material Imports
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -20,40 +19,34 @@ import { MatButtonModule } from '@angular/material/button';
     standalone: true,
     templateUrl: './quiz-frame.component.html',
     styleUrl: './quiz-frame.component.scss',
-    imports: [MatStepperModule, MatButtonModule,
-        UserTableFormComponent, PreferencesFormComponent,
-        GenericCheckboxComponent, GenericFileSubmissionComponent, GenericThumbLabelSliderComponent, GenericRadiobuttonComponent,
+    imports: [ GenericCheckboxComponent, GenericThumbLabelSliderComponent, GenericFileSubmissionComponent, GenericRadiobuttonComponent,
+      UserTableFormComponent, PreferencesFormComponent,
+      MatStepperModule, MatButtonModule,
       ]
 })
 export class QuizFrameComponent {
   // #region  1) Initial Information
   name!:string;
   email!:string;
-
-  // IO Code example based off of this: https://www.samarpaninfotech.com/blog/methods-to-share-data-between-angular-components/
-  
+  // IO Code example based off of this: https://www.samarpaninfotech.com/blog/methods-to-share-data-between-angular-components/  
   GetUserTableData(formData:any){
-    console.log("From Parent: ", JSON.stringify(formData));
     this.name = formData.name;
     this.email = formData.email;
   }
 
   raceEthnicityQuestion = 'What race/ethnicity or multiple do you closest genetically identify with?';
   raceEthnicityForm = [
-    { label: 'Asian or Pacific Islander', reference: 'API', index: 1},
-    { label: 'Black, African American, or African', reference: 'Black', index: 2},
-    { label: 'Hispanic or Latino', reference: 'Latino', index: 3},
-    { label: 'Native American or Alaskan Native', reference: 'AmericanNative', index: 4},
-    { label: 'White, Caucasian, or European', reference: 'Caucasian', index: 5},
-    { label: 'South Asian', reference: 'SouthAsian', index: 6},
-    { label: 'Multiracial or Biracial', reference: 'MultiRacial', index: 7},
-    { label: 'Not listed', reference: 'None', index: 8},
+    { label: 'Asian or Pacific Islander', reference: 'API'},
+    { label: 'Black, African American, or African', reference: 'Black'},
+    { label: 'Hispanic or Latino', reference: 'Latino'},
+    { label: 'Native American or Alaskan Native', reference: 'AmericanNative'},
+    { label: 'White, Caucasian, or European', reference: 'Caucasian'},
+    { label: 'South Asian', reference: 'SouthAsian'},
+    { label: 'Multiracial or Biracial', reference: 'MultiRacial'},
+    { label: 'Not listed', reference: 'None'},
   ];
   raceEthnicity!:string;
-  getRaceEthnicityData(output:any) {
-    // console.log("From Parent: ", JSON.stringify(output));
-    this.raceEthnicity = output;
-  }
+  getRaceEthnicityData(output:any) { this.raceEthnicity = output; }
   // #endregion
 
   // #region  2) Pictures 
@@ -76,7 +69,6 @@ export class QuizFrameComponent {
   currentProductsPhotoQuestion = 'Please take pictures of the product(s) currently in your hair care routine';
   currentProductsFile!:File;
   currentProductsFileListener(file:File) { this.currentProductsFile = file; };
-
   // #endregion
 
   // #region  3) Hair/Scalp Profile 
@@ -100,10 +92,7 @@ export class QuizFrameComponent {
     { label: 'None ', reference: 'None'},
   ];
   hairConcerns!:string;
-  gethairConcernsData(output:any) {
-    // console.log("From Parent: ", JSON.stringify(output));
-    this.hairConcerns = output;
-  }
+  gethairConcernsData(output:any) { this.hairConcerns = output; }
 
   scalpConcernsQuestion = 'What are your scalp concerns?';
   scalpConcernsForm = [
@@ -117,10 +106,7 @@ export class QuizFrameComponent {
     { label: 'None', reference: 'None'},
   ];
   scalpConcerns!:string;
-  getscalpConcernsData(output:any) {
-    // console.log("From Parent: ", JSON.stringify(output));
-    this.scalpConcerns = output;
-  }
+  getscalpConcernsData(output:any) { this.scalpConcerns = output; }
 
   dryTimeQuestion = 'How long does it take to dry your hair?'
   dryTimeParam = {
@@ -128,18 +114,18 @@ export class QuizFrameComponent {
     max: 4,
     step: 0.5,
     unit: 'hr',
-  }
+  };
+  dryTime!:string;
+  getdryTimeData(output:any) { this.dryTime = output; }
 
   postWashQuestion = 'What do you typically do after washing your hair?';
   postWashOptions = [
-    {label: 'Heat Style Daily', reference: 'daily'},
-    {label: 'Heat Style Occasionally', reference: 'occasionally'},
-    {label: 'Air Dry', reference: 'never'},
+    { label: 'Heat Style Daily', reference: 'daily'},
+    { label: 'Heat Style Occasionally', reference: 'occasionally'},
+    { label: 'Air Dry', reference: 'never'},
   ];
   postWash!:string;
-  getpostWashData(output:any) {
-    this.postWash = output;
-  }
+  getpostWashData(output:any) { this.postWash = output; }
 
   humidityEffectQuestion = 'What is your hair like when it is humid outside?';
   humidityEffectForm = [
@@ -151,11 +137,7 @@ export class QuizFrameComponent {
     { label: 'No Change', reference: 'NoChange'},
   ];
   humidityEffect!:string;
-  gethumidityEffectData(output:any) {
-    // console.log("From Parent: ", JSON.stringify(output));
-    this.humidityEffect = output;
-  }
-
+  gethumidityEffectData(output:any) { this.humidityEffect = output; }
   // #endregion
 
   // #region  4) Treatment/Lifestyle Profile 
@@ -169,10 +151,7 @@ export class QuizFrameComponent {
     { label: 'None', reference: 'None'},
   ];
   treatmentHistory!:string;
-  gettreatmentHistoryData(output:any) {
-    // console.log("From Parent: ", JSON.stringify(output));
-    this.treatmentHistory = output;
-  }
+  gettreatmentHistoryData(output:any) { this.treatmentHistory = output; }
 
   chemicallyProcessedDurationQuestion = 'How long have you chemically processed your hair?';
   chemicallyProcessedDurationOptions = [
@@ -185,37 +164,37 @@ export class QuizFrameComponent {
     { label: '4 years or more', reference: '4'},
   ];
   chemicallyProcessed!:string;
-  getchemicallyProcessedData(output:any) {
-    this.chemicallyProcessed = output;
-  }
+  getchemicallyProcessedData(output:any) { this.chemicallyProcessed = output; }
 
   exerciseFrequencyQuestion = 'How many times a week do you exercise?';
   exerciseFrequencyParams = {
     min: 0,
     max: 7,
     step: 0.5,
-  }
+  };
+  exerciseFrequency!:string;
+  getexerciseFrequencyData(output:any) { this.exerciseFrequency = output; }
 
   shampooFrequencyQuestion = 'How often did you shampoo each week?';
   shampooFrequencyParams = {
     min: 0,
     max: 7,
     step: 0.5,
-  }
+  };
+  shampooFrequency!:string;
+  getshampooFrequencyData(output:any) { this.shampooFrequency = output; }
 
   hotToolsFrequencyQuestion = 'How often do you use hot tools?';
   hotToolsFrequencyOptions = [
-    { label:'Never', reference:'Never' },
-    { label:'Every Day', reference:'EveryDay' },
-    { label:'Every Other Day', reference:'EveryOtherDay' },
-    { label:'Once a Week', reference:'OnceaWeek' },
-    { label:'Once a Month', reference:'OnceaMonth' },
-    { label:'Less than Once a Month', reference:'LessthanOnceaMonth' },
-  ]
+    { label:'Never', reference:'Never'},
+    { label:'Every Day', reference:'EveryDay'},
+    { label:'Every Other Day', reference:'EveryOtherDay'},
+    { label:'Once a Week', reference:'OnceaWeek'},
+    { label:'Once a Month', reference:'OnceaMonth'},
+    { label:'Less than Once a Month', reference:'LessthanOnceaMonth'},
+  ];
   hotToolsFrequency!:string;
-  gethotToolsFrequencyData(output:any) {
-    this.hotToolsFrequency = output;
-  }
+  gethotToolsFrequencyData(output:any) { this.hotToolsFrequency = output; }
 
   stylingProductQuestion = 'Do you use any styling products?';
   stylingProductForm = [
@@ -235,12 +214,9 @@ export class QuizFrameComponent {
     { label: 'Styling Puttys', reference: 'StylingPuttys'},
     { label: 'Other', reference: 'Other'},
     { label: 'None', reference: 'None'},
-  ]
+  ];
   stylingProduct!:string;
-  getstylingProductData(output:any) {
-    // console.log("From Parent: ", JSON.stringify(output));
-    this.stylingProduct = output;
-  }
+  getstylingProductData(output:any) { this.stylingProduct = output; }
 
   stylingProductFrequencyQuestion = 'How often do you use styling products?';
   stylingProductFrequencyParams = {
@@ -248,7 +224,9 @@ export class QuizFrameComponent {
     max: 7,
     step: 1,
     unit: 'times per week',
-  }
+  };
+  stylingProductFrequency!:string;
+  getstylingProductFrequencyData(output:any) { this.stylingProductFrequency = output; }
 
   scalpTreatmentQuestion = 'Do you use any in-scalp treatments?';
   scalpTreatmentForm = [
@@ -256,13 +234,9 @@ export class QuizFrameComponent {
     { label: 'Scalp Treatment', reference: 'ScalpTreatment'},
     { label: 'Hair Serum', reference: 'HairSerum'},
     { label: 'No', reference: 'No'},
-  ]
+  ];
   scalpTreatment!:string;
-  getscalpTreatmentData(output:any) {
-    // console.log("From Parent: ", JSON.stringify(output));
-    this.scalpTreatment = output;
-  }
-
+  getscalpTreatmentData(output:any) { this.scalpTreatment = output; }
   // #endregion
 
   // #region  5) Preferences and Miscellaneous  
@@ -271,15 +245,12 @@ export class QuizFrameComponent {
     min: 0,
     max: 8,
     step: 1,
-  }
+  };
+  productQuantity!:string;
+  getproductQuantityData(output:any) { this.productQuantity = output; }
 
   preferencesData!:string;
-  getPreferencesData(formData:string) {
-    console.log("preferencesData: ", formData)
-    this.preferencesData = formData;
-  }
-
-
+  getPreferencesData(formData:string) { this.preferencesData = formData; }
   // #endregion
 
   // #region  6) Final
