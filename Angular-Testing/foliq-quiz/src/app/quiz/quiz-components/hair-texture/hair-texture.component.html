@@ -1,0 +1,14 @@
+<canvas #canvas width="360" height="360" style="border:1px solid #d3d3d3;"></canvas>
+<button (click)="clear()">clear</button>
+
+<br>
+<div>
+    <mat-slider style="width:360px" [min]="amplitudeParams.min" [max]="amplitudeParams.max" [step]="amplitudeParams.step" showTickMarks discrete [displayWith]="formatLabel">
+        <input matSliderThumb [(value)]="amplitude" (input)="submitAmplitude($event)">
+    </mat-slider>
+</div>
+<div>
+    <mat-slider style="width:360px" [min]="periodParams.min" [max]="periodParams.max" [step]="periodParams.step" showTickMarks discrete [displayWith]="formatLabel">
+        <input matSliderThumb [(value)]="period" (input)="submitPeriod($event)">
+    </mat-slider>
+</div>
