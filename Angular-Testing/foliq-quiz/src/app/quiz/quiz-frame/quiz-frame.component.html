@@ -1,3 +1,7 @@
+<div style="background-color:white"><h1>test</h1>
+    <app-hair-texture></app-hair-texture>
+</div>
+
 <mat-stepper orientation='vertical' #stepper [linear]="false" style="background-color: #f6f6f8; border-radius: 25px;">
     <mat-step> <ng-template matStepLabel>Initial Information</ng-template>
         <div>
@@ -28,7 +32,7 @@
             <table>
                 <tr><app-generic-checkbox [question]="hairConcernsQuestion" [options]="hairConcernsForm" (output)="gethairConcernsData($event)"></app-generic-checkbox></tr><hr>
                 <tr><app-generic-checkbox [question]="scalpConcernsQuestion" [options]="scalpConcernsForm" (output)="getscalpConcernsData($event)"></app-generic-checkbox></tr><hr>
-                <tr><strong>hair texture placeholder</strong></tr><hr>
+                <tr><app-hair-texture></app-hair-texture></tr><hr>
                 <tr><app-generic-radiobutton [question]="postWashQuestion" [options]="postWashOptions" (output)="getpostWashData($event)"></app-generic-radiobutton></tr><hr>
                 <tr><app-generic-thumb-label-slider [question]="dryTimeQuestion" [min]="dryTimeParam.min" [max]="dryTimeParam.max" [step]="dryTimeParam.step" [unit]="dryTimeParam.unit" (output)="getdryTimeData($event)"></app-generic-thumb-label-slider><hr>
                 <tr><app-generic-checkbox [question]="humidityEffectQuestion" [options]="humidityEffectForm" (output)="gethumidityEffectData($event)"></app-generic-checkbox></tr><hr>
@@ -67,30 +71,7 @@
     </mat-step>
     <mat-step> <ng-template matStepLabel>Final</ng-template>
         <div>
-            <table>
-                <tr>
-                    <br> <label>Do you have any questions for our hair care experts?</label>
-                    <br> <input type="text">
-                    <strong>make this prettier :)</strong>
-                </tr>
-                <tr>
-                    <div style="max-width:750px;">
-                        <br> <br> Our Research Program and Consent Form
-                        <br> <br> Last Updated: September 20, 2022
-                        <br> <br> Part of our mission is to participate in research for the purpose of expanding our knowledge and understanding of hair care, hair health, and personal care product development.
-                        <br> <br> If you are enrolled in our research program, you may be asked to provide various assessments about your hair, including, but not limited to, research questionnaire responses, photos of your hair, current hair product labels, your hair scalp photos,  and/or samples for laboratory assessment (collectively the “Reported  Information”). As part of our research program, we will aggregate this Reported Information, analyze data against  reference databases, benchmark data, literature, and provide insights about your hair condition and hair health. In addition, we will  analyze the grouped data in aggregate in order to unearth findings related to hair health and product development. Aggregate data will not reveal any personal information, all data will be masked and scrubbed for personal information. 
-                        <br> <br> If you are enrolled in our research program, we may use some or all of your information and Reported  Information to conduct research and publish the results of that research in peer-reviewed publications and other  works of literature. We also have the right to leverage aggregate data to optimize our proprietary algorithms.  Consumers have the right to individual data but no rights to our aggregate data. We take privacy very seriously. You  understand that, by providing any samples, having your hair and scalp information processed, accessing your hair analysis information, or providing your Reported Information, you acquire no rights in any research or  commercial products that may be developed by us or our collaborating partners and you specifically understand that  you will not receive compensation for any research or commercial products that include or result from your hair care information or Self-Reported Information.  
-                        <br> <br> We will not use any identifiable information about you or any other humans in our research or in any publication. Nor  will we identify your name or other identifying information in any publication.  
-                        <br> <br> At any time, you may withdraw your consent to participate in our research program by emailing us at  info&#64;foliq.me. Any withdrawal of consent will take effect after thirty (30) days. We will not reverse, undo or  withdraw any research or publication that was performed using your information before that date.  
-                        <br> <br> We may withdraw your Reported Information from, or terminate, any research we undertake at any time without  your consent. In all cases, your information will continue to be subject to our Privacy Policy available  on our website –    
-                    </div>
-                </tr>
-                <tr>
-                    <br> <label>Please enter the order number associated wtih your hair analysis order</label>
-                    <br> <input type="text">
-                    <strong>make this prettier :)</strong>
-                </tr>
-            </table>
+            <app-final-form (output)="getFinalFormOutput($event)"></app-final-form>
         </div>
         <button mat-raised-button matStepperPrevious>Back</button>
         <button mat-raised-button matStepperNext>Next</button>

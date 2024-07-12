@@ -1,6 +1,6 @@
 <h4>{{question}}</h4>
 <br>
-<mat-slider classp="thumb-label-slider" [min]="min" [max]="max" [step]="step" showTickMarks discrete [displayWith]="formatLabel">
+<mat-slider class="thumb-label-slider" [min]="min" [max]="max" [step]="step" showTickMarks discrete [displayWith]="formatLabel">
     <input matSliderThumb [(value)]="value" (valueChange)="submit()">
 </mat-slider>
 @if (unit) { <p>Units in:{{unit}}</p> }

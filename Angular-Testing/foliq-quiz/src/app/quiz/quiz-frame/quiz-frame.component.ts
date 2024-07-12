@@ -9,6 +9,10 @@ import { GenericRadiobuttonComponent } from '../../component/generic-radiobutton
 // Forms
 import { UserTableFormComponent } from '../quiz-components/user-table-form/user-table-form.component';
 import { PreferencesFormComponent } from '../quiz-components/preferences-form/preferences-form.component';
+import { FinalFormComponent } from '../quiz-components/final-form/final-form.component';
+
+// Custom Components
+import { HairTextureComponent } from '../quiz-components/hair-texture/hair-texture.component';
 
 // Angular Material Imports
 import { MatStepperModule } from '@angular/material/stepper';
@@ -20,7 +24,8 @@ import { MatButtonModule } from '@angular/material/button';
     templateUrl: './quiz-frame.component.html',
     styleUrl: './quiz-frame.component.scss',
     imports: [ GenericCheckboxComponent, GenericThumbLabelSliderComponent, GenericFileSubmissionComponent, GenericRadiobuttonComponent,
-      UserTableFormComponent, PreferencesFormComponent,
+      UserTableFormComponent, PreferencesFormComponent, FinalFormComponent,
+      HairTextureComponent,
       MatStepperModule, MatButtonModule,
       ]
 })
@@ -253,7 +258,8 @@ export class QuizFrameComponent {
   getPreferencesData(formData:string) { this.preferencesData = formData; }
   // #endregion
 
-  // #region  6) Final
-
+  // #region  6) Final 
+  finalForm!:string;
+  getFinalFormOutput(output:string) { this.finalForm = output; }
   // #endregion
 }
