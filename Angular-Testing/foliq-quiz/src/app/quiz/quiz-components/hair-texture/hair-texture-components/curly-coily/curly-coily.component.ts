@@ -12,13 +12,10 @@ import { MatSlider, MatSliderModule } from '@angular/material/slider';
   styleUrl: './curly-coily.component.scss'
 })
 export class CurlyCoilyComponent implements AfterViewInit {
-  // #region canvas things 
-
-
+// #region canvas things 
   // code based off of: https://vivekseth.com/parametric-drawing-canvas/
   canvasWidth:number = 300;
   canvasHeight:number = 100;
-  
   
   // seting up the canvas
   @ViewChild('canvas', {static:false}) canvas!: ElementRef;
@@ -58,7 +55,7 @@ export class CurlyCoilyComponent implements AfterViewInit {
   // #region slider things 
   // #region    period 
   periodParams = {
-    min:0,
+    min:0.5,
     max:10,
     step:0.1,
   }

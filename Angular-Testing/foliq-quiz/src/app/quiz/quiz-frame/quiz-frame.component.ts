@@ -12,11 +12,11 @@ import { PreferencesFormComponent } from '../quiz-components/preferences-form/pr
 import { FinalFormComponent } from '../quiz-components/final-form/final-form.component';
 
 // Custom Components
-import { HairTextureComponent } from '../quiz-components/hair-texture/hair-texture.component';
 
 // Angular Material Imports
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatButtonModule } from '@angular/material/button';
+import { HairTextureQuestionComponent } from '../quiz-components/hair-texture/hair-texture-question/hair-texture-question.component';
 
 @Component({
     selector: 'app-quiz-frame',
@@ -25,7 +25,7 @@ import { MatButtonModule } from '@angular/material/button';
     styleUrl: './quiz-frame.component.scss',
     imports: [ GenericCheckboxComponent, GenericThumbLabelSliderComponent, GenericFileSubmissionComponent, GenericRadiobuttonComponent,
       UserTableFormComponent, PreferencesFormComponent, FinalFormComponent,
-      HairTextureComponent,
+      HairTextureQuestionComponent,
       MatStepperModule, MatButtonModule,
       ]
 })
