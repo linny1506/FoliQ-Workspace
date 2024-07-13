@@ -1,20 +1,16 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
-import { GenericThumbLabelSliderComponent } from '../../../component/generic-thumb-label-slider/generic-thumb-label-slider.component';
+import { GenericThumbLabelSliderComponent } from '../../../../../component/generic-thumb-label-slider/generic-thumb-label-slider.component';
 import { MatSlider, MatSliderModule } from '@angular/material/slider';
-import { StraightWavyComponent } from "./hair-texture-components/straight-wavy/straight-wavy.component";
-import { CurlyCoilyComponent } from './hair-texture-components/curly-coily/curly-coily.component';
 
 @Component({
-  selector: 'app-hair-texture',
+  selector: 'app-straight-wavy',
   standalone: true,
   imports: [GenericThumbLabelSliderComponent,
-    MatSlider, MatSliderModule, 
-    StraightWavyComponent, CurlyCoilyComponent,
-  ],
-  templateUrl: './hair-texture.component.html',
-  styleUrl: './hair-texture.component.scss'
+    MatSlider, MatSliderModule],
+  templateUrl: './straight-wavy.component.html',
+  styleUrl: './straight-wavy.component.scss'
 })
-export class HairTextureComponent implements AfterViewInit {
+export class StraightWavyComponent implements AfterViewInit{
   // Based off of this code: https://stackoverflow.com/a/38350878/25376114
 
   // #canvas functions
