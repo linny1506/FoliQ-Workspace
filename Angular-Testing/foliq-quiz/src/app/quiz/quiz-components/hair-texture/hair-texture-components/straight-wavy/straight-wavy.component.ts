@@ -6,7 +6,8 @@ import { MatSlider, MatSliderModule } from '@angular/material/slider';
   selector: 'app-straight-wavy',
   standalone: true,
   imports: [GenericThumbLabelSliderComponent,
-    MatSlider, MatSliderModule],
+    MatSlider, MatSliderModule
+  ],
   templateUrl: './straight-wavy.component.html',
   styleUrl: './straight-wavy.component.scss'
 })
