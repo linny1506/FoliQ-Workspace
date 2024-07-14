@@ -1,11 +1,13 @@
 <h4>What is your hair texture?</h4>
-<label style="max-width:800px"> Adjust the sliders to make the line match as close to the shape of a strand of your hair if it were press flat</label>
-<label style="max-width:800px"> For example, </label>
 
-<div>
-    <app-straight-wavy></app-straight-wavy>
-</div>
-<hr>
-<div>
-    <app-curly-coily></app-curly-coily>
-</div>
+<app-generic-radiobutton [options]="options" (output)="getOutput($event)"></app-generic-radiobutton>
+@if (output) { {{output}} }
+<strong> add radio buttons for straight/wavy or coily/curly </strong>
+<br>
+
+
+<label style="max-width:800px"> Adjust the sliders to make the line match as close to the shape of a strand of your hair if it were press flat. </label>
+
+@if("a" == output) {<app-straight-wavy></app-straight-wavy>}
+@else if("b" == output) {<app-curly-coily></app-curly-coily>}
+

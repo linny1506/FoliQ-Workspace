@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Directive, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
 
@@ -21,5 +21,7 @@ export class GenericRadiobuttonComponent {
     this.form = fb.group({ formOutput:[], });
   }
 
-  submit() { this.output.emit(this.form.getRawValue()); }
+  submit() { 
+    this.output.emit(this.form.getRawValue()); 
+  }
 }
