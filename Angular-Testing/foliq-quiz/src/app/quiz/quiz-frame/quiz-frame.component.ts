@@ -12,11 +12,11 @@ import { PreferencesFormComponent } from '../quiz-components/preferences-form/pr
 import { FinalFormComponent } from '../quiz-components/final-form/final-form.component';
 
 // Custom Components
+import { HairTextureQuestionComponent } from '../quiz-components/hair-texture/hair-texture-question/hair-texture-question.component';
 
 // Angular Material Imports
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatButtonModule } from '@angular/material/button';
-import { HairTextureQuestionComponent } from '../quiz-components/hair-texture/hair-texture-question/hair-texture-question.component';
 
 @Component({
     selector: 'app-quiz-frame',
@@ -112,6 +112,13 @@ export class QuizFrameComponent {
   ];
   scalpConcerns!:string;
   getscalpConcernsData(output:any) { this.scalpConcerns = output; }
+
+  hairTexture!:{type:"straightWavy" | "curlyCoily", amplitude:number, period:number, pitch?:number, };
+  getHairTexture(output:any) { this.hairConcerns = output; 
+    console.log(output);
+    console.log(this.hairTexture);
+    
+  }
 
   dryTimeQuestion = 'How long does it take to dry your hair?'
   dryTimeParam = {

@@ -1,20 +1,19 @@
-<h1>curlyCoilyComponent <strong>WIP</strong></h1>
 <div class="flex-container" style="max-width:800px;">
     <div class="flex-item-left">
-        <canvas #canvas [width]="canvasWidth" [height]="canvasHeight" style="border:1px solid #000;"></canvas>
+        <canvas #canvas [width]="canvasWidth" [height]="canvasHeight" style="border:1px solid #d3d3d3;"></canvas>
     </div>
     <div class="flex-item-right">
-        <div> <label>Wave Height Slider: </label> 
+        <div> <label>Wave Height Slider: </label> <br>
             <mat-slider style="width:300px" [min]="amplitudeParams.min" [max]="amplitudeParams.max" [step]="amplitudeParams.step" showTickMarks discrete [displayWith]="formatLabel">
                 <input matSliderThumb [(value)]="cx" (input)="submitAmplitude($event)">
             </mat-slider>
         </div>
-        <div> <label>Frequency Slider: </label> 
+        <div> <label>Frequency Slider: </label> <br>
             <mat-slider style="width:300px" [min]="periodParams.min" [max]="periodParams.max" [step]="periodParams.step" showTickMarks discrete [displayWith]="formatLabel">
                 <input matSliderThumb [(value)]="ax" (input)="submitPeriod($event)">
             </mat-slider>
         </div>
-        <div> <label>Pitch Slider: </label> 
+        <div> <label>Pitch Slider: </label> <br>
             <mat-slider style="width:300px" [min]="pitchParams.min" [max]="pitchParams.max" [step]="pitchParams.step" showTickMarks discrete [displayWith]="formatLabel">
                 <input matSliderThumb [(value)]="bx" (input)="submitPitch($event)">
             </mat-slider>

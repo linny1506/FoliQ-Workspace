@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, Output, output, ViewChild } from '@angular/core';
 import { GenericThumbLabelSliderComponent } from '../../../../../component/generic-thumb-label-slider/generic-thumb-label-slider.component';
 import { MatSlider, MatSliderModule } from '@angular/material/slider';
 
@@ -12,7 +12,7 @@ import { MatSlider, MatSliderModule } from '@angular/material/slider';
   styleUrl: './curly-coily.component.scss'
 })
 export class CurlyCoilyComponent implements AfterViewInit {
-// #region canvas things 
+  // #region canvas things 
   // code based off of: https://vivekseth.com/parametric-drawing-canvas/
   canvasWidth:number = 300;
   canvasHeight:number = 100;
@@ -33,6 +33,7 @@ export class CurlyCoilyComponent implements AfterViewInit {
 
   draw() {
     this.context.moveTo(0, this.canvasHeight/2);    // bring the starting point of the drawing to the center left
+
     for(let t = 0; t <= this.tMax; t+=0.1) {
       // parametric function defined as such (plug this into desmos)
       // \left(a\left(t+b\sin(t)\right),\frac{c}{1+b}\left(1-b\cos(t)\right)\right)
@@ -43,7 +44,10 @@ export class CurlyCoilyComponent implements AfterViewInit {
       this.context.lineTo(x,y);
     }
     this.context.stroke();  // actually draw the lines
+    this.output.emit({type:"curlyCoily", amplitude: this.cx, period:this.ax,pitch:this.bx});
   }
+
+  @Output() output = new EventEmitter<{type:"straightWavy" | "curlyCoily", amplitude:number, period:number, pitch?:number, }>();
 
   clear() {
     this.context.clearRect(0,0,this.canvasWidth,this.canvasHeight);
