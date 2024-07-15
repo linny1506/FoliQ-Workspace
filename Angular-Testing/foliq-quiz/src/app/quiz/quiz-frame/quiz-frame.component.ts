@@ -37,7 +37,7 @@ export class QuizFrameComponent {
     // use rxjs to put delay between each of the calls
   }
 
-
+  // userTable
   // #region    1) Initial Information 
   name!:string;
   email!:string;
@@ -66,6 +66,7 @@ export class QuizFrameComponent {
   // #endregion
   // #endregion
 
+  // picturesTable
   // #region    2) Pictures 
   middlePartFile!:File;
   backHeadFile!:File;
@@ -95,6 +96,7 @@ export class QuizFrameComponent {
   // #endregion
   // #endregion
 
+  // userProfileTable
   // #region    3) Hair/Scalp Profile 
   hairConcerns!:string;
   scalpConcerns!:string;
@@ -184,6 +186,7 @@ export class QuizFrameComponent {
   // #endregion
   // #endregion
 
+  // lifestyleTable
   // #region    4) Treatment/Lifestyle Profile 
   treatmentHistory!:string;
   chemicallyProcessed!:string;
@@ -293,6 +296,7 @@ export class QuizFrameComponent {
   // #endregion
   // #endregion
 
+  // preferencesTable
   // #region    5) Preferences and Miscellaneous 
   productQuantity!:string;
   preferencesData!:string;
@@ -311,6 +315,7 @@ export class QuizFrameComponent {
   // #endregion
   // #endregion
   
+  // finalTable
   // #region    6) Final 
   finalForm!:string;
   // #region    6) Final, Params and Functions  
