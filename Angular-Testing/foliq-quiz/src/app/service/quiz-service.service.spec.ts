@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AirtableService } from './airtable.service';
+import { QuizServiceService } from './quiz-service.service';
 
-describe('AirtableService', () => {
-  let service: AirtableService;
+describe('QuizServiceService', () => {
+  let service: QuizServiceService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(AirtableService);
+    service = TestBed.inject(QuizServiceService);
   });
 
   it('should be created', () => {
