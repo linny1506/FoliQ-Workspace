@@ -30,15 +30,27 @@ import { MatButtonModule } from '@angular/material/button';
       ]
 })
 export class QuizFrameComponent {
-  // #region  1) Initial Information
+
+  submit() {
+    // have the functions to submit within each of the regions
+    // unified "submit" checks if values are there, then sends them off one after another
+    // use rxjs to put delay between each of the calls
+  }
+
+
+  // #region    1) Initial Information 
   name!:string;
   email!:string;
-  // IO Code example based off of this: https://www.samarpaninfotech.com/blog/methods-to-share-data-between-angular-components/  
+  raceEthnicity!:string;
+  // #region    1) Initial Information, Params and Funcitons
+  // <tr><app-user-table-form (userTableFormOutput)="GetUserTableData($event)"></app-user-table-form></tr>
+  // IO Code example based off of this: https://www.samarpaninfotech.com/blog/methods-to-share-data-between-angular-components/
   GetUserTableData(formData:any){
     this.name = formData.name;
     this.email = formData.email;
   }
-
+  
+  // <app-generic-checkbox [question]="raceEthnicityQuestion" [options]="raceEthnicityForm" (output)="getRaceEthnicityData($event)"></app-generic-checkbox></tr>
   raceEthnicityQuestion = 'What race/ethnicity or multiple do you closest genetically identify with?';
   raceEthnicityForm = [
     { label: 'Asian or Pacific Islander', reference: 'API'},
@@ -50,33 +62,50 @@ export class QuizFrameComponent {
     { label: 'Multiracial or Biracial', reference: 'MultiRacial'},
     { label: 'Not listed', reference: 'None'},
   ];
-  raceEthnicity!:string;
   getRaceEthnicityData(output:any) { this.raceEthnicity = output; }
   // #endregion
-
-  // #region  2) Pictures 
-  middlePartPhotoQuestion = 'Please part your hair in the middle of you head and take an image at the top your head showing your scalp';
-  middlePartFile!:File;
-  middlePartFileListener(file:File) { this.middlePartFile = file; };
-
-  backHeadPhotoQuestion = 'Please take a picture of the back of your head showing all of your hair';
-  backHeadFile!:File;
-  backHeadFileListener(file:File) { this.backHeadFile = file; };
-
-  rightTemplePhotoQuestion = 'Please take a picture of your right temple showing your scalp';
-  rightTempleFile!:File;
-  rightTempleFileListener(file:File) { this.rightTempleFile = file; };
-
-  leftTemplePhotoQuestion = 'Please take a picture of your left temple showing your scalp';
-  leftTempleFile!:File;
-  leftTempleFileListener(file:File) { this.leftTempleFile = file; };
-
-  currentProductsPhotoQuestion = 'Please take pictures of the product(s) currently in your hair care routine';
-  currentProductsFile!:File;
-  currentProductsFileListener(file:File) { this.currentProductsFile = file; };
   // #endregion
 
-  // #region  3) Hair/Scalp Profile 
+  // #region    2) Pictures 
+  middlePartFile!:File;
+  backHeadFile!:File;
+  rightTempleFile!:File;
+  leftTempleFile!:File;
+  currentProductsFile!:File;
+  // #region    2) Pictures, Params and Functions 
+  // <tr> <app-generic-file-submission [question]="middlePartPhotoQuestion" (fileOutput)="middlePartFileListener($event)"></app-generic-file-submission> </tr><hr>
+  middlePartPhotoQuestion = 'Please part your hair in the middle of you head and take an image at the top your head showing your scalp';
+  middlePartFileListener(file:File) { this.middlePartFile = file; };
+
+  // <tr> <app-generic-file-submission [question]="backHeadPhotoQuestion" (fileOutput)="backHeadFileListener($event)"></app-generic-file-submission> </tr><hr>
+  backHeadPhotoQuestion = 'Please take a picture of the back of your head showing all of your hair';
+  backHeadFileListener(file:File) { this.backHeadFile = file; };
+
+  // <tr> <app-generic-file-submission [question]="rightTemplePhotoQuestion" (fileOutput)="rightTempleFileListener($event)"></app-generic-file-submission> </tr><hr>
+  rightTemplePhotoQuestion = 'Please take a picture of your right temple showing your scalp';
+  rightTempleFileListener(file:File) { this.rightTempleFile = file; };
+
+  // <tr> <app-generic-file-submission [question]="leftTemplePhotoQuestion" (fileOutput)="leftTempleFileListener($event)"></app-generic-file-submission> </tr><hr>
+  leftTemplePhotoQuestion = 'Please take a picture of your left temple showing your scalp';
+  leftTempleFileListener(file:File) { this.leftTempleFile = file; };
+
+  // <tr> <app-generic-file-submission [question]="currentProductsPhotoQuestion" (fileOutput)="currentProductsFileListener($event)"></app-generic-file-submission> </tr><hr>
+  currentProductsPhotoQuestion = 'Please take pictures of the product(s) currently in your hair care routine';
+  currentProductsFileListener(file:File) { this.currentProductsFile = file; };
+  // #endregion
+  // #endregion
+
+  // #region    3) Hair/Scalp Profile 
+  hairConcerns!:string;
+  scalpConcerns!:string;
+  hairTexture!:{type:"straightWavy" | "curlyCoily", amplitude:number, period:number, pitch?:number, };
+  postWash!:string;
+  dryTime!:string;
+  humidityEffect!:string;
+  // hairThickness?:string;
+  // scalpVisibility?:string;  
+  // #region    3) Hair/Scalp Profile, Params and Functions 
+  // <tr><app-generic-checkbox [question]="hairConcernsQuestion" [options]="hairConcernsForm" (output)="gethairConcernsData($event)"></app-generic-checkbox></tr><hr>
   hairConcernsQuestion = 'What are some of your hair care concerns?';
   hairConcernsForm = [
     { label: 'Growth', reference: 'Growth'},
@@ -96,9 +125,9 @@ export class QuizFrameComponent {
     { label: 'Other', reference: 'Other'},
     { label: 'None ', reference: 'None'},
   ];
-  hairConcerns!:string;
   gethairConcernsData(output:any) { this.hairConcerns = output; }
 
+  // <tr><app-generic-checkbox [question]="scalpConcernsQuestion" [options]="scalpConcernsForm" (output)="getscalpConcernsData($event)"></app-generic-checkbox></tr><hr>
   scalpConcernsQuestion = 'What are your scalp concerns?';
   scalpConcernsForm = [
     { label: 'Dandruff', reference: 'Dandruff'},
@@ -110,16 +139,21 @@ export class QuizFrameComponent {
     { label: 'Other', reference: 'Other'},
     { label: 'None', reference: 'None'},
   ];
-  scalpConcerns!:string;
   getscalpConcernsData(output:any) { this.scalpConcerns = output; }
 
-  hairTexture!:{type:"straightWavy" | "curlyCoily", amplitude:number, period:number, pitch?:number, };
-  getHairTexture(output:any) { this.hairConcerns = output; 
-    console.log(output);
-    console.log(this.hairTexture);
-    
-  }
+  // <tr><app-hair-texture-question (result)="getHairTexture($event)"></app-hair-texture-question></tr><hr>
+  getHairTexture(output:any) { this.hairConcerns = output; }
 
+  // <tr><app-generic-radiobutton [question]="postWashQuestion" [options]="postWashOptions" (output)="getpostWashData($event)"></app-generic-radiobutton></tr><hr>
+  postWashQuestion = 'What do you typically do after washing your hair?';
+  postWashOptions = [
+    { label: 'Heat Style Daily', reference: 'daily'},
+    { label: 'Heat Style Occasionally', reference: 'occasionally'},
+    { label: 'Air Dry', reference: 'never'},
+  ];
+  getpostWashData(output:any) { this.postWash = output; }
+
+  // <tr><app-generic-thumb-label-slider [question]="dryTimeQuestion" [min]="dryTimeParam.min" [max]="dryTimeParam.max" [step]="dryTimeParam.step" [unit]="dryTimeParam.unit" (output)="getdryTimeData($event)"></app-generic-thumb-label-slider><hr>
   dryTimeQuestion = 'How long does it take to dry your hair?'
   dryTimeParam = {
     min: 0,
@@ -127,18 +161,9 @@ export class QuizFrameComponent {
     step: 0.5,
     unit: 'hr',
   };
-  dryTime!:string;
   getdryTimeData(output:any) { this.dryTime = output; }
 
-  postWashQuestion = 'What do you typically do after washing your hair?';
-  postWashOptions = [
-    { label: 'Heat Style Daily', reference: 'daily'},
-    { label: 'Heat Style Occasionally', reference: 'occasionally'},
-    { label: 'Air Dry', reference: 'never'},
-  ];
-  postWash!:string;
-  getpostWashData(output:any) { this.postWash = output; }
-
+  // <tr><app-generic-checkbox [question]="humidityEffectQuestion" [options]="humidityEffectForm" (output)="gethumidityEffectData($event)"></app-generic-checkbox></tr><hr>
   humidityEffectQuestion = 'What is your hair like when it is humid outside?';
   humidityEffectForm = [
     { label: 'Frizzy', reference: 'Frizzy'},
@@ -148,11 +173,28 @@ export class QuizFrameComponent {
     { label: 'Tangled', reference: 'Tangled'},
     { label: 'No Change', reference: 'NoChange'},
   ];
-  humidityEffect!:string;
   gethumidityEffectData(output:any) { this.humidityEffect = output; }
+
+  // <tr><strong>scalp visibility placeholder</strong></tr><hr>
+  scalpVisibility?:string;
+  // TODO: NOT IMPLEMENTED YET
+  // <tr><strong>hair thickness placeholder</strong></tr><hr>
+  hairThickness?:string;
+  // TODO: NOT IMPLEMENTED YET
+  // #endregion
   // #endregion
 
-  // #region  4) Treatment/Lifestyle Profile 
+  // #region    4) Treatment/Lifestyle Profile 
+  treatmentHistory!:string;
+  chemicallyProcessed!:string;
+  exerciseFrequency!:string;
+  shampooFrequency!:string;
+  hotToolsFrequency!:string;
+  stylingProduct!:string;
+  stylingProductFrequency!:string;
+  scalpTreatment!:string;
+  // #region    4) Treatment/Lifestyle Profile, Params and Functions 
+  // <tr><app-generic-checkbox [question]="treatmentHistoryQuestion" [options]="treatmentHistoryForm" (output)="gettreatmentHistoryData($event)"></app-generic-checkbox></tr><hr>
   treatmentHistoryQuestion = 'Has your hair gone through any of the following processes?';
   treatmentHistoryForm = [
     { label: 'Bleach', reference: 'Bleach'},
@@ -162,9 +204,9 @@ export class QuizFrameComponent {
     { label: 'Not in the last 4 years', reference: 'NotRecent'},
     { label: 'None', reference: 'None'},
   ];
-  treatmentHistory!:string;
   gettreatmentHistoryData(output:any) { this.treatmentHistory = output; }
 
+  // <tr><app-generic-radiobutton [question]="chemicallyProcessedDurationQuestion" [options]="chemicallyProcessedDurationOptions" (output)="getchemicallyProcessedData($event)"></app-generic-radiobutton></tr><hr>
   chemicallyProcessedDurationQuestion = 'How long have you chemically processed your hair?';
   chemicallyProcessedDurationOptions = [
     { label: 'Never', reference: '0'},
@@ -175,27 +217,27 @@ export class QuizFrameComponent {
     { label: '3 years', reference: '3'},
     { label: '4 years or more', reference: '4'},
   ];
-  chemicallyProcessed!:string;
   getchemicallyProcessedData(output:any) { this.chemicallyProcessed = output; }
 
+  // <tr><app-generic-thumb-label-slider [question]="exerciseFrequencyQuestion" [min]="exerciseFrequencyParams.min" [max]="exerciseFrequencyParams.max" [step]="exerciseFrequencyParams.step" (output)="getexerciseFrequencyData($event)"></app-generic-thumb-label-slider><hr>
   exerciseFrequencyQuestion = 'How many times a week do you exercise?';
   exerciseFrequencyParams = {
     min: 0,
     max: 7,
     step: 0.5,
   };
-  exerciseFrequency!:string;
   getexerciseFrequencyData(output:any) { this.exerciseFrequency = output; }
 
+  // <tr><app-generic-thumb-label-slider [question]="shampooFrequencyQuestion" [min]="shampooFrequencyParams.min" [max]="shampooFrequencyParams.max" [step]="shampooFrequencyParams.step" (output)="getshampooFrequencyData($event)"></app-generic-thumb-label-slider><hr>
   shampooFrequencyQuestion = 'How often did you shampoo each week?';
   shampooFrequencyParams = {
     min: 0,
     max: 7,
     step: 0.5,
   };
-  shampooFrequency!:string;
   getshampooFrequencyData(output:any) { this.shampooFrequency = output; }
 
+  // <tr><app-generic-radiobutton [question]="hotToolsFrequencyQuestion" [options]="hotToolsFrequencyOptions" (output)="gethotToolsFrequencyData($event)"></app-generic-radiobutton></tr><hr>
   hotToolsFrequencyQuestion = 'How often do you use hot tools?';
   hotToolsFrequencyOptions = [
     { label:'Never', reference:'Never'},
@@ -205,9 +247,9 @@ export class QuizFrameComponent {
     { label:'Once a Month', reference:'OnceaMonth'},
     { label:'Less than Once a Month', reference:'LessthanOnceaMonth'},
   ];
-  hotToolsFrequency!:string;
   gethotToolsFrequencyData(output:any) { this.hotToolsFrequency = output; }
 
+  // <tr><app-generic-checkbox [question]="stylingProductQuestion" [options]="stylingProductForm" (output)="getstylingProductData($event)"></app-generic-checkbox></tr><hr>
   stylingProductQuestion = 'Do you use any styling products?';
   stylingProductForm = [
     { label: 'Curl Cream', reference: 'CurlCream'},
@@ -227,9 +269,9 @@ export class QuizFrameComponent {
     { label: 'Other', reference: 'Other'},
     { label: 'None', reference: 'None'},
   ];
-  stylingProduct!:string;
   getstylingProductData(output:any) { this.stylingProduct = output; }
 
+  // <tr><app-generic-thumb-label-slider [question]="stylingProductFrequencyQuestion" [min]="stylingProductFrequencyParams.min" [max]="stylingProductFrequencyParams.max" [step]="stylingProductFrequencyParams.step" [unit]="stylingProductFrequencyParams.unit" (output)="getstylingProductFrequencyData($event)"></app-generic-thumb-label-slider><hr>
   stylingProductFrequencyQuestion = 'How often do you use styling products?';
   stylingProductFrequencyParams = {
     min: 0,
@@ -237,9 +279,9 @@ export class QuizFrameComponent {
     step: 1,
     unit: 'times per week',
   };
-  stylingProductFrequency!:string;
   getstylingProductFrequencyData(output:any) { this.stylingProductFrequency = output; }
 
+  // <tr><app-generic-checkbox [question]="scalpTreatmentQuestion" [options]="scalpTreatmentForm" (output)="getscalpTreatmentData($event)"></app-generic-checkbox></tr><hr>
   scalpTreatmentQuestion = 'Do you use any in-scalp treatments?';
   scalpTreatmentForm = [
     { label: 'Pre Poo', reference: 'PrePoo'},
@@ -247,26 +289,32 @@ export class QuizFrameComponent {
     { label: 'Hair Serum', reference: 'HairSerum'},
     { label: 'No', reference: 'No'},
   ];
-  scalpTreatment!:string;
   getscalpTreatmentData(output:any) { this.scalpTreatment = output; }
   // #endregion
+  // #endregion
 
-  // #region  5) Preferences and Miscellaneous  
+  // #region    5) Preferences and Miscellaneous 
+  productQuantity!:string;
+  preferencesData!:string;
+  // #region    5) Preferences and Miscellaneous, Params and Functions 
+  // <tr><app-generic-thumb-label-slider [question]="productQuantityQuestion" [min]="productQuantityParams.min" [max]="productQuantityParams.max" [step]="productQuantityParams.step" (output)="getproductQuantityData($event)"></app-generic-thumb-label-slider></tr><hr>
   productQuantityQuestion = 'How many products would you like in your hair care routine?';
   productQuantityParams = {
     min: 0,
     max: 8,
     step: 1,
   };
-  productQuantity!:string;
   getproductQuantityData(output:any) { this.productQuantity = output; }
 
-  preferencesData!:string;
+  // <tr><app-preferences-form (preferencesFormOutput)="GetUserTableData($event)"></app-preferences-form></tr>
   getPreferencesData(formData:string) { this.preferencesData = formData; }
   // #endregion
-
-  // #region  6) Final 
+  // #endregion
+  
+  // #region    6) Final 
   finalForm!:string;
+  // #region    6) Final, Params and Functions  
   getFinalFormOutput(output:string) { this.finalForm = output; }
+  // #endregion
   // #endregion
 }
