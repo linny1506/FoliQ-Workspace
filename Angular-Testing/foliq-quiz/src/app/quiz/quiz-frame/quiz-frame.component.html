@@ -1,7 +1,3 @@
-<div style="background-color:white"><h1>test</h1>
-    <button type="submit" (click)="submit()">submit</button>
-</div>
-
 <mat-stepper orientation='vertical' #stepper [linear]="false" style="background-color: #f6f6f8; border-radius: 25px;">
     <mat-step> <ng-template matStepLabel>Initial Information</ng-template>
         <div>
@@ -81,7 +77,8 @@
     <p style="color:white">You are now done.</p>
     <div>
         <button mat-raised-button matStepperPrevious>Back</button>
-        <button mat-raised-button (click)="stepper.reset()">Reset</button>
-    </div>
+        <button mat-raised-button (click)="stepper.reset()">To Start</button>
+        <button mat-raised-button type="submit" (click)="submit()">submit</button>
+        </div>
     </mat-step>
 </mat-stepper>

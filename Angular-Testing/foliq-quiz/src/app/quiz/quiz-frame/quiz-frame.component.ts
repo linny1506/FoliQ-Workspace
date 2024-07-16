@@ -39,10 +39,9 @@ export class QuizFrameComponent {
     // have the functions to submit within each of the regions
     // unified "submit" checks if values are there, then sends them off one after another
     // use rxjs to put delay between each of the calls
-    console.log("in QuizFrameComponent.submit()");
     
-    // if(this.name && this.email && this.raceEthnicity) { this.submitUserTable() }
-    // else { console.log('missing value'); }
+    if(this.name && this.email && this.raceEthnicity) { this.submitUserTable() }
+    else { console.log('missing value'); }
 
     if (this.middlePartFile && this.backHeadFile && this.rightTempleFile && this.leftTempleFile && this.currentProductsFile) this.submitFileTable();
     else console.log('missing value');
@@ -50,17 +49,17 @@ export class QuizFrameComponent {
 
     
     // NB: && this.hairThickness && this.scalpVisibility  // Not implemented yet
-    // if (this.hairConcerns && this.scalpConcerns && this.hairTexture && this.postWash && this.dryTime && this.humidityEffect) { this.submitUserProfileTable(); }
-    // else console.log('info missing');
+    if (this.hairConcerns && this.scalpConcerns && this.hairTexture && this.postWash && this.dryTime && this.humidityEffect) { this.submitUserProfileTable(); }
+    else console.log('info missing');
 
-    // if(this.treatmentHistory && this.chemicallyProcessed && this.exerciseFrequency && this.shampooFrequency && this.hotToolsFrequency && this.stylingProduct && this.stylingProductFrequency && this.scalpTreatment) { this.submitLifestyleTable(); }
-    // else console.log('info missing');
+    if(this.treatmentHistory && this.chemicallyProcessed && this.exerciseFrequency && this.shampooFrequency && this.hotToolsFrequency && this.stylingProduct && this.stylingProductFrequency && this.scalpTreatment) { this.submitLifestyleTable(); }
+    else console.log('info missing');
     
-    // if(this.productQuantity && this.budget && this.shopPref && this.zip) this.submitPreferencesTable();
-    // else console.log('info missing');
+    if(this.productQuantity && this.budget && this.shopPref && this.zip) this.submitPreferencesTable();
+    else console.log('info missing');
     
-    // if(this.questions, this.consent, this.orderNumber) this.submitFinalFormTable();
-    // else console.log('info missing');
+    if(this.questions, this.consent, this.orderNumber) this.submitFinalFormTable();
+    else console.log('info missing');
     
   }
 
@@ -101,10 +100,7 @@ export class QuizFrameComponent {
   ];
   getRaceEthnicityData(output:any) { this.raceEthnicity = this.checkboxOutputToString(output); }
 
-  submitUserTable() { this.quizService.createUserTableRecord(this.name, this.email, this.raceEthnicity); 
-    console.log("in QuizFrameComponent.submitUserTable() ");
-    
-  }
+  submitUserTable() { this.quizService.createUserTableRecord(this.name, this.email, this.raceEthnicity); }
   // #endregion
   // #endregion
 
@@ -155,8 +151,7 @@ export class QuizFrameComponent {
     console.log(this.rightTempleURL);
     console.log(this.leftTempleURL);
     console.log(this.currentProductsURL);
-    
-    
+        
     this.quizService.createPicturesTableRecord(this.middlePartURL, this.backHeadURL, this.rightTempleURL, this.leftTempleURL, this.currentProductsURL);
   }
   // #endregion
