@@ -44,6 +44,11 @@ export class QuizFrameComponent {
     // if(this.name && this.email && this.raceEthnicity) { this.submitUserTable() }
     // else { console.log('missing value'); }
 
+    if (this.middlePartFile && this.backHeadFile && this.rightTempleFile && this.leftTempleFile && this.currentProductsFile) this.submitFileTable();
+    else console.log('missing value');
+    
+
+    
     // NB: && this.hairThickness && this.scalpVisibility  // Not implemented yet
     // if (this.hairConcerns && this.scalpConcerns && this.hairTexture && this.postWash && this.dryTime && this.humidityEffect) { this.submitUserProfileTable(); }
     // else console.log('info missing');
@@ -54,8 +59,8 @@ export class QuizFrameComponent {
     // if(this.productQuantity && this.budget && this.shopPref && this.zip) this.submitPreferencesTable();
     // else console.log('info missing');
     
-    if(this.questions, this.consent, this.orderNumber) this.submitFinalFormTable();
-    else console.log('info missing');
+    // if(this.questions, this.consent, this.orderNumber) this.submitFinalFormTable();
+    // else console.log('info missing');
     
   }
 
@@ -106,10 +111,15 @@ export class QuizFrameComponent {
   // picturesTable
   // #region    2) Pictures 
   middlePartFile!:File;
+  middlePartURL!:string;
   backHeadFile!:File;
+  backHeadURL!:string;
   rightTempleFile!:File;
+  rightTempleURL!:string;
   leftTempleFile!:File;
+  leftTempleURL!:string;
   currentProductsFile!:File;
+  currentProductsURL!:string;
   // #region    2) Pictures, Params and Functions 
   // <tr> <app-generic-file-submission [question]="middlePartPhotoQuestion" (fileOutput)="middlePartFileListener($event)"></app-generic-file-submission> </tr><hr>
   middlePartPhotoQuestion = 'Please part your hair in the middle of you head and take an image at the top your head showing your scalp';
@@ -130,6 +140,25 @@ export class QuizFrameComponent {
   // <tr> <app-generic-file-submission [question]="currentProductsPhotoQuestion" (fileOutput)="currentProductsFileListener($event)"></app-generic-file-submission> </tr><hr>
   currentProductsPhotoQuestion = 'Please take pictures of the product(s) currently in your hair care routine';
   currentProductsFileListener(file:File) { this.currentProductsFile = file; };
+
+  saveFiles() {
+    this.firebaseService.getImageURL(this.name, 'middlePart', this.middlePartFile).subscribe(x => { this.middlePartURL = x; });
+    this.firebaseService.getImageURL(this.name, 'backHead', this.backHeadFile).subscribe(x => { this.backHeadURL = x; });
+    this.firebaseService.getImageURL(this.name, 'rightTemple', this.rightTempleFile).subscribe(x => { this.rightTempleURL = x; });
+    this.firebaseService.getImageURL(this.name, 'leftTemple', this.leftTempleFile).subscribe(x => { this.leftTempleURL = x; });
+    this.firebaseService.getImageURL(this.name, 'currentProducts', this.currentProductsFile).subscribe(x => { this.currentProductsURL = x; });
+  }
+
+  submitFileTable() {
+    console.log(this.middlePartURL);
+    console.log(this.backHeadURL);
+    console.log(this.rightTempleURL);
+    console.log(this.leftTempleURL);
+    console.log(this.currentProductsURL);
+    
+    
+    this.quizService.createPicturesTableRecord(this.middlePartURL, this.backHeadURL, this.rightTempleURL, this.leftTempleURL, this.currentProductsURL);
+  }
   // #endregion
   // #endregion
 

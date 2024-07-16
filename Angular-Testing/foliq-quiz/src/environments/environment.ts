@@ -1,4 +1,4 @@
-const BASE_URL = 'https://api.airtable.com/v0/appjD3ZsQFD6Lb9D7';
+const BASE_URL = 'https://api.airtable.com/v0/appjD3ZsQFD6Lb9D7/';
 const BASE_ID = 'appjD3ZsQFD6Lb9D7';
 
 export const environment = {

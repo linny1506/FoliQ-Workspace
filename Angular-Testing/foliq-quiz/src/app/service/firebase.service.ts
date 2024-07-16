@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { Firestore } from '@angular/fire/firestore';
 import { Storage, getDownloadURL, ref, uploadBytes } from '@angular/fire/storage';
-import { from, Observable } from 'rxjs';
+import { from, Observable,delay } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

@@ -28,14 +28,16 @@ export class QuizServiceService {
     });
   }
 
-  createPicturesTableRecord(mdidlePartURL:string, backHeadURL:string, rightTempleURL:string, leftTempleURL:string, currentProductsURL:string) {
+  createPicturesTableRecord(middlePartURL:string, backHeadURL:string, rightTempleURL:string, leftTempleURL:string, currentProductsURL:string) {
     let content = {
-      // "uID": ,
-      "middlePart": [{ "url": mdidlePartURL, }],
-      "backHead": [{ "url": backHeadURL, }],
-      "rightTemple": [{ "url": rightTempleURL, }],
-      "leftTemple": [{ "url": leftTempleURL, }],
-      "currentProducts": [{ "url": currentProductsURL, }]
+      fields:{
+        // "uID": ,
+        "middlePart": [{ "url": middlePartURL, }],
+        "backHead": [{ "url": backHeadURL, }],
+        "rightTemple": [{ "url": rightTempleURL, }],
+        "leftTemple": [{ "url": leftTempleURL, }],
+        "currentProducts": [{ "url": currentProductsURL, }]
+      }
     };
 
     let output = this.http.post(environment.airtable.picturesTable.URL, content,
