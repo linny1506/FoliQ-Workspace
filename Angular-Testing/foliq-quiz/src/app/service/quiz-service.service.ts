@@ -45,7 +45,8 @@ export class QuizServiceService {
     output.subscribe((x) => {console.log(x); });
   }
 
-  createUserProfileTableRecord(hairConcerns:string, scalpConcerns:string, hairTexture:string, postWash:string, dryTime:string, humidityEffect:string, scalpVisibility:string, hairThickness:string) {
+  // NB scalpVisibility and hairThickness are unimplemented as of 15July2024
+  createUserProfileTableRecord(hairConcerns:string, scalpConcerns:string, hairTexture:string, postWash:string, dryTime:string, humidityEffect:string, scalpVisibility?:string, hairThickness?:string) {
     this.base(environment.airtable.userProfileTable.name).create({
       // uID: ,
       hairConcerns: hairConcerns,
@@ -66,7 +67,7 @@ export class QuizServiceService {
   }
 
   createLifestyleTableRecord(treatmentHistory:string,chemicallyProcessed:string,exerciseFrequency:string,shampooFrequency:string,hotToolsFrequency:string,stylingProducts:string,stylingProductFrequency:string,scalpTreatment:string) {
-    this.base(environment.airtable.userTable.name).create({
+    this.base(environment.airtable.lifestyleTable.name).create({
       // uID: ,
       treatmentHistory: treatmentHistory,
       chemicallyProcessed: chemicallyProcessed,
@@ -86,7 +87,7 @@ export class QuizServiceService {
   }
 
   createPreferencesTableRecord(numProductPreference:string, budget:string, shopPreferences:string, ZIPCode:string) {
-    this.base(environment.airtable.userTable.name).create({
+    this.base(environment.airtable.preferencesTable.name).create({
       // uID: ,
       numProductPreference: numProductPreference,
       budget: budget,
@@ -101,11 +102,11 @@ export class QuizServiceService {
     });
   }
 
-  createFinalRecord(uID:string, questions:string, orderNumber:string) {
-    this.base(environment.airtable.userTable.name).create({
+  createFinalRecord(questions:string, consent:string, orderNumber:string) {
+    this.base(environment.airtable.finalTable.name).create({
       // uID: ,
-      uID: uID,
       questions: questions,
+      consent: consent,
       orderNumber: orderNumber,
     }, function(err:any,record:any) {
       if(err) {

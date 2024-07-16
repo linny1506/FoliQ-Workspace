@@ -63,7 +63,7 @@
         <div>
             <table>
                 <tr><app-generic-thumb-label-slider [question]="productQuantityQuestion" [min]="productQuantityParams.min" [max]="productQuantityParams.max" [step]="productQuantityParams.step" (output)="getproductQuantityData($event)"></app-generic-thumb-label-slider></tr><hr>
-                <tr><app-preferences-form (preferencesFormOutput)="GetUserTableData($event)"></app-preferences-form></tr>
+                <tr><app-preferences-form (preferencesFormOutput)="getPreferencesData($event)"></app-preferences-form></tr>
             </table>
         </div>
         <button mat-raised-button matStepperPrevious>Back</button>

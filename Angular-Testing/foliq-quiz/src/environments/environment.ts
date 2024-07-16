@@ -35,9 +35,9 @@ export const environment = {
             name: 'preferencesTable',
             URL:  BASE_URL + 'preferencesTable',
         },
-        finalsTable: {
-            name: 'finalsTable',
-            URL:  BASE_URL + 'finalsTable',
+        finalTable: {
+            name: 'final',
+            URL:  BASE_URL + 'final',
         },
     }
 }

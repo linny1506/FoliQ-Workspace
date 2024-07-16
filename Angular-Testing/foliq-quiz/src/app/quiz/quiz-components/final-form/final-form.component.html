@@ -1,5 +1,6 @@
 <form [formGroup]="form" (change)="submit()">
     <div><h4>Do you have any questions for our hair care experts?</h4>
+        <label>Enter 'No' if there are no questions. </label>
         <mat-form-field style="width:100%;max-width:750px">
             <textarea matInput formControlName="questions" placeholder="Type your question(s) in here:"></textarea>
         </mat-form-field>

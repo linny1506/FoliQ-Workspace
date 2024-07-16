@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 
 // Question Components
 import { GenericCheckboxComponent } from '../../component/generic-checkbox/generic-checkbox.component';
@@ -17,6 +17,8 @@ import { HairTextureQuestionComponent } from '../quiz-components/hair-texture/ha
 // Angular Material Imports
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatButtonModule } from '@angular/material/button';
+import { QuizServiceService } from '../../service/quiz-service.service';
+import { FirebaseService } from '../../service/firebase.service';
 
 @Component({
     selector: 'app-quiz-frame',
@@ -30,11 +32,41 @@ import { MatButtonModule } from '@angular/material/button';
       ]
 })
 export class QuizFrameComponent {
+  quizService = inject(QuizServiceService);
+  firebaseService = inject(FirebaseService);
 
   submit() {
     // have the functions to submit within each of the regions
     // unified "submit" checks if values are there, then sends them off one after another
     // use rxjs to put delay between each of the calls
+    console.log("in QuizFrameComponent.submit()");
+    
+    // if(this.name && this.email && this.raceEthnicity) { this.submitUserTable() }
+    // else { console.log('missing value'); }
+
+    // NB: && this.hairThickness && this.scalpVisibility  // Not implemented yet
+    // if (this.hairConcerns && this.scalpConcerns && this.hairTexture && this.postWash && this.dryTime && this.humidityEffect) { this.submitUserProfileTable(); }
+    // else console.log('info missing');
+
+    // if(this.treatmentHistory && this.chemicallyProcessed && this.exerciseFrequency && this.shampooFrequency && this.hotToolsFrequency && this.stylingProduct && this.stylingProductFrequency && this.scalpTreatment) { this.submitLifestyleTable(); }
+    // else console.log('info missing');
+    
+    // if(this.productQuantity && this.budget && this.shopPref && this.zip) this.submitPreferencesTable();
+    // else console.log('info missing');
+    
+    if(this.questions, this.consent, this.orderNumber) this.submitFinalFormTable();
+    else console.log('info missing');
+    
+  }
+
+  /** checkboxOutputToString() 
+   * @param json json, output of the genericCheckboxComponent
+   * @returns string, a list of values from the output whose value is set to true
+   */
+  checkboxOutputToString(json:any):string {
+    let temp:string = '';
+    for(const i in json) if(json[i]) temp += i + ', ';
+    return temp;
   }
 
   // userTable
@@ -62,7 +94,12 @@ export class QuizFrameComponent {
     { label: 'Multiracial or Biracial', reference: 'MultiRacial'},
     { label: 'Not listed', reference: 'None'},
   ];
-  getRaceEthnicityData(output:any) { this.raceEthnicity = output; }
+  getRaceEthnicityData(output:any) { this.raceEthnicity = this.checkboxOutputToString(output); }
+
+  submitUserTable() { this.quizService.createUserTableRecord(this.name, this.email, this.raceEthnicity); 
+    console.log("in QuizFrameComponent.submitUserTable() ");
+    
+  }
   // #endregion
   // #endregion
 
@@ -100,7 +137,7 @@ export class QuizFrameComponent {
   // #region    3) Hair/Scalp Profile 
   hairConcerns!:string;
   scalpConcerns!:string;
-  hairTexture!:{type:"straightWavy" | "curlyCoily", amplitude:number, period:number, pitch?:number, };
+  hairTexture!:string;
   postWash!:string;
   dryTime!:string;
   humidityEffect!:string;
@@ -127,7 +164,7 @@ export class QuizFrameComponent {
     { label: 'Other', reference: 'Other'},
     { label: 'None ', reference: 'None'},
   ];
-  gethairConcernsData(output:any) { this.hairConcerns = output; }
+  gethairConcernsData(output:any) { this.hairConcerns = this.checkboxOutputToString(output); }
 
   // <tr><app-generic-checkbox [question]="scalpConcernsQuestion" [options]="scalpConcernsForm" (output)="getscalpConcernsData($event)"></app-generic-checkbox></tr><hr>
   scalpConcernsQuestion = 'What are your scalp concerns?';
@@ -141,10 +178,11 @@ export class QuizFrameComponent {
     { label: 'Other', reference: 'Other'},
     { label: 'None', reference: 'None'},
   ];
-  getscalpConcernsData(output:any) { this.scalpConcerns = output; }
+  getscalpConcernsData(output:any) { this.scalpConcerns = this.checkboxOutputToString(output); }
 
   // <tr><app-hair-texture-question (result)="getHairTexture($event)"></app-hair-texture-question></tr><hr>
-  getHairTexture(output:any) { this.hairConcerns = output; }
+  getHairTexture(output:any) { 
+    this.hairTexture = JSON.stringify(output);}
 
   // <tr><app-generic-radiobutton [question]="postWashQuestion" [options]="postWashOptions" (output)="getpostWashData($event)"></app-generic-radiobutton></tr><hr>
   postWashQuestion = 'What do you typically do after washing your hair?';
@@ -153,7 +191,7 @@ export class QuizFrameComponent {
     { label: 'Heat Style Occasionally', reference: 'occasionally'},
     { label: 'Air Dry', reference: 'never'},
   ];
-  getpostWashData(output:any) { this.postWash = output; }
+  getpostWashData(output:any) { this.postWash = Object.values(output).toString(); }
 
   // <tr><app-generic-thumb-label-slider [question]="dryTimeQuestion" [min]="dryTimeParam.min" [max]="dryTimeParam.max" [step]="dryTimeParam.step" [unit]="dryTimeParam.unit" (output)="getdryTimeData($event)"></app-generic-thumb-label-slider><hr>
   dryTimeQuestion = 'How long does it take to dry your hair?'
@@ -175,7 +213,7 @@ export class QuizFrameComponent {
     { label: 'Tangled', reference: 'Tangled'},
     { label: 'No Change', reference: 'NoChange'},
   ];
-  gethumidityEffectData(output:any) { this.humidityEffect = output; }
+  gethumidityEffectData(output:any) { this.humidityEffect = this.checkboxOutputToString(output); }
 
   // <tr><strong>scalp visibility placeholder</strong></tr><hr>
   scalpVisibility?:string;
@@ -183,6 +221,8 @@ export class QuizFrameComponent {
   // <tr><strong>hair thickness placeholder</strong></tr><hr>
   hairThickness?:string;
   // TODO: NOT IMPLEMENTED YET
+
+  submitUserProfileTable() { this.quizService.createUserProfileTableRecord(this.hairConcerns, this.scalpConcerns, this.hairTexture, this.postWash, this.dryTime, this.humidityEffect, this.hairThickness, this.scalpVisibility,) }
   // #endregion
   // #endregion
 
@@ -207,7 +247,7 @@ export class QuizFrameComponent {
     { label: 'Not in the last 4 years', reference: 'NotRecent'},
     { label: 'None', reference: 'None'},
   ];
-  gettreatmentHistoryData(output:any) { this.treatmentHistory = output; }
+  gettreatmentHistoryData(output:any) { this.treatmentHistory = this.checkboxOutputToString(output); }
 
   // <tr><app-generic-radiobutton [question]="chemicallyProcessedDurationQuestion" [options]="chemicallyProcessedDurationOptions" (output)="getchemicallyProcessedData($event)"></app-generic-radiobutton></tr><hr>
   chemicallyProcessedDurationQuestion = 'How long have you chemically processed your hair?';
@@ -220,7 +260,7 @@ export class QuizFrameComponent {
     { label: '3 years', reference: '3'},
     { label: '4 years or more', reference: '4'},
   ];
-  getchemicallyProcessedData(output:any) { this.chemicallyProcessed = output; }
+  getchemicallyProcessedData(output:any) { this.chemicallyProcessed = Object.values(output).toString(); }
 
   // <tr><app-generic-thumb-label-slider [question]="exerciseFrequencyQuestion" [min]="exerciseFrequencyParams.min" [max]="exerciseFrequencyParams.max" [step]="exerciseFrequencyParams.step" (output)="getexerciseFrequencyData($event)"></app-generic-thumb-label-slider><hr>
   exerciseFrequencyQuestion = 'How many times a week do you exercise?';
@@ -229,7 +269,7 @@ export class QuizFrameComponent {
     max: 7,
     step: 0.5,
   };
-  getexerciseFrequencyData(output:any) { this.exerciseFrequency = output; }
+  getexerciseFrequencyData(output:any) { this.exerciseFrequency = Object.values(output).toString(); }
 
   // <tr><app-generic-thumb-label-slider [question]="shampooFrequencyQuestion" [min]="shampooFrequencyParams.min" [max]="shampooFrequencyParams.max" [step]="shampooFrequencyParams.step" (output)="getshampooFrequencyData($event)"></app-generic-thumb-label-slider><hr>
   shampooFrequencyQuestion = 'How often did you shampoo each week?';
@@ -250,7 +290,7 @@ export class QuizFrameComponent {
     { label:'Once a Month', reference:'OnceaMonth'},
     { label:'Less than Once a Month', reference:'LessthanOnceaMonth'},
   ];
-  gethotToolsFrequencyData(output:any) { this.hotToolsFrequency = output; }
+  gethotToolsFrequencyData(output:any) { this.hotToolsFrequency = Object.values(output).toString(); }
 
   // <tr><app-generic-checkbox [question]="stylingProductQuestion" [options]="stylingProductForm" (output)="getstylingProductData($event)"></app-generic-checkbox></tr><hr>
   stylingProductQuestion = 'Do you use any styling products?';
@@ -272,7 +312,7 @@ export class QuizFrameComponent {
     { label: 'Other', reference: 'Other'},
     { label: 'None', reference: 'None'},
   ];
-  getstylingProductData(output:any) { this.stylingProduct = output; }
+  getstylingProductData(output:any) { this.stylingProduct = this.checkboxOutputToString(output); }
 
   // <tr><app-generic-thumb-label-slider [question]="stylingProductFrequencyQuestion" [min]="stylingProductFrequencyParams.min" [max]="stylingProductFrequencyParams.max" [step]="stylingProductFrequencyParams.step" [unit]="stylingProductFrequencyParams.unit" (output)="getstylingProductFrequencyData($event)"></app-generic-thumb-label-slider><hr>
   stylingProductFrequencyQuestion = 'How often do you use styling products?';
@@ -292,14 +332,20 @@ export class QuizFrameComponent {
     { label: 'Hair Serum', reference: 'HairSerum'},
     { label: 'No', reference: 'No'},
   ];
-  getscalpTreatmentData(output:any) { this.scalpTreatment = output; }
+  getscalpTreatmentData(output:any) { this.scalpTreatment = this.checkboxOutputToString(output); }
+
+  submitLifestyleTable() { 
+    this.quizService.createLifestyleTableRecord(this.treatmentHistory, this.chemicallyProcessed, this.exerciseFrequency, this.shampooFrequency, this.hotToolsFrequency, this.stylingProduct, this.stylingProductFrequency, this.scalpTreatment);
+  }
   // #endregion
   // #endregion
 
   // preferencesTable
   // #region    5) Preferences and Miscellaneous 
   productQuantity!:string;
-  preferencesData!:string;
+  budget!:string;
+  shopPref!:string;
+  zip!:string;
   // #region    5) Preferences and Miscellaneous, Params and Functions 
   // <tr><app-generic-thumb-label-slider [question]="productQuantityQuestion" [min]="productQuantityParams.min" [max]="productQuantityParams.max" [step]="productQuantityParams.step" (output)="getproductQuantityData($event)"></app-generic-thumb-label-slider></tr><hr>
   productQuantityQuestion = 'How many products would you like in your hair care routine?';
@@ -311,15 +357,32 @@ export class QuizFrameComponent {
   getproductQuantityData(output:any) { this.productQuantity = output; }
 
   // <tr><app-preferences-form (preferencesFormOutput)="GetUserTableData($event)"></app-preferences-form></tr>
-  getPreferencesData(formData:string) { this.preferencesData = formData; }
+
+  getPreferencesData(formData:any) { 
+    this.budget =  formData.budget;
+    this.shopPref = formData.shopPref;
+    this.zip = formData.zip;
+  }
+
+  // note the + '' is to turn the string (that's being read as a number for whatever reason) into an actual string
+  submitPreferencesTable() { this.quizService.createPreferencesTableRecord(this.productQuantity, this.budget + '', this.shopPref, this.zip+''); }
   // #endregion
   // #endregion
   
   // finalTable
   // #region    6) Final 
-  finalForm!:string;
+  questions!:string;
+  consent!:string;
+  orderNumber!:string;
   // #region    6) Final, Params and Functions  
-  getFinalFormOutput(output:string) { this.finalForm = output; }
+  getFinalFormOutput(output:any) {
+    this.questions = output.questions;
+    this.consent = output.consent;
+    this.orderNumber = output.orderNumber;
+  }
+
+  submitFinalFormTable() { this.quizService.createFinalRecord(this.questions, this.consent, this.orderNumber); }
+
   // #endregion
   // #endregion
 }
