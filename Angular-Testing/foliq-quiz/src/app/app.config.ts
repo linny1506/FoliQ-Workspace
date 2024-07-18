@@ -14,10 +14,14 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes), 
     provideAnimationsAsync(), 
+
+    // Added by ng add @angular/fire
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()), 
     provideFirestore(() => getFirestore()), 
     provideStorage(() => getStorage()),
+
+    // Added manually to allow for use of HTTP Client in Standalone components
     provideHttpClient(),
   ]
 };

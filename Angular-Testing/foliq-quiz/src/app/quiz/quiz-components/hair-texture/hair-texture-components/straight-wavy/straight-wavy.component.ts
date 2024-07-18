@@ -24,8 +24,9 @@ export class StraightWavyComponent implements AfterViewInit{
     this.draw();
   }
 
+  // variables to define the dimensions of the canvas
   canvasWidth:number = 300;
-  canvasHeight:number = 100;
+  canvasHeight:number = 200;
 
   /** draw()
    * @description draws the contents of the frame

@@ -3,6 +3,42 @@
 This is a guide to figuring out how to get this stuff to work :)
 
 
+
+# Modified/Created Files:
+34 different files user modified
+* tsconfig.json
+* styles.scss
+* src/environment/environment.ts
+* src/app/app.config.ts
+* src/app/app.component.scss
+* src/app/app.component.html
+* src/app/service/quiz-service.service.ts
+* src/app/service/firebase.service.ts
+* src/app/quiz/quiz-frame/*
+* src/app/quiz/quiz-components/*
+* src/app/components/*
+
+
+# Catalogue of TODO:
+* styles.scss:47, make a better way to covert all text into montserrat
+* src/app/service/quiz-service.service.ts:12, if able, figure out airtable.js attachment submission
+* src/app/service/quiz-service.service.ts:84, These are left unimplemented for the time being. When implemented, remove the '?' from the parameters
+* src/app/service/quiz-service.service.ts:85, These are left unimplemented for the time being. When implemented, remove the '?' from the parameters
+* src/app/service/firebase.service.ts:20, make a better way of storing unique files that doesn't rely on unique names
+* src/app/quiz/quiz-frame/quiz-frame.component.ts:39, look into effects of airtable rate limit on submitting all these requests back to back to back..
+* src/app/quiz/quiz-frame/quiz-frame.component.ts:46, && this.hairThickness && this.scalpVisibility  // Not implemented yet
+* src/app/quiz/quiz-frame/quiz-frame.component.ts:59, show specifically what information is missing
+* src/app/quiz/quiz-frame/quiz-frame.component.ts:164, These are left unimplemented for the time being.
+* src/app/quiz/quiz-frame/quiz-frame.component.ts:165, These are left unimplemented for the time being.
+* src/app/quiz/quiz-frame/quiz-frame.component.ts:240, NOT IMPLEMENTED YET
+* src/app/quiz/quiz-frame/quiz-frame.component.ts:243, NOT IMPLEMENTED YET
+* src/app/quiz/quiz-frame/quiz-frame.component.ts:386, make a better way of preventing 0 being read falsy
+* src/app/quiz/quiz-frame/quiz-frame.component.ts:46
+
+
+
+* src/app/service/firebase.service.ts:20, make a better way of storing unique files that doesn't rely on unique names
+
 # Change Documentation
 1. Created the project using angular CLI
     * In Folder where you want to put the workspace

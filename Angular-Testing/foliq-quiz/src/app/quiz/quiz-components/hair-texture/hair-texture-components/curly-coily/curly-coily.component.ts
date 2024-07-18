@@ -15,7 +15,7 @@ export class CurlyCoilyComponent implements AfterViewInit {
   // #region canvas things 
   // code based off of: https://vivekseth.com/parametric-drawing-canvas/
   canvasWidth:number = 300;
-  canvasHeight:number = 100;
+  canvasHeight:number = 200;
   
   // seting up the canvas
   @ViewChild('canvas', {static:false}) canvas!: ElementRef;

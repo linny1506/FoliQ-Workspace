@@ -36,19 +36,14 @@ export class QuizFrameComponent {
   firebaseService = inject(FirebaseService);
 
   submit() {
-    // have the functions to submit within each of the regions
-    // unified "submit" checks if values are there, then sends them off one after another
-    // use rxjs to put delay between each of the calls
-    
+    // TODO: look into effects of airtable rate limit on submitting all these requests back to back to back..
     if(this.name && this.email && this.raceEthnicity) { this.submitUserTable() }
     else { console.log('missing value'); }
 
     if (this.middlePartFile && this.backHeadFile && this.rightTempleFile && this.leftTempleFile && this.currentProductsFile) this.submitFileTable();
     else console.log('missing value');
-    
-
-    
-    // NB: && this.hairThickness && this.scalpVisibility  // Not implemented yet
+        
+    // TODO: && this.hairThickness && this.scalpVisibility  // Not implemented yet
     if (this.hairConcerns && this.scalpConcerns && this.hairTexture && this.postWash && this.dryTime && this.humidityEffect) { this.submitUserProfileTable(); }
     else console.log('info missing');
 
@@ -59,13 +54,15 @@ export class QuizFrameComponent {
     else console.log('info missing');
     
     if(this.questions, this.consent, this.orderNumber) this.submitFinalFormTable();
-    else console.log('info missing');
-    
+    else console.log('info missing'); 
+
+    // TODO: show specifically what information is missing
   }
 
   /** checkboxOutputToString() 
    * @param json json, output of the genericCheckboxComponent
    * @returns string, a list of values from the output whose value is set to true
+   * @description due to nature of the checkboxs' output the true values need to be parsed out of the response
    */
   checkboxOutputToString(json:any):string {
     let temp:string = '';
@@ -151,7 +148,7 @@ export class QuizFrameComponent {
     console.log(this.rightTempleURL);
     console.log(this.leftTempleURL);
     console.log(this.currentProductsURL);
-        
+
     this.quizService.createPicturesTableRecord(this.middlePartURL, this.backHeadURL, this.rightTempleURL, this.leftTempleURL, this.currentProductsURL);
   }
   // #endregion
@@ -165,8 +162,8 @@ export class QuizFrameComponent {
   postWash!:string;
   dryTime!:string;
   humidityEffect!:string;
-  // hairThickness?:string;
-  // scalpVisibility?:string;  
+  // hairThickness?:string;   // TODO: These are left unimplemented for the time being.
+  // scalpVisibility?:string; // TODO: These are left unimplemented for the time being. 
   // #region    3) Hair/Scalp Profile, Params and Functions 
   // <tr><app-generic-checkbox [question]="hairConcernsQuestion" [options]="hairConcernsForm" (output)="gethairConcernsData($event)"></app-generic-checkbox></tr><hr>
   hairConcernsQuestion = 'What are some of your hair care concerns?';
@@ -358,9 +355,7 @@ export class QuizFrameComponent {
   ];
   getscalpTreatmentData(output:any) { this.scalpTreatment = this.checkboxOutputToString(output); }
 
-  submitLifestyleTable() { 
-    this.quizService.createLifestyleTableRecord(this.treatmentHistory, this.chemicallyProcessed, this.exerciseFrequency, this.shampooFrequency, this.hotToolsFrequency, this.stylingProduct, this.stylingProductFrequency, this.scalpTreatment);
-  }
+  submitLifestyleTable() { this.quizService.createLifestyleTableRecord(this.treatmentHistory, this.chemicallyProcessed, this.exerciseFrequency, this.shampooFrequency, this.hotToolsFrequency, this.stylingProduct, this.stylingProductFrequency, this.scalpTreatment); }
   // #endregion
   // #endregion
 
@@ -389,6 +384,7 @@ export class QuizFrameComponent {
   }
 
   // note the + '' is to turn the string (that's being read as a number for whatever reason) into an actual string
+  // TODO: make a better way of preventing 0 being read falsy
   submitPreferencesTable() { this.quizService.createPreferencesTableRecord(this.productQuantity, this.budget + '', this.shopPref, this.zip+''); }
   // #endregion
   // #endregion
@@ -406,7 +402,6 @@ export class QuizFrameComponent {
   }
 
   submitFinalFormTable() { this.quizService.createFinalRecord(this.questions, this.consent, this.orderNumber); }
-
   // #endregion
   // #endregion
 }

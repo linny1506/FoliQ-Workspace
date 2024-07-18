@@ -36,14 +36,15 @@ $foliq-quiz-theme: mat.define-light-theme((
 @include mat.all-component-themes($foliq-quiz-theme);
 
 
-/* You can add global styles to this file, and also import other style files */
 
+/* You can add global styles to this file, and also import other style files */
 html, body { height: 100%; }
-body { margin: 0; background-color: #86a3ee;}
 // body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #86a3ee;}
+body { margin: 0; background-color: #86a3ee;}   // This line replaced line before this (which was the default).
 
 // @import url("https://fonts.googleapis.com/css?family=Montserrat");
 // import statement from the index.html file instead
+// TODO: make a better way to covert all text into montserrat
 * {
   font-family: montserrat;
 }

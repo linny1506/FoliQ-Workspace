@@ -14,8 +14,6 @@ export class HairTextureQuestionComponent {
   output!:string;
   @Output() result = new EventEmitter<{type:"straightWavy" | "curlyCoily", amplitude:number, period:number, pitch?:number, }>();
 
-
-
   options = [
     { label:'Straight or Wavy' , reference:'a'},
     { label:'Curly or Coily' , reference:'b'},
